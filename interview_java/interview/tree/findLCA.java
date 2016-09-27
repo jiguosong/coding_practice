@@ -2,9 +2,58 @@ package tree;
 
 import java.util.*;
 
-// assume p is connected to q
+
+class TreeNode_Parent_Ptr {
+	int val;
+	TreeNode_Parent_Ptr left;
+	TreeNode_Parent_Ptr right;
+	TreeNode_Parent_Ptr parent;
+	
+	TreeNode_Parent_Ptr(int val) {
+		this.val = 0;
+		this.left = null;
+		this.right = null;
+		this.parent = null;		
+	}
+}
+
 
 public class findLCA {
+	
+	private int getHight(TreeNode_Parent_Ptr node) {
+		if (node ==null) return 0;
+		int hight = 0;
+		while(node != null) {
+			node = node.parent;
+			hight++;
+		}
+		return hight;
+	}
+	
+	
+	public TreeNode_Parent_Ptr lowestCommonAncestor_BT_parent(TreeNode_Parent_Ptr root, TreeNode_Parent_Ptr p, TreeNode_Parent_Ptr q) {
+		if (root == null || p == null || q ==null) return null;	
+		
+		int h1 = getHight(p);
+		int h2 = getHight(q);
+		
+		int diff = Math.abs(h1-h2);
+		
+		int step = 0;
+		if (h1 > h2) {
+			while(step++ < diff) p = p.parent;
+		} else {
+			while(step++ < diff) q = q.parent;
+		}
+		
+		while(p != q) {
+			p = p.parent;
+			q = q.parent;
+		}
+			
+		return p;
+    }
+	
 
 	public TreeNode lowestCommonAncestor_BST(TreeNode root, TreeNode p, TreeNode q) {
 		if (root == null || p == null || q ==null) return null;

@@ -71,6 +71,29 @@ public class pathSum {
 		return false;
 	}
 	
+	public int maxPathSum(TreeNode root) {
+		if (root == null) return 0;
+		int[] globalmax = new int[1];
+		globalmax[0] = 0;
+		
+		maxPathSum_helper(root, globalmax);
+		
+		return globalmax[0];
+	}
+	
+	private int maxPathSum_helper(TreeNode root, int[] globalmax) {
+		if (root == null) return 0;
+		
+		int left_max = maxPathSum_helper(root.left, globalmax);
+		int right_max = maxPathSum_helper(root.right, globalmax);
+		
+		int curr_max = Math.max(left_max + root.val, right_max + root.val);
+		curr_max = Math.max(curr_max, root.val);
+		globalmax[0] = Math.max(globalmax[0], curr_max);
+		
+		return curr_max;
+	}
+	
 	/**
 	 * @param args
 	 */
@@ -83,8 +106,12 @@ public class pathSum {
 		root.left.left = new TreeNode(5);
 		root.left.right = new TreeNode(5);
 		root.right.left = new TreeNode(4);
-		root.right.right = new TreeNode(3);		
+		root.right.right = new TreeNode(30);		
 
+		root.left.right.left = new TreeNode(5);
+		root.left.right.left.left = new TreeNode(20);
+		root.left.right.left.left.right = new TreeNode(5);
+		
 		int sum = 8;
 		
 		//if (test.hasPathSum(root, sum) == true) System.out.println("Yes");
@@ -93,11 +120,24 @@ public class pathSum {
 		//if (test.hasPathSum_iterative(root, sum) == true) System.out.println("Yes");
 		//else System.out.println("No");
 
-		List<List<Integer>> ans = test.allpathSum(root, sum);
+//		List<List<Integer>> ans = test.allpathSum(root, sum);
+//		Iterator<List<Integer>> it = ans.iterator();
+//		while(it.hasNext()) {
+//			System.out.println(it.next());
+//		}
+		
+		
+		AllTraverseTree traverse = new AllTraverseTree();
+		List<List<Integer>> ans = traverse.levelOrder(root);	
 		Iterator<List<Integer>> it = ans.iterator();
 		while(it.hasNext()) {
-			System.out.println(it.next());
+			List<Integer> tmp = it.next();
+			System.out.print(tmp);
 		}
+		System.out.println();
+
+		int maxPathsum = test.maxPathSum(root);
+		System.out.println(maxPathsum);
 
 
 }

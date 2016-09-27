@@ -8,11 +8,11 @@ public class serializeANDdeserializeTree {
     	if (root == null) return "";
     	
     	StringBuilder res = new StringBuilder();
-    	Queue<TreeNode> q = new LinkedList<TreeNode>();
+    	Deque<TreeNode> q = new LinkedList<TreeNode>();
     	
     	q.add(root);    	
     	while(!q.isEmpty()) {
-    		TreeNode t = q.poll();
+    		TreeNode t = q.remove();
     		if (t != null) {
     			q.offer(t.left);
     			q.offer(t.right);

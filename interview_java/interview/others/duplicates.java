@@ -1,0 +1,167 @@
+package others;
+
+import java.util.*;
+
+public class duplicates {
+	
+	public int[] removeDuplicatesNaive(int[] A) {
+		if(A == null || A.length < 2) return null;
+	
+		int slow = 0;
+		int fast = 1;
+
+		while(fast < A.length) {
+			if (A[fast] != A[slow]) {
+				slow++;
+				A[slow] = A[fast];
+			}
+			fast++;
+		}
+		
+		int[] B = Arrays.copyOf(A, slow+1);
+		return B;		
+	}
+	
+	
+	public int[] removeDuplicates(int[] A) {
+		if(A == null || A.length < 2) return null;
+		
+		int slow = 1;
+		int fast = 2;
+		
+		while(fast < A.length) {
+			if (A[fast] != A[slow] || A[fast] != A[slow-1]) {
+				slow++;
+				A[slow] = A[fast];
+			}
+			fast++;
+		}
+		
+		int[] B = Arrays.copyOf(A, slow+1);
+		return B;	
+		
+	}
+	
+	public int[] removeElement(int[] A, int elem) {
+		if(A == null || A.length < 2) return null;
+		
+		int slow = -1;
+		int fast = 0;
+		
+		while(fast < A.length) {
+			if (A[fast] != elem) {
+				slow++;
+				A[slow] = A[fast];
+			}
+			fast++;			
+		}
+		
+		int[] B = Arrays.copyOf(A, slow+1);
+		return B;
+	}
+	
+	
+	public void moveZeroes(int[] nums) {
+		if(nums == null || nums.length < 2) return;
+		
+		int slow = -1;
+		int fast = 0;
+		
+		while(fast < nums.length) {
+			if (nums[fast] != 0) {
+				slow++;
+				nums[slow] = nums[fast];
+			}
+			fast++;			
+		}
+		
+		slow++;
+		while(slow < nums.length) {
+			nums[slow] = 0;
+			slow++;
+		}
+	}
+	
+	public boolean containsDuplicate(int[] nums) {
+		if(nums == null || nums.length == 0) return true;
+		
+		Set<Integer> set = new HashSet<Integer>();
+		for(int e : nums) {
+			if (!set.add(e)) return false;
+		}
+		
+		return true;
+	}	
+	
+	
+	public boolean containsNearbyDuplicate(int[] nums, int k) {
+		if(nums == null || nums.length == 0) return true;
+		
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for(int i = 0; i < nums.length; i++) {
+			if(map.containsKey(nums[i])) {
+				int idx = map.get(nums[i]);
+				if (Math.abs(idx-i) <= k) return true;
+			}
+			map.put(nums[i], i);
+		}
+		
+		return false;		
+	}
+	
+	// i - j at most k, nums[i] - nums[j] at most t
+	public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+		if(nums == null || nums.length == 0) return false;
+		
+		TreeSet<Integer> treeset = new TreeSet<Integer>();		
+		for(int i = 0; i < nums.length; i++) {
+			Integer curr = nums[i];
+			Integer left_most = curr - t;
+			Integer right_most = curr + t + 1;			
+			SortedSet<Integer> sortedSet = treeset.subSet(left_most, right_most);
+			if (sortedSet.size() > 0) return true; 	
+			
+			treeset.add(nums[i]);
+			
+			if (i >= k) treeset.remove(nums[i-k]);
+		}
+		
+		return false;
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		duplicates test = new duplicates();
+		int[] nums = {1,10,20,15,2,6,99,1};
+
+		if (test.containsDuplicate(nums)) System.out.println("NO duplicated");
+		else System.out.println("Yes duplicated");
+
+		if (test.containsNearbyDuplicate(nums,5)) System.out.println("Yes exist <= k");
+		else System.out.println("No exist");
+
+		if (test.containsNearbyAlmostDuplicate(nums, 1, 4)) System.out.println("Yes exist i-j<= k and nums[i]-nums[j]<=t");
+		else System.out.println("No exist");
+		
+		int[] A = {1,2,2,2,2,2,3, 3, 3,5,6, 6};
+		int[] B = test.removeDuplicatesNaive(A);
+		System.out.println("after remove, B is " + Arrays.toString(B));
+
+		int[] A2 = {1,2,2,2,2,2,3, 3, 3,5,6, 6};
+		int[] C = test.removeDuplicates(A2);
+		System.out.println("after remove, C is " + Arrays.toString(C));
+
+		int[] A3 = {1,2,5,1,65,8,2,9,2,4,6,1,0,12};
+		int[] D = test.removeElement(A3, 1);
+		System.out.println("after remove, D is " + Arrays.toString(D));
+
+		int[] A4 = {0,2,0,1,65,0,2,9,0,4,6,1,0,12};
+		test.moveZeroes(A4);
+		System.out.println("after remove, E is " + Arrays.toString(A4));
+
+	
+	}
+
+}

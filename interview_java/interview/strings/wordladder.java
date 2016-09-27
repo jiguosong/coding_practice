@@ -20,11 +20,11 @@ public class wordladder {
 		if (beginWord == null || endWord == null || wordList == null) return 0;
 		
 		if (wordList.contains(endWord) == false) wordList.add(endWord);		
-		Deque<wordNode> q = new ArrayDeque<wordNode>();
-		q.add(new wordNode(beginWord, 1, null));
+		Deque<wordNode> queue = new ArrayDeque<wordNode>();
+		queue.add(new wordNode(beginWord, 1, null));
 		
-		while (!q.isEmpty()) {
-			wordNode p = q.remove();
+		while (!queue.isEmpty()) {
+			wordNode p = queue.remove();
 			if (p != null) {
 				if (p.word.equals(endWord)) return p.steps;				
 				char[] k = p.word.toCharArray();
@@ -34,7 +34,7 @@ public class wordladder {
 						k[i] = c;
 						String newword = new String(k);
 						if (wordList.contains(newword)) {
-							q.add(new wordNode(newword, p.steps+1, null));
+							queue.add(new wordNode(newword, p.steps+1, null));
 							wordList.remove(newword);
 						}
 					}

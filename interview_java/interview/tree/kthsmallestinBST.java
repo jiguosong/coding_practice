@@ -16,7 +16,10 @@ public class kthsmallestinBST {
 	private void helper(TreeNode root, int k, int[] res) {
 		if (root == null) return;	
 		helper(root.left, k, res);
-		if (--cnt == 0) res[0] = root.val;
+		if (--cnt == 0) {
+			res[0] = root.val;
+			return;
+		}
 		helper(root.right, k, res);
 	}	
 	
@@ -59,10 +62,10 @@ public class kthsmallestinBST {
 		root.right.left = new TreeNode(3);
 		root.right.right = new TreeNode(5);
 		
-		int ans = test.kthSmallest(root, 4);
+		int ans = test.kthSmallest(root, 3);
 		System.out.println(ans);
 		
-		ans = test.kthSmallest_iterative(root, 2);
+		ans = test.kthSmallest_iterative(root, 3);
 		System.out.println(ans);
 		
 

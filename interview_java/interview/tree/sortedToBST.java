@@ -3,7 +3,7 @@ package tree;
 import java.util.Iterator;
 import java.util.List;
 
-import listarray.MyList;
+import list.MyList;
 
 public class sortedToBST {
 	public TreeNode sortedArrayToBST(int[] num) {

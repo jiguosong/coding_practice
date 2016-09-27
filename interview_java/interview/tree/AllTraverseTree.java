@@ -5,6 +5,57 @@ import java.util.*;
 
 public class AllTraverseTree {
 	
+	// populate ppointer to the right
+	public void connect(TreeNodeNextptr root) {
+		 if (root == null) return;
+		
+		 Deque<TreeNodeNextptr> curr = new ArrayDeque<TreeNodeNextptr>();
+		 Deque<TreeNodeNextptr> next = new ArrayDeque<TreeNodeNextptr>();
+		 
+		 curr.add(root);		
+		 TreeNodeNextptr prev = null;
+		 while(!curr.isEmpty()) {
+			 TreeNodeNextptr t = curr.remove();
+			 if (t == null) continue;
+			 if (prev != null) prev.next = t;	
+			 
+			 // break into level
+			 if (t.left != null) next.add(t.left);
+			 if (t.right != null) next.add(t.right);
+			 
+			 prev = t;
+			 if (curr.isEmpty()) { // need to refill for next level
+				 t.next = null;
+				 prev = null;
+				 curr = next;
+				 next = new ArrayDeque<TreeNodeNextptr>();  // need a new queue
+			 }			 
+			 
+		 }
+
+		 return;
+	}
+	
+	public List<Integer> sideView(TreeNode root) {
+		 List<Integer> res = new ArrayList<Integer>();
+		 Deque<TreeNode> queue = new ArrayDeque<TreeNode>();
+		 if (root == null) return res;
+		 
+		 queue.add(root);		 
+		 while(!queue.isEmpty()) {
+			 int size = queue.size();
+			 
+			 for (int i = 0; i < size; i++) {
+				 TreeNode t = queue.remove();
+				 if (i == 0) res.add(t.val);
+				 if (t.right != null) queue.add(t.right);
+				 if (t.left != null) queue.add(t.left);				 
+			 }
+		 }
+		 
+		 return res;
+   }
+	
 	public List<List<Integer>> levelOrder(TreeNode root) {
 		 List<List<Integer>> res = new ArrayList<List<Integer>>();
 		 List<Integer> tmp = new ArrayList<Integer>();
@@ -263,6 +314,11 @@ public class AllTraverseTree {
 			System.out.print(tmp);
 		}
 
+		
+		System.out.println("\nside view");
+		List<Integer> ressideview = test.sideView(root);		
+		System.out.println(ressideview);
+
 		System.out.println("\nvertical order traverse");
 		List<List<Integer>> ver_res = test.verticalOrder(root);		
 		Iterator<List<Integer>> ver_it = ver_res.iterator();
@@ -306,7 +362,29 @@ public class AllTraverseTree {
 			int tmp = it5.next();
 			System.out.print(tmp);
 		}
-
+		
+		System.out.println("\npoplate next pointer");
+		TreeNodeNextptr rootpopulate = new TreeNodeNextptr(1);
+		rootpopulate.left = new TreeNodeNextptr(2);
+		rootpopulate.right = new TreeNodeNextptr(3);
+		rootpopulate.left.left = new TreeNodeNextptr(4);
+		rootpopulate.left.right = new TreeNodeNextptr(5);
+		rootpopulate.right.left = new TreeNodeNextptr(6);
+		rootpopulate.right.right = new TreeNodeNextptr(7);		
+		
+		AllTraverseTree testpopulate = new AllTraverseTree();
+		testpopulate.connect(rootpopulate);
+		TreeNodeNextptr p = rootpopulate;
+		while(p != null) {
+			System.out.print("\nnext list ");
+			TreeNodeNextptr tmp = p;
+			while (tmp != null) {
+				System.out.print(tmp.val);
+				tmp = tmp.next;
+			}
+			p = p.left;
+		}
+		 
 	}
 
 }

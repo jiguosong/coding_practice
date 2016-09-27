@@ -120,8 +120,11 @@ public class searchRangeBST {
 		
 		if (test.isBST(root) == true) {
 			//System.out.println("is a BST");
-			int[] res = test.searchRange(root, 111);		
+			int target = 111;
+			int[] res = test.searchRange(root, target);		
 			System.out.println("["+res[0]+", " + res[1] + "]");
+			int closest = ((target-res[0]) > (res[1]-target)) ? res[1] : res[0];
+			System.out.println("closer to "+closest);
 		}
 		else {
 			System.out.println("not a BST");
