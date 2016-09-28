@@ -128,6 +128,31 @@ public class duplicates {
 		
 		return false;
 	}
+	
+	
+/*	Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at 
+	least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.
+*/	
+	public int findDuplicate(int[] arr) {
+		if(arr == null || arr.length == 0)  return 0;
+		
+		int left = 0;
+		int right = arr.length-1;
+		
+		while(left < right){
+			int mid = left + (right-left)/2;
+			int cnt = 0;
+			
+			for(int e : arr) {
+				if(e < mid) cnt++;
+			}
+			
+			if(cnt > mid) right = mid;
+			else left = mid+1;
+		}
+		
+		return arr[left];	
+	}
 
 	/**
 	 * @param args
@@ -161,6 +186,9 @@ public class duplicates {
 		test.moveZeroes(A4);
 		System.out.println("after remove, E is " + Arrays.toString(A4));
 
+		int[] A5 = {1,2,3,4,4};
+		int finddupli = test.findDuplicate(A5);
+		System.out.println("found duplicated one: " + finddupli);
 	
 	}
 

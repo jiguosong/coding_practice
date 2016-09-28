@@ -63,11 +63,39 @@ public class longestnonrepsubstr {
 		return ret;
 	}
 	
+	
+	public int findLongNonRepStr4(String s){
+		if (s == null || s.length() == 0) return 0;
+		int max = 0;
+		
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
+		int left = 0;
+		
+		for(int i = 0; i < s.length(); i++) {
+			Character c = s.charAt(i);
+			if(map.containsKey(c)) {
+				max = Math.max(max, map.size());
+				while(map.containsKey(c)) {
+					map.remove(s.charAt(left));
+					left++;
+				}
+			}
+			map.put(c, i);
+			max = Math.max(max, map.size());			
+		}
+		
+		return max;
+		
+	}
+	
+	
+	
+	
 	public static void main(String[] args) {
 		System.out.println("Java:LongestNonrepSubstr");
 		longestnonrepsubstr test = new longestnonrepsubstr();
 		String s = new String("abcabcbb");
-		int result = test.findLongNonRepStr(s);
+		int result = test.findLongNonRepStr4(s);
 		System.out.println(s);
 		System.out.println(result);
 	}

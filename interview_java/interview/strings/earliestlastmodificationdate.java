@@ -36,7 +36,6 @@ public class earliestlastmodificationdate {
 			
 			Map<Integer, String> map = new HashMap<Integer, String>();     // look up the file
 			
-			String res = null;
 			int file_num = 0;
 			String[] lines = S.split("\n"); // break into string per line
 			for (int i = 0; i < lines.length; i++){
