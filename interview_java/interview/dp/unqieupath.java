@@ -1,6 +1,27 @@
-package matrix;
+package dp;
 
 public class unqieupath {
+	
+	public int uniquePaths_dp(int m, int n) {
+		if (m < 0 && n < 0) return 0;
+		if (m == 0 || n == 0) return 1;
+		
+		int res = 0;		
+		int[][] sum = new int[m][n];
+		sum[0][0] = 1;
+		
+		for(int i = 1; i < m; i++) sum[i][0] = 1;
+		for(int i = 1; i < n; i++) sum[0][i] = 1;
+		
+		for(int i = 1; i < m; i++) {
+			for(int j = 1; j < n; j++) {
+				sum[i][j] = sum[i][j-1] + sum[i-1][j];
+			}
+		}
+		
+		return sum[m-1][n-1];
+	}
+
 	
 	public int uniquePaths(int m, int n) {
 		if (m < 0 && n < 0) return 0;
@@ -53,8 +74,9 @@ public class unqieupath {
 		unqieupath test = new unqieupath();
 		int m = 3;
 		int n = 3;
-		int res = test.uniquePaths(3, 3);
-		
+		int res = test.uniquePaths(3, 3);		
+		System.out.println(res);
+		res = test.uniquePaths_dp(3, 3);		
 		System.out.println(res);
 		
 		int[][] matrix = {{0,0,0},
@@ -63,6 +85,8 @@ public class unqieupath {
 		
 		res = test.uniquePathsWithObstacles(matrix);
 		System.out.println(res);
+		
+		
 
 	}
 

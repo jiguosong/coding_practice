@@ -1,8 +1,34 @@
-package strings;
-
-import java.util.*;
+package dp;
 
 public class longestPalindrome {
+	
+	public String longestPalindrome_dp(String s) {
+		if (s == null || s.length() == 0) return null;
+		
+		int n = s.length();
+		
+		boolean[][] isPali = new boolean[n][n];
+		isPali[0][0] = true;
+		
+		int left = 0; 
+		int right = 0;
+		int len = 0;
+		for(int j = 1; j < n; j++) {
+			isPali[j][j] = true;
+			for(int i = 0; i < j; i++) {
+				isPali[i][j] = (s.charAt(i) == s.charAt(j)) && (j-i < 2 || isPali[i+1][j-1]) ;
+				if (isPali[i][j] && len < j-i+1) {
+					len = j-i+1;
+					left = i;
+					right = j;
+				}
+			}
+		}
+		
+		return s.substring(left, right+1);
+	}	
+	
+	
 	public String findlongestPalindrome(String s) {
 		String[] ret = new String[1];
 		int[] len = new int[1];
@@ -50,6 +76,11 @@ public class longestPalindrome {
 		String s = new String("bananas");
 		String res = test.findlongestPalindrome(s);
 		
+		System.out.print(res);
+		
+		String s2 = new String("abb");
+		res = test.longestPalindrome_dp(s2);
+		System.out.println();
 		System.out.print(res);
 		
 		return;
