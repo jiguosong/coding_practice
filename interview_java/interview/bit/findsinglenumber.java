@@ -1,4 +1,4 @@
-package bitandmath;
+package bit;
 
 public class findsinglenumber {
 	
@@ -50,7 +50,7 @@ public class findsinglenumber {
 		
 		int tmp = 0;
 		for(int e:A) tmp^=e;
-		tmp = tmp&(-tmp);
+		tmp = tmp&(-tmp);   // right most bit
 		
 		int[] res = new int[2];
 		

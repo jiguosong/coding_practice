@@ -5,4 +5,4 @@
  * @author songjiguo
  *
  */
-package bitandmath;
+package bit;

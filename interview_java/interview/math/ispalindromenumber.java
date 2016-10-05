@@ -1,4 +1,4 @@
-package strings;
+package math;
 
 public class ispalindromenumber {
 	public boolean ispalinum(int num){
