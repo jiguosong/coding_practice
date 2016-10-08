@@ -4,6 +4,7 @@ import java.util.*;
 
 public class duplicates {
 	
+	// just remove duplicates
 	public int[] removeDuplicatesNaive(int[] A) {
 		if(A == null || A.length < 2) return null;
 	
@@ -22,7 +23,7 @@ public class duplicates {
 		return B;		
 	}
 	
-	
+	// duplicates are allowed at most twice!!
 	public int[] removeDuplicates(int[] A) {
 		if(A == null || A.length < 2) return null;
 		
@@ -42,6 +43,7 @@ public class duplicates {
 		
 	}
 	
+	//  remove all instances of that value in place and return the new length
 	public int[] removeElement(int[] A, int elem) {
 		if(A == null || A.length < 2) return null;
 		
@@ -60,7 +62,7 @@ public class duplicates {
 		return B;
 	}
 	
-	
+	//  move all 0's to the end of it while maintaining the relative order of the non-zero elements
 	public void moveZeroes(int[] nums) {
 		if(nums == null || nums.length < 2) return;
 		
@@ -82,6 +84,7 @@ public class duplicates {
 		}
 	}
 	
+	//  if the array contains any duplicates
 	public boolean containsDuplicate(int[] nums) {
 		if(nums == null || nums.length == 0) return true;
 		
@@ -93,7 +96,8 @@ public class duplicates {
 		return true;
 	}	
 	
-	
+	// Given an array of integers and an integer k, return true if and only if there are two distinct indices i and j in the array 
+	// such that nums[i] = nums[j] and the difference between i and j is at most k.
 	public boolean containsNearbyDuplicate(int[] nums, int k) {
 		if(nums == null || nums.length == 0) return true;
 		
@@ -109,11 +113,13 @@ public class duplicates {
 		return false;		
 	}
 	
-	// i - j at most k, nums[i] - nums[j] at most t
+	// find out whether there are two distinct indices i and j in the array such that the difference between nums[i] 
+	// and nums[j] is at most t and the difference between i and j is at most k
 	public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
 		if(nums == null || nums.length == 0) return false;
 		
-		TreeSet<Integer> treeset = new TreeSet<Integer>();		
+		TreeSet<Integer> treeset = new TreeSet<Integer>();	
+
 		for(int i = 0; i < nums.length; i++) {
 			Integer curr = nums[i];
 			Integer left_most = curr - t;

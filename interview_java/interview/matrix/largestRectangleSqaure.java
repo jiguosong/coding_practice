@@ -69,6 +69,9 @@ public class largestRectangleSqaure {
 		
 	}
 	
+	
+	/*Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, 
+	find the area of largest rectangle in the histogram*/	
 	public int largestRectangleArea(int[] height) {
 		if (height == null || height.length == 0) return 0;
 		

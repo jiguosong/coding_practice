@@ -1,6 +1,11 @@
 package others;
 
 public class minimalsizesubarray {
+/*	
+ * Given an array of n positive integers and a positive integer s,
+ * find the minimal length of a subarray of which the sum ≥ s
+*/
+	// like a worm eating
 	public int minSubArrayLen(int s, int[] nums) {
 		if (nums == null || nums.length == 0) return 0;
 		
@@ -22,6 +27,7 @@ public class minimalsizesubarray {
 			}
 		}
 		
+		// no more to eat, and the body is still longer than s
 		while(sum >= s) {
 			min_len = Math.min(min_len, head - tail);	
 			if (min_len == 1) return 1;

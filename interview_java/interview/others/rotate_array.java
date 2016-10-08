@@ -2,6 +2,8 @@ package others;
 
 import java.util.*;
 
+/* Rotate an array of n elements to the right by k steps */
+
 public class rotate_array {
 	public static void rotate(int[] nums, int k) {
 		if (nums == null || nums.length == 0 || k <= 0) return;

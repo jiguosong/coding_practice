@@ -4,6 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
+/*
+Given two words (start and end), and a dictionary, find the length of shortest transformation sequence from start to end, 
+such that only one letter can be changed at a time and each intermediate word must exist in the dictionary
+*/
+
 class wordNode {
 	String word;
 	int steps;
@@ -46,6 +51,10 @@ public class wordladder {
 		return 0;
 	}
 	
+	/*
+		Given two words (start and end), and a dictionary, find all shortest transformation 
+		sequence(s) from start to end
+	*/
 	public List<List<String>> findLadders(String start, String end, Set<String> dict) {
 		if (start == null || end == null || dict == null) return null;		
 		if (dict.contains(end) == false) dict.add(end);

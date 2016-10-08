@@ -2,6 +2,8 @@ package strings;
 
 import java.util.*;
 
+/* Given two strings s and t, determine if they are isomorphic */
+
 public class isIsomorphicStr {
 	public boolean isIsomorphic(String s, String t) {
 		if (s == null && t == null) return true;

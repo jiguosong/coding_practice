@@ -3,6 +3,8 @@ package others;
 import java.util.Arrays;
 
 public class medianTwoSortedArray {
+	
+	//Find the median of the two sorted arrays
 	public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 		if (nums1 == null || nums1.length == 0) return 0;
 		if (nums2 == null || nums2.length == 0) return 0;
@@ -17,6 +19,7 @@ public class medianTwoSortedArray {
 		}
 	}
 	
+	// find kth element in general
 	private double findKth(int[] a, int a_start, int[] b, int b_start, int k){
 		if (k <= 0 || k > a.length+b.length) return 0;
 		if (k == 1) return Math.min(a[a_start], b[b_start]);

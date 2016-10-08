@@ -1,5 +1,7 @@
 package strings;
 
+// can also use a stack, or just naive compare every char without using replaceAll
+
 public class validPalindromeStr {
 	public boolean isValidPalindromeStr(String s){
 		if (s == null) return false;
@@ -21,7 +23,7 @@ public class validPalindromeStr {
 	 */
 	public static void main(String[] args) {
 		validPalindromeStr test = new validPalindromeStr();
-		if (test.isValidPalindromeStr("Red rum, sir, is murder")) System.out.println("yes");
+		if (test.isValidPalindromeStr("9Red rum, sir, is murder9")) System.out.println("yes");
 		else System.out.println("no");
 
 	}

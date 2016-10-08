@@ -2,14 +2,14 @@ package strings;
 
 import java.util.*;
 
-public class longestAtMostKDistinct {
+public class longestatMostKDistinct {
 	public int lengthOfLongestSubstringKDistinct(String s, int k) {
 		if (s == null || s.length() == 0) return 0;
 		if (s.length() < k) return s.length();
 		
 		int max = 0;
-		int start = 0;
-		Map<Character, Integer> map = new HashMap<Character, Integer>();
+		int left = 0;
+		Map<Character, Integer> map = new HashMap<Character, Integer>();  // map to the counter
 		
 		for(int i = 0; i < s.length(); i++) {
 			Character c = s.charAt(i);
@@ -21,18 +21,18 @@ public class longestAtMostKDistinct {
 			}
 			
 			if (map.size() > k) {
-				max = Math.max(max, i - start);
+				max = Math.max(max, i - left);
 				while(map.size() > k) {
-					Character tmp_c = s.charAt(start);
+					Character tmp_c = s.charAt(left);
 					int tmp_n = map.get(tmp_c);
 					if(tmp_n > 1) map.put(tmp_c, tmp_n-1);
 					else map.remove(tmp_c);
-					start++;
+					left++;
 				}
 			}
 		}
 		
-		max = Math.max(max, s.length() - start);
+		max = Math.max(max, s.length() - left);
 		
 		return max;	
 	}
@@ -75,9 +75,12 @@ public class longestAtMostKDistinct {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		longestAtMostKDistinct test = new longestAtMostKDistinct();
+		longestatMostKDistinct test = new longestatMostKDistinct();
 		String s = "abcadcacacaca";
-		int ans = test.lengthOfLongestSubstringKDistinct(s,3);
+		int ans = test.lengthOfLongestSubstringTwoDistinct(s);
+		System.out.println(ans);
+		
+		ans = test.lengthOfLongestSubstringKDistinct(s,3);
 		System.out.println(ans);
 
 	}

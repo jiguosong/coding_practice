@@ -9,7 +9,7 @@ public class stringToInteger {
 		int tmp = 0;
 		boolean firstZero = false;
 		
-		s = s.trim();
+		s = s.trim();  // remove leading and trailing white space
 		if (s == null || s.length() == 0) return 0;
 		
 		if (s.charAt(0) == '0') firstZero = true;

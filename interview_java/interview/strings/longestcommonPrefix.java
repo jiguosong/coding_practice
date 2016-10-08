@@ -1,6 +1,6 @@
 package strings;
 
-public class longestCommonPrefix {
+public class longestcommonPrefix {
 	
 	public String longestCommonPrefix(String[] strs) {
 		if(strs == null || strs.length == 0) return null;
@@ -22,7 +22,7 @@ public class longestCommonPrefix {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		longestCommonPrefix test = new longestCommonPrefix();
+		longestcommonPrefix test = new longestcommonPrefix();
 		
 		String[] strs = {"abcdefgh", "abcefgh"};
 		String ans = test.longestCommonPrefix(strs);

@@ -1,6 +1,6 @@
 package strings;
 
-public class reverseword {
+public class reversewords {
 	
 	private void reverse(char[] s, int l, int r) {
 		while (l < r) {
@@ -23,7 +23,8 @@ public class reverseword {
 				j = i+1;
 			}			
 		}
-		reverse(s, j, s.length-1);
+		reverse(s, j, s.length-1);   //last word
+		
 		reverse(s, 0, s.length-1);
 		System.out.println(new String(s));
 	}
@@ -33,7 +34,7 @@ public class reverseword {
 	 */
 	public static void main(String[] args) {
 		String str = "this is a test";
-		reverseword test = new reverseword();
+		reversewords test = new reversewords();
 		test.reverseWords(str.toCharArray());
 	}
 

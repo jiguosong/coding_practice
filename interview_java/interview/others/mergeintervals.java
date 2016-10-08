@@ -11,7 +11,7 @@ class interval{
 	}
 }
 
-public class mergeRange {
+public class mergeintervals {
 	public List<interval> findMergedRanges(interval[] in) {
 		List<interval> res = new ArrayList<interval>();
 		if (in == null || in.length == 0) return res;
@@ -45,7 +45,7 @@ public class mergeRange {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		mergeRange test = new mergeRange();
+		mergeintervals test = new mergeintervals();
 		
 		interval i1 = new interval(0,8);
 		interval i2 = new interval(2,3);

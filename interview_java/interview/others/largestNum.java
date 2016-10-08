@@ -2,14 +2,14 @@ package others;
 
 import java.util.*;
 
-public class largestNum {
-	class compareNumsStr implements Comparator<String> {
-		@Override
-		public int compare(String a, String b) {
-			return (b+a).compareTo(a+b);
-		}
+class compareNumsStr implements Comparator<String> {
+	@Override
+	public int compare(String a, String b) {
+		return (b+a).compareTo(a+b);
 	}
+}
 
+public class largestNum {
 	public String largestNumber(int[] nums) {
 		if(nums == null || nums.length == 0) return null;
 		String[] strs = new String[nums.length];
@@ -17,7 +17,7 @@ public class largestNum {
 			strs[i] = String.valueOf(nums[i]);
 		}
 		
-		Arrays.sort(strs, new compareNumsStr());		
+		Arrays.sort(strs, new compareNumsStr());
 		StringBuilder sb = new StringBuilder();
 		for(String s : strs) {
 			sb.append(s);
