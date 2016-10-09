@@ -1,6 +1,6 @@
 package strings;
 
-public class OneEditDistance {
+public class oneEditDistance {
 	
 	public boolean isOneEditDistance(String s, String t) {
 		if(s == null && t != null) return false;
@@ -41,7 +41,7 @@ public class OneEditDistance {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		OneEditDistance test = new OneEditDistance();
+		oneEditDistance test = new oneEditDistance();
 		String s = "gesek";
 		String t = "geek";
 		if(test.isOneEditDistance(s, t)) System.out.println("is one edit distance");

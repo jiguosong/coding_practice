@@ -1,6 +1,6 @@
 package others;
 
-public class containMostWater {
+public class containmostwater {
 	
 	public int maxArea(int[] height) {
 		if(height == null || height.length < 2) return 0;
@@ -24,7 +24,7 @@ public class containMostWater {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		containMostWater test = new containMostWater();
+		containmostwater test = new containmostwater();
 		int[] height = {1,3,2,4,5,6,10,2};
 		int ans = test.maxArea(height);
 		System.out.println(ans);

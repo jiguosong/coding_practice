@@ -20,7 +20,7 @@ public class trappingrain {
 		for (int i = 1; i < height.length; i++) {
 			if (height[i] > max) {
 				left_max[i] = height[i];
-				max = left_max[i];
+				max = height[i];
 			} else {
 				left_max[i] = max;
 			}
@@ -31,7 +31,7 @@ public class trappingrain {
 		for (int i = height.length - 2; i > 0; i--) {
 			if (height[i] > max) {
 				right_max[i] = height[i];
-				max = right_max[i];
+				max = height[i];
 			} else {
 				right_max[i] = max;
 			}

@@ -2,7 +2,7 @@ package strings;
 
 import java.util.*;
 
-public class anagramsGroup {
+public class groupanagrams {
 	
 	public boolean isAnagram(String s, String t) {
 		if(s == null || s.length() == 0) return false;
@@ -63,7 +63,7 @@ public class anagramsGroup {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		anagramsGroup test = new anagramsGroup();
+		groupanagrams test = new groupanagrams();
 		String[] strs = {"Torchwood","doctorwho"};
 		List<List<String>> ans = test.groupAnagrams(strs);	
 		Iterator<List<String>> it = ans.iterator();

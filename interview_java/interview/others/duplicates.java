@@ -139,6 +139,8 @@ public class duplicates {
 /*	Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at 
 	least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.
 */	
+	
+	//  the duplicated one could be repeated
 	public int findDuplicate(int[] arr) {
 		if(arr == null || arr.length == 0)  return 0;
 		
@@ -149,9 +151,7 @@ public class duplicates {
 			int mid = left + (right-left)/2;
 			int cnt = 0;
 			
-			for(int e : arr) {
-				if(e < mid) cnt++;
-			}
+			for(int e : arr) if(e < mid) cnt++;
 			
 			if(cnt > mid) right = mid;
 			else left = mid+1;
