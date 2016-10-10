@@ -138,9 +138,10 @@ public class duplicates {
 	
 /*	Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at 
 	least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.
+	Note: the duplicated one could be repeated
 */	
-	
-	//  the duplicated one could be repeated
+
+	// Solution 1:  Binary search  O(nlogn)
 	public int findDuplicate(int[] arr) {
 		if(arr == null || arr.length == 0)  return 0;
 		
@@ -159,6 +160,29 @@ public class duplicates {
 		
 		return arr[left];	
 	}
+	
+	// Solution 2:  every item "points" at another node, so this is like a graph. We can find a cycle if there are duplicated node
+	// this is similar to the finding cycle in linked list. We can use fast ans slow
+	public int findDuplicate_cycle(int[] arr) {
+		if(arr == null || arr.length == 0)  return 0;
+		
+		int res = 0;
+		int slow_idx = 0;
+		int fast_idx = 0;
+		
+		do{
+			slow_idx = arr[slow_idx]; 
+			fast_idx = arr[arr[fast_idx]];
+		} while(slow_idx != fast_idx);   // assume there is cycle
+	
+		while(res != slow_idx) {
+			slow_idx = arr[slow_idx];
+			res = arr[res];
+		}
+		
+		return res;		
+	}
+	
 
 	/**
 	 * @param args
@@ -194,6 +218,8 @@ public class duplicates {
 
 		int[] A5 = {1,2,3,4,4};
 		int finddupli = test.findDuplicate(A5);
+		System.out.println("found duplicated one: " + finddupli);
+		finddupli = test.findDuplicate_cycle(A5);
 		System.out.println("found duplicated one: " + finddupli);
 	
 	}

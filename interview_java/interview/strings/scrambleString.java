@@ -27,6 +27,8 @@ public class scrambleString {
 
 	
 	//TODO: this is a copied version from internet. I need write this later
+	// res[k][i][j] where i is the start char in s1, j  is the start char in s2, and n is the current substring length
+	// res[k][i][j] indicates if the substring(i, i+k) and substring(j, j+k) is scramble to each other
     public boolean isScramble_DP(String s1, String s2) {
         //Check lengths.
         if (s1.length() != s2.length())

@@ -79,6 +79,27 @@ public class compareversionnumber {
 	 
 	    return 0;
 	}
+	
+	
+	// given isBadVersion(version), find the first bad version -- binary search
+	public int firstBadVersion(int n) {
+		int left = 1; 
+		int right  = n;
+		while(left < right) {
+			int mid = left + (right-left)/2;
+			if(isBadVersion(mid)) right = mid;
+			else left = mid+1;
+		}
+		
+		if(isBadVersion(left)) return left;
+		else return right;
+	}
+	
+	private boolean isBadVersion(int n){
+		return true;
+	}
+	
+	
 	/**
 	 * @param args
 	 */

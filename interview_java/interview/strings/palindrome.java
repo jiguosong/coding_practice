@@ -1,7 +1,8 @@
 package strings;
 
-public class palindrome {
-	
+import java.util.*;
+
+public class palindrome {	
 	////////////////////////////////////////
 	/// if is a valid palindrome 
 	////////////////////////////////////////
@@ -10,7 +11,7 @@ public class palindrome {
 		if (s.length() == 0) return true;
 		
 		s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-		System.out.println(s);
+		//System.out.println(s);
 		
 		for (int i = 0; i < s.length(); i++) {
 			if (s.charAt(i) != s.charAt(s.length()-1-i)) return false;
@@ -135,45 +136,106 @@ public class palindrome {
 		return s.substring(l+1,r);		
 	}
 	
-	/*public String findlongestPalindrome(String s) {
-		String[] ret = new String[1];
-		int[] len = new int[1];
-		len[0] = 1;
+	
+	////////////////////////////////////////
+	/// palindrome pairs 
+	////////////////////////////////////////
+	public List<List<Integer>> palindromePairs(String[] words) {
+		if(words == null || words.length == 0) return null;
 		
-		if (s == null || s.length() == 0) return null;
+		List<List<Integer>> res = new ArrayList<List<Integer>>();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+			
+		for(int i = 0; i < words.length; i++) map.put(words[i],i);
 		
-		if (s.length() == 1) {
-			ret[0] = s;
-			return ret[0];
-		}
-		if (s.charAt(0) == s.charAt(1)) {
-			len[0] = 2;
-			ret[0] = s.substring(0, 1);
-		}
-		
-		for (int i = 1; i < s.length(); i++) {
-			check(s, i-1, i+1, ret, len);
-			if (i < s.length()-2 && s.charAt(i) == s.charAt(i+1)) {
-				check(s, i-1, i+2, ret, len);
+		for(int i = 0; i < words.length; i++) {
+			String str = words[i];
+			
+			//case 0: str is palindrome itself
+			if(isValidPalindromeStr(str) && map.containsKey("")) {
+				if(map.containsKey("") && map.get("") != i) {
+					List<Integer> tmp = new ArrayList<Integer>();
+					tmp.add(i);
+					tmp.add(map.get(""));
+					res.add(tmp);
+					
+					tmp = new ArrayList<Integer>();
+					tmp.add(map.get(""));
+					tmp.add(i);
+					res.add(tmp);
+				}				
 			}
-		}		
-		return ret[0];
+			
+			//case 1 : ab and ba both exist
+			add_one_result(str, i, map, res);   // will add only if str.reverse is in the map
+
+			// case 2:  for aaaabcd, aaaa is palindrome and dcb exists (so we can attch it to the left/or right)
+			for(int k = 1; k < str.length(); k++) {
+				String left = str.substring(0,k);
+				String right = str.substring(k);				
+				if(isValidPalindromeStr(left)) add_one_result(right, i, map, res);
+				if(isValidPalindromeStr(right)) add_one_result(left, i, map, res);			
+			}
+			
+		}
+				
+		return res;
 	}
 	
-	private void check(String s, int j, int k, String[] ret, int[] len){
-		while(j >= 0 && k < s.length() && s.charAt(j) == s.charAt(k)) {
-			j--;
-			k++;
+	private void add_one_result(String str, int i, Map<String, Integer> map, List<List<Integer>> res){
+		String reverse_str = new StringBuilder(str).reverse().toString();
+		if(map.containsKey(reverse_str) && map.get(reverse_str) != i) {
+			List<Integer> tmp = new ArrayList<Integer>();
+			tmp.add(i);
+			tmp.add(map.get(reverse_str));
+			res.add(tmp);
+		}
+	}
+
+	////////////////////////////////////////
+	/// if is palindrome number 
+	////////////////////////////////////////
+	public boolean ispalinum(int num){
+		int k = 0;
+		int p = num;
+		
+		while(p != 0) {
+			k = k*10 + p%10;
+			p = p/10;
 		}
 		
-		int tmp_len = k - j + 1 - 2;
-		if (tmp_len > len[0]) {
-			len[0] = tmp_len;
-			ret[0] = s.substring(j+1, k);
+		return (k == num);
+	}
+	
+	
+	////////////////////////////////////////
+	/// palindrome partition 
+	////////////////////////////////////////
+	public List<String> palindromePartitioning(String s) {
+		if (s == null || s.length() == 0) return null;
+	
+		List<String> res = new ArrayList<String>();
+		if(s.length() == 1) {
+			res.add(s);
+			return res;
+		}
+
+		int m = s.length();		
+		boolean[][] dp = new boolean[m][m];
+		dp[0][0] = true;
+		
+		// l is length, i is index of left boundary, j is index of right boundary
+		for (int len = 1; len <= m; len++) {
+			for (int i = 0; i <= m - len; i++) {
+				int j = i + len - 1;
+				dp[i][j] = (s.charAt(i) == s.charAt(j) && (j-i<2 || dp[i+1][j-1]));
+				if (dp[i][j]) res.add(s.substring(i, j + 1));
+			}
 		}
 		
-		return;
-	}*/
+		return res;
+	}
+	
 	
 	
 	public static void main(String[] args) {
@@ -203,7 +265,35 @@ public class palindrome {
 		System.out.println(ans);
 		
 		
+		System.out.println();
+		System.out.println("Palindrome Pairs");
+		String[] words = {"bat", "tab", "cat", "abcdcba", ""};
+		List<List<Integer>> anspair = test.palindromePairs(words);
+		Iterator<List<Integer>> it = anspair.iterator();
+		while(it.hasNext()) {
+			List<Integer> e = it.next();
+			System.out.println(e);
+		}
+		System.out.println();
+		String[] words2 = {"abcd", "dcba", "lls", "s", "sssll"};
+		anspair = test.palindromePairs(words2);
+		it = anspair.iterator();
+		while(it.hasNext()) {
+			List<Integer> e = it.next();
+			System.out.println(e);
+		}
+		
+		System.out.println();
+		System.out.println("Palindrome Number");
+		int num = 121;
+		if (test.ispalinum(num)) System.out.println(num + " is palindromenumber");
+		else System.out.println(num + " is not a palindromenumber");
 
+		System.out.println();
+		System.out.println("Palindrome Partition");
+		List<String> palindrome_partition = test.palindromePartitioning("aab");
+		for(int i = 0; i< palindrome_partition.size(); i++) System.out.println(palindrome_partition.get(i));
+		
 		return;
 	}
 	

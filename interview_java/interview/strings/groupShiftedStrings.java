@@ -19,7 +19,7 @@ public class groupShiftedStrings {
 			} else {
 				for(int i = 1; i < char_str.length; i++) {
 					int diff = str.charAt(i) - str.charAt(i-1);
-					diff = (diff+26)%26;
+					diff = (diff+26)%26;   // this makes the sign does not matter, e.g., "az" is same as "za"
 					sb.append(Integer.toString(diff));
 				}
 			}

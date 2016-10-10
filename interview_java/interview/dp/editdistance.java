@@ -30,6 +30,44 @@ public class editdistance {
 		
 		return res;
 	}
+	
+	 // say diff the the difference between two string length
+     // case 1: if diff > 1, return false
+	 // case 2: if diff == 1, remove one char from the longer one and the rest should match
+	 // case 2: if diff == 0, all should match except one difference
+	public boolean isOneEditDistance(String s, String t) {
+		if(s == null && t != null) return false;
+		if(s != null && t == null) return false;
+
+		int m = s.length();
+		int n = t.length();
+		if(Math.abs(m-n) > 1) return false;
+		
+		int count = 0;  // how many different
+		int i = 0;
+		int j = 0;		
+		while(i < m && j < n) {
+			if(s.charAt(i) == t.charAt(j)) {
+				i++;
+				j++;
+			} else {
+				count++;
+				if(count > 1) return false;
+				if(m < n) j++;
+				else if(m > n) i++;
+				else {
+					i++;
+					j++;
+				}
+			}
+		}
+		
+		if(i < m || j < n) {
+			count++;
+		}
+		
+		return count <= 1;
+	}
 
 	/**
 	 * @param args
@@ -40,6 +78,14 @@ public class editdistance {
 		String words2 = "Orchestra";
 		int ans = test.minDistance(words1, words2);
 		System.out.println(ans);
+		
+		String s = "gesek";
+		String t = "geeks";
+		if(test.isOneEditDistance(s, t)) {
+			System.out.println("Yes: " + s + " and "+ t + " has one edit distance");
+		} else {
+			System.out.println("No: " + s + " and "+ t + " has no one edit distance");
+		}
 
 	}
 

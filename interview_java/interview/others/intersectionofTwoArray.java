@@ -8,8 +8,7 @@ public class intersectionofTwoArray {
 	public int[] intersect(int[] nums1, int[] nums2) {
 		if(nums1 == null || nums2 == null) return null;
 		
-		Map<Integer, Integer> map = new HashMap<Integer,Integer>();
-		
+		Map<Integer, Integer> map = new HashMap<Integer,Integer>();		
 		List<Integer> list = new ArrayList<Integer>();
 		
 		for(int e:nums1) {
@@ -39,6 +38,8 @@ public class intersectionofTwoArray {
 		return res;
 	}
 	
+	
+	// Given two arrays, write a function to compute their intersection
 	public int[] intersection(int[] nums1, int[] nums2) {
 		if(nums1 == null || nums2 == null) return null;
 		
