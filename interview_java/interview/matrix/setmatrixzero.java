@@ -1,6 +1,6 @@
 package matrix;
 
-public class settoSezro {
+public class setmatrixzero {
 	
 	public void setZeroes(int[][] matrix) {
 		if (matrix.length == 0 || matrix[0].length == 0) return;
@@ -66,7 +66,7 @@ public class settoSezro {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		settoSezro test = new settoSezro();
+		setmatrixzero test = new setmatrixzero();
 		int[][] matrix = {{1,1,1,0},
 						  {1,1,1,1},
 				          {1,1,0,0},

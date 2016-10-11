@@ -35,17 +35,17 @@ public class palindrome {
 			right--;
 		}
 		
-		if(left == s.length()) return s;
+		if(left == s.length()) return s;   // this means every char in s has satisfied "s.charAt(left) == s.charAt(right)", so left++
 		
-		String suffix = s.substring(left);
+		String suffix = s.substring(left);       // everything after left is not palindrome, let's call it T
 		StringBuilder sb = new StringBuilder(suffix);
-		String prefix = sb.reverse().toString();
-		String mid = shortestPalindrome_1(s.substring(0, left));
+		String prefix = sb.reverse().toString();          // make a mirror of T here
+		String mid = shortestPalindrome_1(s.substring(0, left));    // now process whatever is left, e.g., can contains some holes or skipped chars. Whatever it is, it is not a complete palindrome. So we can recursively deal with it
 		
 		return prefix+mid+suffix;		
 	}
 	
-	
+	// idea is simple, scan from the center which is potentially the longest palindrome, then next (by shifting left)
 	public String shortestPalindrome_2(String s) {
 		if(s == null || s.length() == 0) return null;
 		

@@ -173,7 +173,7 @@ public class duplicates {
 		do{
 			slow_idx = arr[slow_idx]; 
 			fast_idx = arr[arr[fast_idx]];
-		} while(slow_idx != fast_idx);   // assume there is cycle
+		} while(slow_idx != fast_idx);   // assume there is cycle, and this is where they meet
 	
 		while(res != slow_idx) {
 			slow_idx = arr[slow_idx];

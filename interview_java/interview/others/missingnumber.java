@@ -1,14 +1,19 @@
 package others;
 
+import java.util.Arrays;
+
 public class missingnumber {
 	
-	//	Given an unsorted integer array, find the first missing positive integer.
+	// Given an unsorted integer array, find the first missing positive integer.
+	// Idea: 1) we can put 1 to A[0], 2 to A[1], ...... i+1 to A[i], or A[i] -> A[A[i]-1]
+	//       2) so if A[i] > 0 && A[i] <= n and A[i] != A[A[i]-1] and A[i]-1 != i we swap them
+	//       3) in the end, we scan from 1 to n to see which one does not satisfy A[i]-1 == i
 	public int firstMissingPositive(int[] A) {
 		if(A == null || A.length ==0) return 0;
 		
 		int i = 0;
 		while(i < A.length) {
-			if(A[i] != i+1 && A[i] > 0 && A[i] <= A.length && A[i] != A[A[i]-1]) {
+			if(A[i] > 0 && A[i] <= A.length && A[i] != A[A[i]-1] && A[i]-1 != i) {
 				int tmp = A[i];
 				A[i] = A[A[i]-1];
 				A[tmp-1] = tmp; 
@@ -24,6 +29,8 @@ public class missingnumber {
 	
 	public int missingNumber(int[] nums) {
 		if(nums == null || nums.length == 0) return 0;
+		
+		Arrays.sort(nums);
 		
 		int left = 0;
 		int right = nums.length;
@@ -55,13 +62,13 @@ public class missingnumber {
 	 */
 	public static void main(String[] args) {
 		missingnumber test = new missingnumber();
-		int[] nums = {0,1,2,4,5};
+		int[] nums = {0,1,2,5,4};
 		int ans = test.missingNumber(nums);
 		System.out.println(ans);
 		ans = test.missingNumber_xor(nums);
 		System.out.println(ans);
 
-		int[] nums2 = {3,4,-1,1};
+		int[] nums2 = {2,4,3,-5,-90,6,9,8,-2,7,-1,1};
 		ans = test.firstMissingPositive(nums2);
 		System.out.println(ans);
 

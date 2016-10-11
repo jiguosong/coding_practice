@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class longestincreasingPath {
 	
+	// DFS version
 	public int longestIncreasingPath(int[][] matrix) {
 		if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return 0;
 		int res = 0;
@@ -11,12 +12,12 @@ public class longestincreasingPath {
 		int row = matrix.length;
 		int col = matrix[0].length;
 		
-		int[][] path = new int[row][col];
-		for (int[] k : path) Arrays.fill(k, 0);
+		int[][] path_len = new int[row][col];
+		for (int[] k : path_len) Arrays.fill(k, 0);
 
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
-				int len = longestIncreasingPath_helper(matrix, i, j, path);
+				int len = longestIncreasingPath_helper(matrix, i, j, path_len);
 				res = Math.max(res, len);
 			}
 		}
@@ -24,26 +25,25 @@ public class longestincreasingPath {
 		return res;
 	}
 	
-	private int longestIncreasingPath_helper(int[][] matrix, int x, int y, int[][] path) {
-		if (path[x][y] != 0) return path[x][y];
+	
+	// this is just like a tree walk -- in 4 directions
+	private int longestIncreasingPath_helper(int[][] matrix, int x, int y, int[][] path_len) {
+		if (path_len[x][y] != 0) return path_len[x][y];
 		
 		int[] dx = {-1, 1, 0, 0};
 		int[] dy = {0, 0, -1, 1};
 		
-		int len, curr_max;
-		curr_max = path[x][y];		
-		
+		int len;		
 		for (int i = 0; i < dx.length; i++) {
 			int nx = x + dx[i];
 			int ny = y + dy[i];
 			if (nx >= 0 && nx < matrix.length && ny >= 0 && ny < matrix[0].length && matrix[nx][ny] > matrix[x][y]) {
-				len = longestIncreasingPath_helper(matrix, nx, ny, path);
-				curr_max = Math.max(curr_max, len);
+				len = longestIncreasingPath_helper(matrix, nx, ny, path_len);
+				path_len[x][y] = Math.max(path_len[x][y], len);
 			}
 		}
 		
-		path[x][y] = curr_max + 1;
-		return path[x][y];
+		return ++path_len[x][y];
 	}
 
 	/**
@@ -51,10 +51,6 @@ public class longestincreasingPath {
 	 */
 	public static void main(String[] args) {
 		longestincreasingPath test = new longestincreasingPath();
-//		int[][] matrix = {{3,4,5},
-//		  		  		   {3,2,6},
-//		  		  		   {2,2,1}};
-		
 		int[][] matrix = {{9,10,100},
 		  		   		  {6,6,8},
 		  		          {2,1,1}};

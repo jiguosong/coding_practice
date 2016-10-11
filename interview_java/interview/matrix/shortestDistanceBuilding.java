@@ -2,6 +2,14 @@ package matrix;
 
 import java.util.*;
 
+/*You want to build a house on an empty land which reaches all buildings in the shortest amount of distance. 
+ * You can only move up, down, left and right. You are given a 2D grid of values 0, 1 or 2, where:
+ * Each 0 marks an empty land which you can pass by freely.
+ * Each 1 marks a building which you cannot pass through.
+ * Each 2 marks an obstacle which you cannot pass through.
+*/
+
+// BFS version
 public class shortestDistanceBuilding {
 	 public int shortestDistance(int[][] grid) {
 		 if (grid == null) return 0; 
@@ -10,8 +18,8 @@ public class shortestDistanceBuilding {
 		 int res = 0;
 		 if (row == 0 || col == 0) return res;
 		 
-		 int[][] reachBuildings = new int[row][col];
-		 int[][] distance = new int[row][col];
+		 int[][] reachBuildings = new int[row][col];   // tracking the number of buildings which can be reached from this (row, col) empty
+		 int[][] distance = new int[row][col];        // tracking the sum of distance from each building to this (row, col) empty
 		 
 		 int numBuild = 0;
 		 for (int i = 0; i < row; i++) {
@@ -45,7 +53,7 @@ public class shortestDistanceBuilding {
 		 return res;
 	 }
 	 
-	 
+	 // bfs helper
 	 private void shortestDistance_helper(int[][] grid, int curr_x, int curr_y, int x, int y, int disSoFar, 
 			 								 int[][] reachBuildings, int[][] distance, boolean[][] visited, Deque<Integer> queue) {
 		 int[] dx = {-1, 1, 0, 0};
