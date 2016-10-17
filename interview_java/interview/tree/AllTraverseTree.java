@@ -1,11 +1,10 @@
 package tree;
 
-
 import java.util.*;
 
 public class AllTraverseTree {
 	
-	// populate ppointer to the right
+	// populate pointer to the right
 	public void connect(TreeNodeNextptr root) {
 		 if (root == null) return;
 		
@@ -240,6 +239,42 @@ public class AllTraverseTree {
 	}
 
 	
+/*	(1) Push the root node into the stack.
+	(2) while the stack is not empty, do:
+	       if 
+	          the top node is a leaf node (no left&right children), pop it.
+	          or if the top node has been visited, pop it. (here we use a sign head to show the latest popped node, 
+	                                                        if the top node's child = the latest popped node, either left or right, it must has been visited.)
+	       else
+	          b. push the right child of the top node (if exists)
+	          c. push the left child of the top node (if exists)
+	*/
+	
+	public List<Integer> postOrder3(TreeNode root) {
+		if (root == null) return null;
+		List<Integer> res = new ArrayList<Integer>();
+		Deque<TreeNode> stack = new ArrayDeque<TreeNode>();
+		
+		stack.push(root);
+		
+		TreeNode curr = null;
+		TreeNode prev = root;
+		while (!stack.isEmpty()) {
+			curr = stack.peek();
+			if((curr.left == null && curr.right == null) || curr.left == prev || curr.right == prev) {
+				TreeNode tmp = stack.pop();
+				res.add(tmp.val);
+				prev = tmp;
+			} else {
+				if (curr.right != null) stack.push(curr.right);
+				if (curr.left != null) 	stack.push(curr.left);				
+			}
+		}
+		return res;		
+	}
+	
+	
+	// too ocomplicated
 	public List<Integer> postOrder(TreeNode root) {
 		if (root == null) return null;
 		List<Integer> res = new ArrayList<Integer>();
@@ -360,6 +395,14 @@ public class AllTraverseTree {
 		Iterator<Integer> it5 = res5.iterator();;
 		while(it5.hasNext()) {
 			int tmp = it5.next();
+			System.out.print(tmp);
+		}
+		
+		System.out.println("\npostoder traverse simpler version");
+		List<Integer> res52 = test.postOrder3(root);	
+		Iterator<Integer> it52 = res52.iterator();;
+		while(it52.hasNext()) {
+			int tmp = it52.next();
 			System.out.print(tmp);
 		}
 		

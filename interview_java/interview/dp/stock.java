@@ -2,8 +2,34 @@ package dp;
 
 //Best Time to Buy and Sell Stock 
 
-public class stock {
+public class stock {	
 	
+	// I failed during the interview
+	public int maxProfit_k_transaction(int[] prices, int k) {
+		if(prices == null || prices.length == 0) return 0;
+		if(k <= 0) return 0;
+		
+		int n = prices.length;
+		int res = 0;
+		int[][] maxP_on_exact_day = new int[n][k+1];  // the max profit of i day after k transactions, and kth transaction is on ith day
+		int[][] maxP_before_day = new int[n][k+1];   // the max profit of i day after k transactions (k transactions have been done before ith day)
+		
+		maxP_on_exact_day[0][0] = 0;
+		maxP_before_day[0][0] = 0;
+		for(int i = 1; i < prices.length; i++) {
+			int diff = prices[i] - prices[i-1];
+			for(int j = 1 ; j <= k; j++) {
+				maxP_on_exact_day[i][j] = Math.max(maxP_before_day[i-1][j-1] + Math.max(diff, 0),   // here we can decide not to do transaction if diff < 0
+												   maxP_on_exact_day[i-1][j] + diff);   // last transaction starts on i-1 day, so sell it on ith day any way.
+				maxP_before_day[i][j] = Math.max(maxP_before_day[i-1][j], maxP_on_exact_day[i][j]);
+			}
+		}
+		
+		return maxP_before_day[n-1][k];		
+	}
+	
+		
+	// I failed during the interview with Samsung
 	// only permitted to complete at most one transaction 
 	public int maxProfit_one(int[] prices) {
 		if(prices == null || prices.length == 0) return 0;
@@ -104,6 +130,9 @@ public class stock {
 		System.out.println(ans);
 
 		ans = test.maxProfit(2, prices2);
+		System.out.println(ans);
+		
+		ans = test.maxProfit_k_transaction(prices2, 2);
 		System.out.println(ans);
 	}
 

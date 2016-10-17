@@ -15,10 +15,10 @@ public class decodeWays {
 		
 		if(Integer.parseInt(s.substring(start, start+2)) > 26) {
 			if(s.charAt(start+1) != '0') ways[1] = 1;
-			else ways[1] = 0;   // why?
+			else ways[1] = 0;   // '30, 40..' can not be decoded
 		} else {
-			if(s.charAt(start+1) != '0') ways[1] = 2;   // what about "10"?
-			else ways[1] = 1;
+			if(s.charAt(start+1) != '0') ways[1] = 2;   
+			else ways[1] = 1;  // what about "10"? -> can not be decoded
 		}
 		
 		for(int i = start+2; i < s.length(); i++) {

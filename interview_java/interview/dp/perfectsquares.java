@@ -3,6 +3,23 @@ package dp;
 import java.util.Arrays;
 
 public class perfectsquares {
+	public int numSquares_on_model(int n) {
+		if(n <=0) return -1;
+
+		int[] num_sqrt = new int[n+1];
+		Arrays.fill(num_sqrt, Integer.MAX_VALUE);
+		num_sqrt[0] = 0;
+		for(int i = 1; i <= n; i++) {
+			for(int j = 1; j <= (int)Math.sqrt(n); j++) {
+				if(j*j == i) num_sqrt[i] = 1; 
+				else if(i > j*j) num_sqrt[i] = Math.min(num_sqrt[i], num_sqrt[i-j*j]+1);
+			}
+		}
+		
+		return num_sqrt[n];		
+	}
+	
+	
 	public int numSquares(int n) {
 		if(n <=0) return -1;
 		
@@ -35,6 +52,9 @@ public class perfectsquares {
 		perfectsquares test = new perfectsquares();
 		int n = 12;		
 		int ans = test.numSquares(n);
+		System.out.println(ans);
+
+		ans = test.numSquares_on_model(n);
 		System.out.println(ans);
 
 	}

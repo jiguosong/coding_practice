@@ -1,6 +1,21 @@
 package dp;
 
 public class jumpgame {
+	public boolean canJump_on_model(int[] A) {
+		if(A == null || A.length == 0) return false;
+		
+		int farest = 0;
+	
+		for(int i = 0; i < A.length; i++) {
+			farest = Math.max(farest, A[i] + i);
+			if(farest < A.length-1 && A[i] == 0) return false;  // stop growing
+			if(farest > A.length) return true;
+		}
+		
+		return false;		
+	}
+	
+	
 	public int jump(int[] nums) {
 		if(nums == null || nums.length == 0) return 0;
 		
@@ -49,7 +64,7 @@ public class jumpgame {
 		if(test.canJump(A)) System.out.println("can jump");
 		else System.out.println("can not jump");
 		
-		if(test.canJump(B)) System.out.println("can jump");
+		if(test.canJump_on_model(B)) System.out.println("can jump");
 		else System.out.println("can not jump");
 
 		int ans = test.jump(A);

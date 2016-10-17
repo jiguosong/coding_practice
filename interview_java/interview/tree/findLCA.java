@@ -2,7 +2,6 @@ package tree;
 
 import java.util.*;
 
-
 class TreeNode_Parent_Ptr {
 	int val;
 	TreeNode_Parent_Ptr left;
@@ -57,7 +56,7 @@ public class findLCA {
 
 	public TreeNode lowestCommonAncestor_BST(TreeNode root, TreeNode p, TreeNode q) {
 		if (root == null || p == null || q ==null) return null;
-				
+
 		if (p.val > q.val) return lowestCommonAncestor_BST(root, q, p);  // p is always smaller
 		else if (p.val <= root.val && q.val >= root.val) return root;
 		else if (p.val < root.val && q.val < root.val) return lowestCommonAncestor_BST(root.left, q, p);

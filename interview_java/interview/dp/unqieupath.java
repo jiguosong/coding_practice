@@ -2,11 +2,30 @@ package dp;
 
 public class unqieupath {
 	
+	public int uniquePaths_dp_on_model(int m, int n) {
+		if (m < 0 && n < 0) return 0;
+		if (m == 0 || n == 0) return 1;
+		
+		int[][] paths = new int[m][n];
+		paths[0][0] = 1;
+		
+		for(int i = 1; i < m; i++) paths[i][0] = 1;
+		for(int i = 1; i < n; i++) paths[0][i] = 1;
+		
+		for(int i = 1; i < m; i++) {
+			for(int j = 1; j < n; j++) {
+				paths[i][j] = paths[i-1][j] + paths[i][j-1];
+			}
+		}
+	
+		return paths[m-1][n-1];
+		
+	}
+	
 	public int uniquePaths_dp(int m, int n) {
 		if (m < 0 && n < 0) return 0;
 		if (m == 0 || n == 0) return 1;
 		
-		int res = 0;		
 		int[][] sum = new int[m][n];
 		sum[0][0] = 1;
 		
@@ -74,9 +93,11 @@ public class unqieupath {
 		unqieupath test = new unqieupath();
 		int m = 3;
 		int n = 3;
-		int res = test.uniquePaths(3, 3);		
+		int res = test.uniquePaths(m, n);		
 		System.out.println(res);
-		res = test.uniquePaths_dp(3, 3);		
+		res = test.uniquePaths_dp(m, n);		
+		System.out.println(res);
+		res = test.uniquePaths_dp_on_model(m, n);		
 		System.out.println(res);
 		
 		int[][] matrix = {{0,0,0},

@@ -4,6 +4,8 @@ import java.util.*;
 
 import javax.swing.event.ListSelectionEvent;
 
+import tree.TreeNode;
+
 public class pathSum {
 	public List<List<Integer>> allpathSum(TreeNode root, int sum) {
 		if (root == null) return null;

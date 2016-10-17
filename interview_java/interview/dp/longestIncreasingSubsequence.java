@@ -3,6 +3,24 @@ package dp;
 import java.util.*;
 
 public class longestIncreasingSubsequence {
+	public int lengthOfLIS_on_model(int[] nums) {
+		if(nums == null || nums.length == 0) return 0;
+		
+		int lis = 0;
+		int n = nums.length;
+		int[] s = new int[n];
+		Arrays.fill(s, 1);  // a single char is the min lis
+		
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < i; j++) {
+				if(nums[i] > nums[j]) s[i] = Math.max(s[i], s[j] + 1);
+			}
+			
+			lis = Math.max(lis, s[i]);
+		}
+		
+		return lis;		
+	}
 	
 	public int lengthOfLIS(int[] nums) {
 		if(nums == null || nums.length == 0) return 0;
@@ -31,7 +49,10 @@ public class longestIncreasingSubsequence {
 		longestIncreasingSubsequence test = new longestIncreasingSubsequence();
 		int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
 		int ans = test.lengthOfLIS(nums);
-		System.out.print(ans);
+		System.out.println(ans);
+		
+		ans = test.lengthOfLIS_on_model(nums);
+		System.out.println(ans);
 
 	}
 

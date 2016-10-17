@@ -13,6 +13,7 @@ public class copywithrandomptr {
         if (head == null) return null;
         RandomListNode newhead = null;
 		
+        // insert new node
         RandomListNode p = head;        
         while(p != null) {
         	RandomListNode q = new RandomListNode(p.val);
@@ -21,15 +22,16 @@ public class copywithrandomptr {
         	p = q.next;
     	}
        
+        // do the copy
         p = head;
         while(p != null && p.next != null) {
         	p.next.random = p.random.next;
         	p = p.next.next;
         }
         
+        // break the list (every other one)
         p = head;
         RandomListNode q = head.next;
-        newhead = head.next;
         
         while(p != null && p.next != null &&
         	  q != null && q.next != null) {
@@ -41,16 +43,7 @@ public class copywithrandomptr {
         	q = t2;        	
         }
         
-        
-//        while(p != null) {
-//        	p.next = q.next;
-//        	if (p.next != null) q.next = p.next.next;
-//        	else q.next = null;
-//        	p = p.next;
-//        	q = q.next;
-//        }
-        
-        return newhead;
+        return head.next;
     }
 	
 	

@@ -84,6 +84,35 @@ public class palindrome {
 	////////////////////////////////////////
 	/// longest palindrome 
 	////////////////////////////////////////
+	public String longestPalindrome_dp_on_model(String s) {
+		if (s == null || s.length() == 0) return null;
+		
+		int[] res = new int[2];
+		int max = 0;
+		int n = s.length();
+		boolean[][] isvalidPalindrome = new boolean[n+1][n+1];
+		
+		isvalidPalindrome[0][0] = true;
+		for(int i = 1; i <= n; i++) {
+			char c1 = s.charAt(i-1);
+			for(int j = 1; j < n; j++) {
+				char c2 = s.charAt(j-1);
+				if((c1 == c2) && (isvalidPalindrome[i+1][j-1] || j-i<2)) {
+					isvalidPalindrome[i][j] = true;
+					if(j-i+1 > max) {
+						max = j-i+1;
+						res[0] = i;
+						res[1] = j;
+					}
+				}				
+			}
+		}
+		
+		return s.substring(res[0], res[1]);
+	}	
+	
+	
+	
 	public String longestPalindrome_dp(String s) {
 		if (s == null || s.length() == 0) return null;
 		
@@ -211,6 +240,58 @@ public class palindrome {
 	////////////////////////////////////////
 	/// palindrome partition 
 	////////////////////////////////////////
+	
+	public List<String> palindromePartitioning_on_model(String s) {
+		if (s == null || s.length() == 0) return null;
+	
+		List<String> res = new ArrayList<String>();
+		
+		int n = s.length();
+		boolean[][] ispalindr = new boolean[n][n];
+		
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < n; j++) {
+				if(s.charAt(i) == s.charAt(j) && j >= i) {
+					if(j-i < 2) ispalindr[i][j] = true;
+					else ispalindr[i][j] = ispalindr[i+1][j-1];	
+					if (ispalindr[i][j]) {
+						res.add(s.substring(i, j + 1));
+					}
+				}				
+			}
+		}
+		
+		return res;		
+	}
+	
+	// just let the palindrome to grow as long as it can before the cut
+	public int minCut_on_model(String s) {
+		if (s == null || s.length() == 0) return 0;
+	
+		int res = 0;		
+		int n = s.length();
+		boolean[][] ispalindr = new boolean[n][n];
+		int[] cut = new int[n];
+		
+		for(int j = 0; j < n; j++) {   // note that here we start with end point at j
+			cut[j] = j;     // the max number of cut is to cut every one
+			for(int i = 0; i < n; i++) {
+				if(s.charAt(i) == s.charAt(j) && (j-i < 2 || ispalindr[i+1][j-1])) {
+					ispalindr[i][j] = true;	
+					
+					if (i > 0) {
+						cut[j] = Math.min(cut[j], cut[i-1]+1);
+					} else {
+						cut[j] = 0;
+					}
+				}				
+			}
+		}
+		
+		return cut[n-1];
+		
+	}
+	
 	public List<String> palindromePartitioning(String s) {
 		if (s == null || s.length() == 0) return null;
 	
@@ -224,19 +305,23 @@ public class palindrome {
 		boolean[][] dp = new boolean[m][m];
 		dp[0][0] = true;
 		
-		// l is length, i is index of left boundary, j is index of right boundary
+		// len is length, i is index of left boundary, j is index of right boundary
 		for (int len = 1; len <= m; len++) {
 			for (int i = 0; i <= m - len; i++) {
 				int j = i + len - 1;
-				dp[i][j] = (s.charAt(i) == s.charAt(j) && (j-i<2 || dp[i+1][j-1]));
-				if (dp[i][j]) res.add(s.substring(i, j + 1));
+				if(s.charAt(i) == s.charAt(j)) {
+					if(len == 1 || len == 2) dp[i][j] = true;
+					else dp[i][j] = dp[i+1][j-1];
+					
+					if (dp[i][j]) res.add(s.substring(i, j + 1));
+				} else {
+					dp[i][j] = false;
+				}				
 			}
 		}
 		
 		return res;
 	}
-	
-	
 	
 	public static void main(String[] args) {
 		palindrome test = new palindrome();
@@ -249,7 +334,10 @@ public class palindrome {
 		String s = new String("bananas");
 		String res = test.longestPalindrome_dp(s);
 		System.out.println(res);
-
+		res = test.longestPalindrome_dp_on_model(s);
+		System.out.println(res);
+		
+		
 		res = test.longestPalindrome_2(s);
 		System.out.println(res);
 		//String res = test.findlongestPalindrome(s);
@@ -292,7 +380,16 @@ public class palindrome {
 		System.out.println();
 		System.out.println("Palindrome Partition");
 		List<String> palindrome_partition = test.palindromePartitioning("aab");
-		for(int i = 0; i< palindrome_partition.size(); i++) System.out.println(palindrome_partition.get(i));
+		for(int i = 0; i < palindrome_partition.size(); i++) System.out.println(palindrome_partition.get(i));
+		
+		System.out.println();
+		palindrome_partition = test.palindromePartitioning_on_model("aab");
+		for(int i = 0; i < palindrome_partition.size(); i++) System.out.println(palindrome_partition.get(i));
+		
+		System.out.println();
+		int mincut = test.minCut_on_model("aabaaabcd");
+		System.out.println(mincut);
+		
 		
 		return;
 	}
