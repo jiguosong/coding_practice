@@ -1,4 +1,4 @@
-package others;
+package strings;
 
 public class zigZagConversion {
 	
@@ -8,7 +8,7 @@ public class zigZagConversion {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		int diff = 2*numRows-2; // every diagonal number is a row and col. If top and bottom ones are missing, we have 2 col less.
+		int diff = 2*numRows-2; // every diagonal number is a row and col. If top and bottom ones are missing, we have 2 row less.
 		for(int i = 0; i < numRows; i++) {   // process the string for each row
 			for(int j = i; j < s.length(); j += diff) {
 				sb.append(s.charAt(j));

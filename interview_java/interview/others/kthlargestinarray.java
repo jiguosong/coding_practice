@@ -7,12 +7,12 @@ public class kthlargestinarray {
 	public int findKthLargest(int[] nums, int k) {
 		if(nums == null || nums.length == 0 || k <= 0) return 0;
 		
-		Queue<Integer> pq = new PriorityQueue<Integer>();
-		
+		Queue<Integer> pq = new PriorityQueue<Integer>();		
 		
 		for(int e:nums) {
 			pq.add(e);
-			if(!pq.isEmpty() && pq.size() > k) pq.remove();  // throw (n-k) smallest item, eventaully we will have k largest in the heap, and the top one is the Kth
+			// throw (n-k) smallest item, eventaully we will have k largest in the heap, and the top one is the Kth
+			if(!pq.isEmpty() && pq.size() > k) pq.remove();
 		}
 		
 		return pq.peek();

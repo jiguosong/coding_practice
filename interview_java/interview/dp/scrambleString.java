@@ -1,4 +1,4 @@
-package strings;
+package dp;
 
 public class scrambleString {
 	

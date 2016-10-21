@@ -3,6 +3,8 @@ package dp;
 public class maximumSubarray {
 	
 	// I failed on this when I went to Samsuang Interview. Fuck!!!
+	// here is the idea: s[i] is the max sum of subarray that ends at nums[i] (inclusive)
+	// s[i+1] can only come from s[i]+num[i+1] or just nums[i]  (because 2 conditions need to be met: 1) include nums[i], 2) contiguous) 
 	public int maxSum(int[] nums) {
 		if(nums == null || nums.length == 0) return 0;
 		
@@ -18,7 +20,7 @@ public class maximumSubarray {
 		
 		return res;		
 	}
-	
+		
 	
 	public int maxSubArraySum(int[] A) {
 		if(A == null || A.length == 0) return 0;

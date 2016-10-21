@@ -73,7 +73,7 @@ public class stock {
 		int min = prices[0];
 		for(int i = 1; i < n; i++) {
 			min = Math.min(min, prices[i]);
-			max_profit_from_left[i] = Math.max(max_profit_from_left[i-1], prices[i]-min);
+			max_profit_from_left[i] = Math.max(max_profit_from_left[i-1], prices[i]-min);  // since only one transaction allowed here
 		}
 		
 		// from right (one transaction after i)

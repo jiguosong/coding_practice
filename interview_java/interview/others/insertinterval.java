@@ -16,14 +16,14 @@ public class insertinterval {
 		if(newInterval == null) return intervals;
 		ArrayList<Interval> res = new ArrayList<Interval>();
 		
-		// everytime when comapre, we know there is some interval added or updated
+		// Every time when compare, we know there is some interval added or updated. Some merger might be necessary
 		for(Interval e:intervals) {
 			if(e.end < newInterval.start) {
 				res.add(e);
-			} else if(newInterval.end < e.start) {
+			} else if(newInterval.end < e.start) {   // similar to the curr and prev style once we get here
 				res.add(newInterval);
 				newInterval = e;
-			} else if(newInterval.end >= e.start || e.end >= newInterval.start) {
+			} else if(newInterval.end >= e.start || e.end >= newInterval.start) {   // do not add to the res when merging
 				newInterval = new Interval(Math.min(e.start, newInterval.start), Math.max(e.end, newInterval.end));
 			}
 		}

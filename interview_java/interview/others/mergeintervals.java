@@ -18,9 +18,7 @@ public class mergeintervals {
 		
 		Arrays.sort(in, new Comparator<interval>(){
 			public int compare(interval a, interval b){
-				return a.start - b.start;
-				/*if (a.start != b.start)	return a.start - b.start;
-				else return a.end - b.end;*/
+				return a.start - b.start;   // if a.start > b.start, then do the sort -> smaller a.start is in the front
 			}
 		});
 		

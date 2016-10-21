@@ -3,7 +3,7 @@ package others;
 import java.util.ArrayList;
 import java.util.List;
 
-public class flipGame {
+public class flipgame {
 	
 	// The game ends when a person can no longer make a move and therefore the other person will be the winner.
 	public boolean canWin(String s) {
@@ -48,7 +48,7 @@ public class flipGame {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		flipGame test = new flipGame();
+		flipgame test = new flipgame();
 		String s = "+++--++-+-++";
 		
 		List<String> ans = test.generatePossibleNextMoves(s);

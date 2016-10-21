@@ -5,6 +5,7 @@ public class minimalsizesubarray {
  * Given an array of n positive integers and a positive integer s,
  * find the minimal length of a subarray of which the sum ≥ s
 */
+	// can not use DP, since there is no sub-optimal solution
 	// like a worm eating
 	public int minSubArrayLen(int s, int[] nums) {
 		if (nums == null || nums.length == 0) return 0;

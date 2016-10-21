@@ -2,7 +2,43 @@ package others;
 
 import java.util.*;
 
-public class twosumThreesumFoursum {
+// 2sum, 3sum, 4sum and 3sum closet
+
+public class sum {
+	public int threeSumClosest(int[] nums, int target) {
+		if (nums == null || nums.length == 0) return 0;	
+		
+		int min = Integer.MAX_VALUE;	
+		int res = 0;
+		
+		Arrays.sort(nums);
+		
+		for(int i = 1; i < nums.length; i++) {
+			int curr = nums[i-1];
+			int left = i;
+			int right = nums.length-1;
+			int diff = 0;
+			while(left < right) {
+				int sum  = nums[left] + nums[right] + curr;
+				
+				diff = Math.abs(sum - target);
+				if(diff == 0) return target;				
+				if (diff < min) {
+					min = diff;
+					res = sum;
+				}
+				
+				if(sum <= target) {
+					left++;
+				} else {
+					right--;
+				}
+			}
+		}
+		
+		return res;
+	}	
+		
 	
 	public List<List<Integer>> fourSum(int[] nums, int target) {
 		if (nums == null || nums.length == 0) return null;		
@@ -56,42 +92,8 @@ public class twosumThreesumFoursum {
 		return result;		
 	}	
 	
-	public int threeSumClosest(int[] nums, int target) {
-		if (nums == null || nums.length == 0) return 0;	
-		
-		int min = Integer.MAX_VALUE;	
-		int res = 0;
-		
-		Arrays.sort(nums);
-		
-		for(int i = 1; i < nums.length; i++) {
-			int curr = nums[i-1];
-			int left = i;
-			int right = nums.length-1;
-			int diff = 0;
-			while(left < right) {
-				int sum  = nums[left] + nums[right] + curr;
-				diff = Math.abs(sum - target);
-				if(diff == 0) return target;	
-				
-				if (diff < min) {
-					min = diff;
-					res = sum;
-				}
-				
-				if(sum <= target) {
-					left++;
-				} else {
-					right--;
-				}
-			}
-		}
-		
-		return res;
-	}	
-		
 	
-	// sorted list of integer
+	// array of integer is sorted
 	public int[] twoSum_ptr(List<Integer> A, int sum){
 		if (A == null || A.size() == 0) return null;		
 		int[] res = {-1, -1};		
@@ -137,7 +139,7 @@ public class twosumThreesumFoursum {
 	}
 	
 	public static void main(String[] args){
-		twosumThreesumFoursum test = new twosumThreesumFoursum();
+		sum test = new sum();
 		
 		Integer[] array = {10, 2, 3, 4, 5, 6};
 		List<Integer> input = Arrays.asList(array);			

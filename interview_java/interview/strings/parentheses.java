@@ -36,7 +36,37 @@ public class parentheses {
 	/// Given a string containing just the characters '(' and ')', 
  	/// find the length of the longest valid parenthesis 
 	////////////////////////////////////////
-
+ 	// this is actually a dp solution. Based on my model, any previous valid parenthesis can not be in the stack, they must already be all popped properly.
+ 	// either there are some invalid heading ")", or just none. We use stack.peek to find the previous boundary
+ 	
+ 	public int longestValidParentheses_on_model(String s) {
+ 		if (s == null || s.length() == 0) return 0;
+ 		Deque<int[]> stack = new ArrayDeque<int[]>();
+ 		
+ 		int res = Integer.MIN_VALUE;
+ 		for(int i = 0; i < s.length(); i++) {
+ 			char c = s.charAt(i);
+ 			if(c == '(') {    // 0 for '('
+ 				int[] tmp = {0, i};
+ 				stack.push(tmp);
+ 			} else {          // 1 for ')'
+ 				if(stack.isEmpty() || stack.peek()[0] == 1) {
+ 	 				int[] tmp = {1, i};
+ 	 				stack.push(tmp);
+ 				} else {
+ 					stack.pop();
+ 					int len = 0;
+ 					if(stack.isEmpty()) len = i+1;
+ 					else len = i - stack.peek()[1];
+ 					
+ 					res = Math.max(res, len);
+ 				}
+ 			}
+ 		}
+ 		
+ 		return res;
+ 	}
+ 	
 	public int longestValidParentheses(String s) {
 		if (s == null || s.length() == 0) return 0;
 		
@@ -56,7 +86,7 @@ public class parentheses {
 				} else {
 					stack.pop();
 					int current_len = 0;
-					if(stack.isEmpty()) current_len = i+1;
+					if(stack.isEmpty()) current_len = i+1;   // all previous valid ones have been popped
 					else current_len = i - stack.peek()[0];
 					res = Math.max(res, current_len);
 				}
@@ -94,11 +124,11 @@ public class parentheses {
 				found_in_curr_level  = true;  
 			}
 			
-			if(found_in_curr_level) continue;    // if we have found one, then no more adding into queue and just need to process all left in the current level
+			if(found_in_curr_level) continue;    // if the current str is already a palindrome, no need to cut/remove anymore
 			
 			for(int i = 0; i < str.length(); i++) {
 				if(str.charAt(i) != '(' && str.charAt(i) != ')') continue;
-				String tmp = str.substring(0,i) + str.substring(i+1);
+				String tmp = str.substring(0,i) + str.substring(i+1);   // remove char(i)
 				if(!set.contains(tmp)) {   // if not visited this str before
 					queue.offer(tmp);
 					set.add(tmp);
@@ -163,6 +193,8 @@ public class parentheses {
 		String s3 = ")()())";
 		System.out.println("longest parentheses of " + s3);		
 		int longestpa = test.longestValidParentheses(s3);
+		System.out.println(longestpa);
+		longestpa = test.longestValidParentheses_on_model(s3);
 		System.out.println(longestpa);
 
 		System.out.println();

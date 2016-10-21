@@ -74,7 +74,7 @@ public class palindrome {
 			i++;
 		}
 		
-		if(i <= l) return null;
+		if(i <= l) return null;  // s is not palindrome
 		
 		StringBuilder sb = new StringBuilder(s.substring(r+i));
 		sb.reverse();

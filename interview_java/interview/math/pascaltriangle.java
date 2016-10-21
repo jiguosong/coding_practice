@@ -26,8 +26,7 @@ public class pascaltriangle {
 		}
 		
 		return res;
-	}
-	
+	}	
 	
 	public List<Integer> getRow(int rowIndex) {
 		if(rowIndex <= 0) return null;

@@ -2,6 +2,8 @@ package strings;
 
 import java.util.*;
 
+// it helps to understand the problem from my DP model
+
 public class minimumWindowSubstr {
 	
 	public String minWindow(String s, String t) {
@@ -34,7 +36,7 @@ public class minimumWindowSubstr {
 			
 			if(count == t.length()) {
 				Character left_char = s.charAt(left);
-				while(!source_map.containsKey(left_char) || source_map.get(left_char) > target_map.get(left_char)) {
+				while(!source_map.containsKey(left_char) || source_map.get(left_char) > target_map.get(left_char)) {  // for example, S can be all the same char
 					if(source_map.containsKey(left_char) && source_map.get(left_char) > target_map.get(left_char)) {
 						source_map.put(left_char, source_map.get(left_char) - 1);
 					}

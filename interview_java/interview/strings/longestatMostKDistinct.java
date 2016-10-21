@@ -42,7 +42,7 @@ public class longestatMostKDistinct {
 		if (s.length() < 3) return s.length();
 		
 		int max = 0;
-		int start = 0;
+		int left = 0;
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
 		
 		for(int i = 0; i < s.length(); i++) {
@@ -55,18 +55,18 @@ public class longestatMostKDistinct {
 			}
 			
 			if (map.size() > 2) {
-				max = Math.max(max, i - start);
+				max = Math.max(max, i - left);
 				while(map.size() > 2) {
-					Character tmp_c = s.charAt(start);
+					Character tmp_c = s.charAt(left);
 					int tmp_n = map.get(tmp_c);
 					if(tmp_n > 1) map.put(tmp_c, tmp_n-1);
 					else map.remove(tmp_c);
-					start++;
+					left++;
 				}
 			}
 		}
 		
-		max = Math.max(max, s.length() - start);
+		max = Math.max(max, s.length() - left);
 		
 		return max;	
 	}
@@ -80,7 +80,7 @@ public class longestatMostKDistinct {
 		int ans = test.lengthOfLongestSubstringTwoDistinct(s);
 		System.out.println(ans);
 		
-		ans = test.lengthOfLongestSubstringKDistinct(s,3);
+		ans = test.lengthOfLongestSubstringKDistinct(s,11);
 		System.out.println(ans);
 
 	}

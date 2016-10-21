@@ -4,7 +4,7 @@ import java.util.*;
 
 public class duplicates {
 	
-	// just remove duplicates
+	// just remove duplicates (sorted array)
 	public int[] removeDuplicatesNaive(int[] A) {
 		if(A == null || A.length < 2) return null;
 	
@@ -23,7 +23,7 @@ public class duplicates {
 		return B;		
 	}
 	
-	// duplicates are allowed at most twice!!
+	// duplicates are allowed at most twice after delete
 	public int[] removeDuplicates(int[] A) {
 		if(A == null || A.length < 2) return null;
 		
@@ -104,8 +104,8 @@ public class duplicates {
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 		for(int i = 0; i < nums.length; i++) {
 			if(map.containsKey(nums[i])) {
-				int idx = map.get(nums[i]);
-				if (Math.abs(idx-i) <= k) return true;
+				int pre_idx = map.get(nums[i]);
+				if (i-pre_idx <= k) return true;
 			}
 			map.put(nums[i], i);
 		}

@@ -8,7 +8,7 @@ public class missingnumber {
 	// Idea: 1) we can put 1 to A[0], 2 to A[1], ...... i+1 to A[i], or A[i] -> A[A[i]-1]
 	//       2) so if A[i] > 0 && A[i] <= n and A[i] != A[A[i]-1] and A[i]-1 != i we swap them
 	//       3) in the end, we scan from 1 to n to see which one does not satisfy A[i]-1 == i
-	public int firstMissingPositive(int[] A) {
+	public int firstMissingPositive(int[] A) {    // every swap will make sure one A[i] will go to ith position. so O(n)
 		if(A == null || A.length ==0) return 0;
 		
 		int i = 0;

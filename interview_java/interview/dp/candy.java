@@ -1,4 +1,4 @@
-package others;
+package dp;
 
 import java.util.Arrays;
 
@@ -27,7 +27,6 @@ public class candy {
 		return res;
 	}
 	
-	
 	/**
 	 * @param args
 	 */
@@ -36,6 +35,7 @@ public class candy {
 		int[] ratings = {1,2,0,1,2,3,2};
 		int ans = test.candysolver(ratings);
 		System.out.println(ans);
+	
 	}
 
 }

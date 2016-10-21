@@ -1,6 +1,6 @@
 package strings;
 
-public class strstrimplementation {
+public class strStr {
 	public int strStr_violent1(String haystack, String needle) {
 		if(haystack == null || haystack.length() == 0) return -1;
 		if(needle == null || needle.length() == 0) return -1;
@@ -107,7 +107,7 @@ public class strstrimplementation {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		strstrimplementation test = new strstrimplementation();
+		strStr test = new strStr();
 		
 		String haystack = "thisisatest";
 		String needle = "test";
