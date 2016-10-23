@@ -1,4 +1,4 @@
-package others;
+package dp;
 
 public class minimalsizesubarray {
 /*	
@@ -6,6 +6,7 @@ public class minimalsizesubarray {
  * find the minimal length of a subarray of which the sum ≥ s
 */
 	// can not use DP, since there is no sub-optimal solution
+	// NO!!! we can still use DP model to think about it
 	// like a worm eating
 	public int minSubArrayLen(int s, int[] nums) {
 		if (nums == null || nums.length == 0) return 0;

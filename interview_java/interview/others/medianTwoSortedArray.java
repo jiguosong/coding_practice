@@ -19,6 +19,9 @@ public class medianTwoSortedArray {
 		}
 	}
 	
+	// we compare a[k/2-1] and b[k/2-1]. If a[k/2-1] < b[k/2-1], this means that a[0]....a[k/2-1] must be among the k smallest 
+	// elements in the merged array in another word, a[k/2-1] can not be larger than kth largest number. So we can exclude it and try to find (k-k/2)th one
+	
 	// find kth element in general
 	private double findKth(int[] a, int a_start, int[] b, int b_start, int k){
 		if (k <= 0 || k > a.length+b.length) return 0;

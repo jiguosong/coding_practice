@@ -198,7 +198,7 @@ public class palindrome {
 			//case 1 : ab and ba both exist
 			add_one_result(str, i, map, res);   // will add only if str.reverse is in the map
 
-			// case 2:  for aaaabcd, aaaa is palindrome and dcb exists (so we can attch it to the left/or right)
+			// case 2:  for aaaabcd, aaaa is palindrome and dcb exists (so we can attach dcb to the left, or similarly right)
 			for(int k = 1; k < str.length(); k++) {
 				String left = str.substring(0,k);
 				String right = str.substring(k);				
@@ -254,6 +254,7 @@ public class palindrome {
 				if(s.charAt(i) == s.charAt(j) && j >= i) {
 					if(j-i < 2) ispalindr[i][j] = true;
 					else ispalindr[i][j] = ispalindr[i+1][j-1];	
+					
 					if (ispalindr[i][j]) {
 						res.add(s.substring(i, j + 1));
 					}

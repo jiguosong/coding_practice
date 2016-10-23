@@ -1,6 +1,6 @@
 package dp;
 
-public class longestCommonSubsequence {
+public class longestcommonSubsequence {
 	
 	public int getLongestCommonSubsequence_on_model(String a, String b){
 		if(a == null || b == null) return 0;
@@ -47,7 +47,7 @@ public class longestCommonSubsequence {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		longestCommonSubsequence test = new longestCommonSubsequence();
+		longestcommonSubsequence test = new longestcommonSubsequence();
 		String a = "ABCDGH";
 		String b = "AEDFHR";
 		int ans = test.getLongestCommonSubsequence(a, b);

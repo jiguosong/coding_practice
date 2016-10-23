@@ -1,6 +1,6 @@
 package dp;
 
-public class maximumSubarray {
+public class maximumsubarray {
 	
 	// I failed on this when I went to Samsuang Interview. Fuck!!!
 	// here is the idea: s[i] is the max sum of subarray that ends at nums[i] (inclusive)
@@ -95,7 +95,7 @@ public class maximumSubarray {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		maximumSubarray test = new maximumSubarray();
+		maximumsubarray test = new maximumsubarray();
 		int[] A = {1,2,3,4, -1,10,-7};
 		int ans = test.maxSubArraySum(A);		
 		System.out.println(ans);

@@ -2,8 +2,9 @@ package others;
 
 import java.util.*;
 
-public class kthlargestinarray {
+public class findkthlargestinarray {
 	
+	// in an unsorted array
 	public int findKthLargest(int[] nums, int k) {
 		if(nums == null || nums.length == 0 || k <= 0) return 0;
 		
@@ -51,7 +52,7 @@ public class kthlargestinarray {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		kthlargestinarray test = new kthlargestinarray();
+		findkthlargestinarray test = new findkthlargestinarray();
 		int[] nums = {3,2,1,5,6,4};
 		int k = 5;
 		int ans = test.findKthLargest(nums, k);

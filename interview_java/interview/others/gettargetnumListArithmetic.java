@@ -24,7 +24,7 @@ public class gettargetnumListArithmetic {
 		List<Integer> tmp = new ArrayList<Integer>();
 		if(left > right) return tmp;
 		if(left == right) {
-			tmp.add(list.get(left));
+			tmp.add(list.get(left));   // if the list[left] is the target, we do not need do any calculation
 			return tmp;
 		}
 		

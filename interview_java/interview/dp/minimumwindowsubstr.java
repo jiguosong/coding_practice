@@ -1,10 +1,10 @@
-package strings;
+package dp;
 
 import java.util.*;
 
 // it helps to understand the problem from my DP model
 
-public class minimumWindowSubstr {
+public class minimumwindowsubstr {
 	
 	public String minWindow(String s, String t) {
 		if(s == null || t == null || s.length() == 0 || t.length() == 0) return null;
@@ -34,9 +34,11 @@ public class minimumWindowSubstr {
 				}				
 			}
 			
+			
 			if(count == t.length()) {
+				// basically we are trying to remove all unnecessary chars here (for example, S can be many same chars, so they are in the map but not in the count)
 				Character left_char = s.charAt(left);
-				while(!source_map.containsKey(left_char) || source_map.get(left_char) > target_map.get(left_char)) {  // for example, S can be all the same char
+				while(!source_map.containsKey(left_char) || source_map.get(left_char) > target_map.get(left_char)) { 
 					if(source_map.containsKey(left_char) && source_map.get(left_char) > target_map.get(left_char)) {
 						source_map.put(left_char, source_map.get(left_char) - 1);
 					}
@@ -55,7 +57,7 @@ public class minimumWindowSubstr {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		minimumWindowSubstr test = new minimumWindowSubstr();
+		minimumwindowsubstr test = new minimumwindowsubstr();
 		String s = "ADOBECODEBANC";
 		String t = "ABC";
 		String ans = test.minWindow(s, t);

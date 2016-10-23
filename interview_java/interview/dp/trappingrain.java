@@ -1,9 +1,8 @@
-package others;
+package dp;
 
 import java.util.Arrays;
 
 public class trappingrain {
-
 	public int trap(int[] height) {
 		int res = 0;
 		if (height == null || height.length == 0) return res;

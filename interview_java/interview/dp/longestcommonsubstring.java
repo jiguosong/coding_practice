@@ -4,7 +4,7 @@ package dp;
 when a[i]!=b[j], dp[i][j] are all zeros by default. However, in the longest common subsequence problem, dp[i][j] 
 values are carried from the previous values, i.e., dp[i-1][j] and dp[i][j-1].*/
 
-public class longestCommonSubstring {
+public class longestcommonsubstring {
 	public int getLongestCommonSubstring_on_model(String a, String b){
 		if(a == null || a.length() == 0) return 0;
 		if(b == null || b.length() == 0) return 0;
@@ -59,7 +59,7 @@ public class longestCommonSubstring {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		longestCommonSubstring test = new longestCommonSubstring();
+		longestcommonsubstring test = new longestcommonsubstring();
 		String a =  "OldSite:GeeksforGeeks.org";
 		String b = "NewSite:GeeksQuiz.com";
 		int ans = test.getLongestCommonSubstring(a, b);

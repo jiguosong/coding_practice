@@ -1,8 +1,11 @@
-package matrix;
+package strings;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
+
+import strings.MyTrie;
+import strings.My_Dictionary;
 
 public class wordsearch {
 	

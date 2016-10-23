@@ -1,15 +1,15 @@
-package strings;
+package dp;
 
 import java.util.*;
 
-public class longestatMostKDistinct {
+public class longestatmostKdistinct {
 	public int lengthOfLongestSubstringKDistinct(String s, int k) {
 		if (s == null || s.length() == 0) return 0;
 		if (s.length() < k) return s.length();
 		
 		int max = 0;
 		int left = 0;
-		Map<Character, Integer> map = new HashMap<Character, Integer>();  // map to the counter
+		Map<Character, Integer> map = new HashMap<Character, Integer>();  // map char to its counter
 		
 		for(int i = 0; i < s.length(); i++) {
 			Character c = s.charAt(i);
@@ -75,7 +75,7 @@ public class longestatMostKDistinct {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		longestatMostKDistinct test = new longestatMostKDistinct();
+		longestatmostKdistinct test = new longestatmostKdistinct();
 		String s = "abcadcacacaca";
 		int ans = test.lengthOfLongestSubstringTwoDistinct(s);
 		System.out.println(ans);

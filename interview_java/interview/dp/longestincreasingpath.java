@@ -1,8 +1,45 @@
-package matrix;
+package dp;
 
 import java.util.Arrays;
 
-public class longestincreasingPath {
+public class longestincreasingpath {
+	
+	public int longestIncreasingPath_DP_DFS(int[][] matrix) {
+		if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return 0;
+		int res = 0;
+		
+		int m = matrix.length;
+		int n = matrix[0].length;
+		
+		int[][] path = new int[m][n];   // the longest increasing path from this point, inclusive
+		int max = 1;
+		for(int i = 0; i < m; i++) {
+			for(int j = 0; j < n; j++) {
+				int len = longestIncreasingPath_DP_DFS_helper(matrix, m, n, i, j, path);
+				max = Math.max(max, len);
+			}
+		}
+		
+		return max;
+	}
+	
+	public int longestIncreasingPath_DP_DFS_helper(int[][] matrix, int m, int n, int i, int j, int[][] path) {
+		if(path[i][j] != 0) return path[i][j];
+		int[] dx = {-1,1,0,0};
+		int[] dy = {0,0,-1,1};
+		
+		int max = 1;
+		for(int k = 0; k < 4; k++) {
+			int x = i+dx[k];
+			int y = j+dy[k];
+			if(x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] <= matrix[i][j]) continue;			
+			int len = longestIncreasingPath_DP_DFS_helper(matrix, m, n, x, y, path) + 1;
+			max = Math.max(max, len);			
+		}
+		
+		path[i][j] = max;
+		return path[i][j];
+	}
 	
 	// DFS version
 	public int longestIncreasingPath(int[][] matrix) {
@@ -26,7 +63,7 @@ public class longestincreasingPath {
 	}
 	
 	
-	// this is just like a tree walk -- in 4 directions
+	// in 4 directions
 	private int longestIncreasingPath_helper(int[][] matrix, int x, int y, int[][] path_len) {
 		if (path_len[x][y] != 0) return path_len[x][y];
 		
@@ -50,7 +87,7 @@ public class longestincreasingPath {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		longestincreasingPath test = new longestincreasingPath();
+		longestincreasingpath test = new longestincreasingpath();
 		int[][] matrix = {{9,10,100},
 		  		   		  {6,6,8},
 		  		          {2,1,1}};
@@ -67,6 +104,9 @@ public class longestincreasingPath {
 		System.out.println();
 		
 		int ans = test.longestIncreasingPath(matrix);
+		System.out.println(ans);
+		
+		ans = test.longestIncreasingPath_DP_DFS(matrix);
 		System.out.println(ans);
 	}
 

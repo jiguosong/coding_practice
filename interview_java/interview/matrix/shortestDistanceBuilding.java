@@ -18,8 +18,8 @@ public class shortestDistanceBuilding {
 		 int res = 0;
 		 if (row == 0 || col == 0) return res;
 		 
-		 int[][] reachBuildings = new int[row][col];   // tracking the number of buildings which can be reached from this (row, col) empty
-		 int[][] distance = new int[row][col];        // tracking the sum of distance from each building to this (row, col) empty
+		 int[][] reachBuildings = new int[row][col];   // tracking the number of buildings which can be reached from this point
+		 int[][] distance = new int[row][col];        // tracking the sum of distance from each building to this point
 		 
 		 int numBuild = 0;
 		 for (int i = 0; i < row; i++) {

@@ -1,44 +1,8 @@
-package matrix;
+package dp;
 
 import java.util.*;
 
 public class largestRectangleSqaure {
-	
-	public int maximalSquare(char[][] matrix) {
-		if (matrix == null) return 0;
-		int row = matrix.length;
-		int col = matrix[0].length;
-		if (row == 0 && col == 0) return 0;
-
-		int[][] area = new int[row][col];
-				
-		for (int i = 0; i < row; i++) area[i][0] = Character.getNumericValue(matrix[i][0]);
-		for (int j = 0; j < col; j++) area[0][j] = Character.getNumericValue(matrix[0][j]);
-		
-		int ans= 0;
-		int x = 0;
-		int y = 0;
-		
-		for (int i = 1; i < row; i++) {
-			for (int j = 1; j < col; j++) {
-				if (matrix[i][j] == '1') {
-					area[i][j] = Math.min(area[i-1][j], Math.min(area[i][j-1], area[i-1][j-1]))+1;
-					if (area[i][j] >= ans) {
-						ans = area[i][j];
-						x = i;
-						y = j;
-					}
-				} else {
-					area[i][j] = 0;
-				}
-			}
-		}		
-		
-		System.out.println(x);
-		System.out.println(y);		
-		return ans;		
-	}
-	
 	public int maximalRectangle(char[][] matrix) {
 		if (matrix == null) return 0;
 		int row = matrix.length;
@@ -137,27 +101,6 @@ public class largestRectangleSqaure {
 		System.out.println();
 
 		res = test.maximalRectangle(matrix);
-		System.out.println(res);
-		
-		System.out.println("Java:largestSquare");
-		
-		char[][] matrix2  = {{'0','1','1','0','1'},
-							{'1','1','1','1','0'},
-							{'1','1','1','1','0'},
-							{'1','1','1','1','0'},
-							{'1','1','1','0','1'},
-							{'0','0','0','0','0'}};
-		row = matrix2.length;
-		col = matrix2[0].length;		
-		for (int i = 0; i < row; i++) {
-			for (int j = 0; j < col; j++) {
-				System.out.print(matrix2[i][j]);
-			}
-			System.out.println();
-		}
-		System.out.println();
-
-		res = test.maximalSquare(matrix2);
 		System.out.println(res);
 	}
 
