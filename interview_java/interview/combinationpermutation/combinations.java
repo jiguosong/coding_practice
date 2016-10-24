@@ -3,6 +3,8 @@ package combinationpermutation;
 import java.util.*;
 
 public class combinations {
+	
+	// Given two integers n and k, return all possible combinations of k numbers out of 1 ... n
 	public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         List<Integer> tmp = new ArrayList<Integer>();
@@ -29,6 +31,7 @@ public class combinations {
 		return;		
 	}
 	
+	//The same repeated number may be chosen unlimited number of times.
 	public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target) {
 		if(candidates == null || candidates.length == 0) return null;
 		
@@ -57,7 +60,7 @@ public class combinations {
 		return;		
 	}
 	
-	
+	//  Each number in C may only be used ONCE in the combination
 	public ArrayList<ArrayList<Integer>> combinationSum2(int[] candidates, int target) {
 		if(candidates == null || candidates.length == 0) return null;
 		
@@ -133,6 +136,7 @@ public class combinations {
 		return num_comb[target];
 		
 	}
+	
 	
 	public static void main(String[] args){
 		

@@ -2,35 +2,35 @@ package dp;
 
 import java.util.*;
 
-//Moving Average from Data Stream
-class MovingAverage {
-	Deque<Integer> queue = null;
-	int sum = 0;
-	int size = 0;
-	int avg = 0;
-	
-	MovingAverage(int size) {
-		this.size = size;
-		queue = new ArrayDeque<Integer>();
-	}
-	
-	public int next(int val){
-		queue.offer(val);
-		sum += val;
+	//	Moving Average from Data Stream
+	class MovingAverage {
+		Deque<Integer> queue = null;
+		int sum = 0;
+		int size = 0;
+		int avg = 0;
 		
-		if(queue.size() <= 3 && queue.size() > 0) {
-			avg = sum/queue.size();
-		} else {
-			int tmp = queue.peek();
-			sum -= tmp;
-			avg = sum/size;
-			queue.poll();				
-		}			
-		return avg;
+		MovingAverage(int size) {
+			this.size = size;
+			queue = new ArrayDeque<Integer>();
+		}
+		
+		public int next(int val){
+			queue.offer(val);
+			sum += val;
+			
+			if(queue.size() <= 3 && queue.size() > 0) {
+				avg = sum/queue.size();
+			} else {
+				int tmp = queue.peek();
+				sum -= tmp;
+				avg = sum/size;
+				queue.poll();				
+			}			
+			return avg;
+		}
 	}
-}
-
-public class slidingwindow {
+	
+public class maxslidingwindow {
 /*	
  * Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right.
  * You can only see the k numbers in the window. Each time the sliding window moves right by one position.
@@ -75,7 +75,7 @@ public class slidingwindow {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		slidingwindow test = new slidingwindow();
+		maxslidingwindow test = new maxslidingwindow();
 		
 		int[] nums = {1,3,-1,-3,5,3,6,7};
 		int k = 3;		

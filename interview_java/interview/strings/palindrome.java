@@ -82,7 +82,7 @@ public class palindrome {
 	}
 	
 	////////////////////////////////////////
-	/// longest palindrome 
+	/// longest palindrome substring
 	////////////////////////////////////////
 	public String longestPalindrome_dp_on_model(String s) {
 		if (s == null || s.length() == 0) return null;
@@ -165,6 +165,21 @@ public class palindrome {
 		return s.substring(l+1,r);		
 	}
 	
+	// Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+	public int longestPalindrome_can_be_built(String s) {
+		if(s == null || s.length() == 0) return 0;
+		
+		Set<Character> set = new HashSet<Character>();  // track characters that appear odd times
+		
+		for(int i = 0; i < s.length(); i++) {
+			Character c = s.charAt(i);
+			if(set.contains(c)) set.remove(c);
+			else set.add(c);
+		}
+		
+		return s.length() - Math.max(0, set.size()-1);
+		
+	}
 	
 	////////////////////////////////////////
 	/// palindrome pairs 
@@ -390,6 +405,10 @@ public class palindrome {
 		System.out.println();
 		int mincut = test.minCut_on_model("aabaaabcd");
 		System.out.println(mincut);
+		
+		System.out.println();
+		int longest_can_be_built = test.longestPalindrome_can_be_built("abccccdd");
+		System.out.println(longest_can_be_built);
 		
 		
 		return;

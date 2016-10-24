@@ -45,9 +45,11 @@ int main(int argc, char **argv) {
 //	Solution_validPalindromeStr isvalidPalindromeStr_test;
 //	isvalidPalindromeStr_test.test();
 
-	Solution_partitionpalindrome partitionpalindrome_test;
-	partitionpalindrome_test.test();
+//	Solution_partitionpalindrome partitionpalindrome_test;
+//	partitionpalindrome_test.test();
 
+	Solution_count_smalestNumber count_smalestNumber_test;
+	count_smalestNumber_test.test();
 
 	return 0;
 }
