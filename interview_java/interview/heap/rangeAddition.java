@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class rangeAddition {
 
+	// this is not using any heap at all. For [start, end, val], just add val to the start and -val to the end+1 element. Finally add up.
 	public int[] getModifiedArray(int length, int[][] updates) {
 	    int[] result = new int[length];
 	    if(updates==null||updates.length==0)

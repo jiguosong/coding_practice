@@ -14,7 +14,6 @@ class ArrayContainer implements Comparable<ArrayContainer> {
 	@Override
 	public int compareTo(ArrayContainer o) {
 		return this.array[this.index] - o.array[o.index];
-		//return o.array[o.index] - this.array[this.index];
 	}
 }
 

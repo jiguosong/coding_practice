@@ -87,12 +87,12 @@ public class pathSum {
 		if (root == null) return 0;
 		
 		int left_max = maxPathSum_helper(root.left, globalmax);
-		int right_max = maxPathSum_helper(root.right, globalmax);
-		
+		int right_max = maxPathSum_helper(root.right, globalmax);		
 		int curr_max = Math.max(left_max + root.val, right_max + root.val);
 		curr_max = Math.max(curr_max, root.val);
-		globalmax[0] = Math.max(globalmax[0], curr_max);
 		
+		int tmp = Math.max(curr_max, left_max + root.val + right_max);
+		globalmax[0] = Math.max(globalmax[0], tmp);		
 		return curr_max;
 	}
 	

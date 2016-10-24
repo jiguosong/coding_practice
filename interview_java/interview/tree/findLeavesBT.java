@@ -22,7 +22,7 @@ public class findLeavesBT {
 		int right_h = findLeaves_helper(root.right, tmp, res);
 		int height = Math.max(left_h, right_h) + 1;  // start from 1
 		
-		if (res.size() < height) {
+		if (res.size() < height) {  // reach to a new level
 			List<Integer> p = new ArrayList<Integer>();
 			res.add(p);
 		}

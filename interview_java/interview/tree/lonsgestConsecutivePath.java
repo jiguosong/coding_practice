@@ -3,6 +3,17 @@ package tree;
 import java.util.Iterator;
 import java.util.List;
 
+/*
+ *   3-4-5 is the longest one, so ans is 3
+1
+\
+ 3
+/ \
+2   4
+    \
+     5
+     
+*/
 public class lonsgestConsecutivePath {
 
 	private int maxLen = 0;

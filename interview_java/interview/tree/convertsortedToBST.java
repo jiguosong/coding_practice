@@ -5,7 +5,7 @@ import java.util.List;
 
 import list.MyList;
 
-public class sortedToBST {
+public class convertsortedToBST {
 	public TreeNode sortedArrayToBST(int[] num) {
 		if (num == null || num.length == 0) return null;
 		TreeNode root = null;
@@ -76,7 +76,7 @@ public class sortedToBST {
 	 */
 	
 	public static void main(String[] args) {
-		sortedToBST test = new sortedToBST();
+		convertsortedToBST test = new convertsortedToBST();
 		int[] num = {1,2,3,4,5,6};
 		TreeNode root = test.sortedArrayToBST(num);
 

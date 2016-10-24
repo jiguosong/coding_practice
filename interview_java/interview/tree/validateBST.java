@@ -11,7 +11,7 @@ import java.util.*;
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class ValidateBST {
+public class validateBST {
     public boolean isValidBST_1(TreeNode root) {  // in order
         if (root == null) return true;
         
@@ -69,12 +69,12 @@ public class ValidateBST {
 		root.right.right = new TreeNode(5);
 		
 		System.out.println("Java:validate BST method 1");
-		ValidateBST test = new ValidateBST();
+		validateBST test = new validateBST();
 		if (test.isValidBST_1(root) == true) System.out.println("Yes");
 		else System.out.println("No");
 
 		System.out.println("Java:validate BST method 2");
-		ValidateBST test2 = new ValidateBST();
+		validateBST test2 = new validateBST();
 		if (test.isValidBST_2(root) == true) System.out.println("Yes");
 		else System.out.println("No");
 
