@@ -175,6 +175,31 @@ public class parentheses {
 		 
 		 return;
 	 }
+	 
+	 // generate valid parentheses from n pairs of parentheses
+	 // think in DP model
+	 public List<String> generateParenthesis(int n) {
+		 if(n <= 0) return null;
+		 
+		 List<String> res = new ArrayList<String>();
+		 generateParenthesis_helper(res, "", n, n);
+		 return res;
+	 }
+
+	 private void generateParenthesis_helper(List<String> res, String s, int left, int right) {
+		 if(left > right) return;
+		 
+		 if(left == 0 && right == 0) {
+			 res.add(s);
+			 return;
+		 }
+		 
+		 if(left > 0) generateParenthesis_helper(res, s+'(', left-1, right);
+		 if(right > 0) generateParenthesis_helper(res, s+')', left, right-1);
+		 
+		 return;
+	 }
+	 
 	/**
 	 * @param args
 	 */
@@ -203,10 +228,17 @@ public class parentheses {
 		List<String> ans = test.removeInvalidParentheses(s4);
 		System.out.println(ans);
 		
+		System.out.println();
 		String s5 = "()())()";
 		System.out.println("remove invalid parentheses from " + s5);
 		List<String> ans2 = test.removeInvalidParentheses_bfs(s5);
 		System.out.println(ans2);	
+		
+		System.out.println();
+		int n = 3;
+		System.out.println("generate parentheses from " + n + " pairs of parenthesis");
+		List<String> ans3 = test.generateParenthesis(n);
+		System.out.println(ans3);	
 		}
 	
 	}
