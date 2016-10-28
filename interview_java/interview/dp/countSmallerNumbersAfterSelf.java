@@ -30,15 +30,15 @@ public class countSmallerNumbersAfterSelf {
 		return Arrays.asList(res);
 	}
 
-	private BSTNode insert(BSTNode root, int val, Integer[] res, int i, int sum) {
+	private BSTNode insert(BSTNode root, int val, Integer[] res, int i, int preSum) {
 		if(root == null) {
 			root = new BSTNode(val,0);			
-			res[i] = sum;
+			res[i] = preSum;
 		} else if(root.val > val) {
 			root.smaller++;
-			root.left = insert(root.left, val, res, i, sum);
+			root.left = insert(root.left, val, res, i, preSum);
 		} else {
-			root.right = insert(root.right, val, res, i, sum+root.smaller+(root.val<val?1:0));
+			root.right = insert(root.right, val, res, i, preSum+root.smaller+(root.val<val?1:0));
 		}
 		
 		return root;

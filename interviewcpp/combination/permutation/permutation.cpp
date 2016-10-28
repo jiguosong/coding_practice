@@ -1,10 +1,9 @@
 using namespace std;
 
-#ifndef NULL
-#define NULL ((void *)0)
-#endif
+#include <iostream>
+#include <vector>
 
-class Solutoin_permutation{
+class permutation{
 public:
 	vector<vector<int>> permute(vector<int> &nums) {
 		vector<vector<int>> res;
@@ -47,14 +46,22 @@ private:
 			cout << endl;
 		}
 	}
+};
 
-public:
-	void test(){
-		cout << "CPP:permutation" << endl;
-		vector<int> nums {1,2,3};
-		vector<vector<int>> result = permute(nums);
-		Print(result);
-		cout << "done" << endl;
+
+int main(int argc, char** argv) {
+	cout << "CPP:permutation" << endl;
+
+	permutation test;
+	vector<int> nums {1,2,3};
+	vector<vector<int>> res = test.permute(nums);
+
+	for (auto &i:res) {
+		for (auto &k:i) {
+			cout << k;
+		}
+		cout << endl;
 	}
 
-};
+	return 0;
+}

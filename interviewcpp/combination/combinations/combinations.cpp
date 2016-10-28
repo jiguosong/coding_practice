@@ -1,6 +1,16 @@
+/*
+ * combinations.cpp
+ *
+ *  Created on: Oct 26, 2016
+ *      Author: songjiguo
+ */
+
 using namespace std;
 
-class Solution_combination{
+#include <iostream>
+#include <vector>
+
+class combinations{
 public:
 	vector<vector<int>> combine(int n, int k) {
 		vector<vector<int>> res;
@@ -27,7 +37,6 @@ private:
 		}
 	}
 
-
 private:
 	void Print(const vector<vector<int>> &v){
 		for (auto &i:v) {
@@ -37,14 +46,24 @@ private:
 			cout << endl;
 		}
 	}
+};
 
-public:
-	void test(){
-		cout << "CPP: combination" << endl;
+
+int main(){
+	cout << "CPP: combination" << endl;
 		vector<vector<int>> result;
 		int n = 4;
 		int k = 2;
-		result = combine(n, k);
-		Print(result);
-	}
-};
+
+		combinations test;
+		result = test.combine(n, k);
+
+		for (auto &i:result) {
+			for (auto &k:i) {
+				cout << k;
+			}
+			cout << endl;
+		}
+
+	return 0;
+}

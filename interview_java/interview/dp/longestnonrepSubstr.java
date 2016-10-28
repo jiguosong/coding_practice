@@ -4,7 +4,7 @@ import java.util.*;
 
 // the solution has some dp style
 
-public class longestnonrepsubstr {
+public class longestnonrepSubstr {
 	public int findLongNonRepStr(String s){
 		if (s == null || s.length() == 0) return 0;
 		int ret = 0;
@@ -76,7 +76,7 @@ public class longestnonrepsubstr {
 	
 	public static void main(String[] args) {
 		System.out.println("Java:LongestNonrepSubstr");
-		longestnonrepsubstr test = new longestnonrepsubstr();
+		longestnonrepSubstr test = new longestnonrepSubstr();
 		String s = new String("abcabcbb");
 		System.out.println(s);
 		

@@ -1,8 +1,10 @@
 using namespace std;
 
+#include <iostream>
 #include <string>
+#include <vector>
 
-class Solution_count_smalestNumber {
+class count_smalestNumber {
 public:
     struct Node {
         int val, smaller;
@@ -22,14 +24,16 @@ public:
         }
         return res;
     }
-
-    void test(){
-    		cout << "CPP:longestPalindrome" << endl;
-    		vector<int> nums = {1,2,3};
-    		vector<int> result = countSmaller(nums);
-    		cout << result << endl;
-    		return;
-    	}
-
 };
+
+int main(){
+  		cout << "CPP:longestPalindrome" << endl;
+  		vector<int> nums = {1,2,1};
+
+  		count_smalestNumber test;
+
+  		vector<int> result = test.countSmaller(nums);
+  		cout << result[0] << endl;
+  		return 0;
+  	}
 
