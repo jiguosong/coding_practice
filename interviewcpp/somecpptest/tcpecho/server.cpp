@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <sys/socket.h>
 #include <sys/types.h>
+#include <arpa/inet.h>
 #include <netinet/in.h>
 #include <unistd.h>   // for calling close
 
@@ -121,14 +122,14 @@ void server::process(int client_sockfd) {
 	while(1) {
 		string request = receive_request(client_sockfd);
 		if(request.empty()) break;
-		bool success = send_response(client_sockfd, request);
+		string tmp = "I have received it. Now send the next\n";
+		bool success = send_response(client_sockfd,  tmp);
 		if(!success) break;
 	}
 }
 
 string server::receive_request(int client_sockfd) {
 	string res = "";
-
 	while(res.find("\n") == string::npos) {
 		int size = recv(client_sockfd, buffer, buff_len, 0);
 		if(size < 0) {

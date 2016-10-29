@@ -8,7 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include somecpptest/echo/subdir.mk
+-include boost/echo/subdir.mk
 -include subdir.mk
 -include objects.mk
 

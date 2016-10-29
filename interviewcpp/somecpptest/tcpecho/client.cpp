@@ -125,7 +125,6 @@ bool client::send_request(string response)
 
 bool client::receive_response() {
 	string res = "";
-
 	while(res.find("\n") == string::npos) {
 		int size = recv(returned_server_sockfd, buffer, buffer_len, 0);
 		if(size < 0) {
