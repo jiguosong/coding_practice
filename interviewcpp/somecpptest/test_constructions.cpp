@@ -45,7 +45,7 @@ public:
 	static int lineC;
 	int a;
 	app(int x):a(x){}
-	app() {a=0;};
+	app() {a = 0;};
 	app operator+(const int k) const { return app(a + k);}
 };
 
@@ -55,7 +55,7 @@ struct woooz{
 	int b;
 	std::string wz;
 
-	woooz(int k, const std::string& kk="WoooZ"):b(k){ wz=kk;}
+	woooz(int k, const std::string& kk="WoooZ"):b(k), wz(kk){}
 	~woooz(){
 		std::cout << " woooz " << b <<" GONE-- " << ++app::lineC << std::endl;
 	}
@@ -108,6 +108,7 @@ int main()
 	chd_handler ck(&b, "this is child");
 	std::cout << ck.m_name << std::endl;
 	std::cout << std::endl;
+
 }
 
 

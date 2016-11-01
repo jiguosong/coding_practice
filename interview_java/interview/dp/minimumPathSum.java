@@ -31,6 +31,7 @@ public class minimumPathSum {
 		int[][] sum = new int[m][n];
 		sum[0][0] = grid[0][0];
 		
+		
 		for(int i = 1; i < m; i++) sum[i][0] = sum[i-1][0] + grid[i][0];
 		for(int i = 1; i < n; i++) sum[0][i] = sum[0][i-1] + grid[0][i];
 		

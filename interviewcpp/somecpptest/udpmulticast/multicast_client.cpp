@@ -19,6 +19,8 @@
 
 using namespace std;
 
+#define SERVER_GROUP "225.0.0.37"
+
 class multicast_client {
 private:
 	int multicast_client_sockfd;
@@ -61,7 +63,7 @@ void multicast_client::create_socket(){
 
 	multicast_sockaddr.sin_family = AF_INET;
 	multicast_sockaddr.sin_port = htons(multicast_port);
-	multicast_sockaddr.sin_addr.s_addr = inet_addr(multicast_ip);
+	multicast_sockaddr.sin_addr.s_addr = inet_addr(SERVER_GROUP);
 
 	multicast_client_sockfd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	if(multicast_client_sockfd < 0) {
@@ -69,9 +71,11 @@ void multicast_client::create_socket(){
 		exit(-1);
 	}
 
+	struct in_addr localInterface;
+	localInterface.s_addr = inet_addr(multicast_ip);
 	if(setsockopt(multicast_client_sockfd, IPPROTO_IP, IP_MULTICAST_TTL,
-				  (void*)&multicast_TTL, sizeof(multicast_TTL)) < 0) {
-		perror("set TTL fails");
+				  (void*)&localInterface, sizeof(localInterface)) < 0) {
+		perror("set interface fails");
 		exit(-1);
 	}
 }

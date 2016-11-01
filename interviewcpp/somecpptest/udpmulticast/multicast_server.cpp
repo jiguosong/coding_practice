@@ -85,7 +85,7 @@ void multicast_server::create_socket() {
 	struct ip_mreq multicast_request;
 	memset(&multicast_request, 0, sizeof(multicast_request));
 	multicast_request.imr_multiaddr.s_addr = inet_addr(SERVER_GROUP);
-	multicast_request.imr_interface.s_addr = htonl(INADDR_ANY);
+	multicast_request.imr_interface.s_addr = inet_addr(multicast_server_ip);
 
 	if(setsockopt(multicast_server_sockfd, IPPROTO_IP, IP_ADD_MEMBERSHIP,
 				  (void*)&multicast_request, sizeof(multicast_request) < 0)) {
@@ -117,6 +117,6 @@ void multicast_server::start_multicast_server() {
 }
 
 int main(int argc, char **argv) {
-	multicast_server test("192.168.0.1", 5050);
+	multicast_server test("127.0.0.1", 5050);
 	test.start_multicast_server();
 }

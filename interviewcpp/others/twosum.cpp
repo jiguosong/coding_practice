@@ -14,20 +14,16 @@ using namespace std;
 class twosum {
 public:
 	vector<int> twoSum(vector<int> &nums, int target) {
-		unordered_map<int, int> m;
-		vector<int> res;
-		for (int i = 0; i < nums.size(); ++i) {
-			m[nums[i]] = i;
-		}
-		for (int i = 0; i < nums.size(); ++i) {
+		unordered_map<int, int> map;
+		for (int i = 0; (size_t)i < nums.size(); ++i) {
 			int t = target - nums[i];
-			if (m.count(t) && m[t] != i) {
-				res.push_back(i);
-				res.push_back(m[t]);
+			if (map.count(t) && map[t] != i) {
+				return {i, map[t]};
 				break;
 			}
+			map[nums[i]] = i;
 		}
-		return res;
+		return {};
 	}
 };
 
