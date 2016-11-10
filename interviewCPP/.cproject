@@ -5,16 +5,16 @@
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.exe.debug.1590527349" moduleId="org.eclipse.cdt.core.settings" name="Debug">
 				<externalSettings/>
 				<extensions>
-					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.exe.debug.1590527349" name="Debug" parent="cdt.managedbuild.config.gnu.exe.debug">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.exe.debug.1590527349" name="Debug" parent="cdt.managedbuild.config.gnu.exe.debug">
 					<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.1590527349." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.debug.1016471330" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.debug">
 							<targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.debug.4130772" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.debug"/>
@@ -47,7 +47,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="list/add2number.cpp|string/validpalindrome.cpp|string/partitionpalindrome.cpp|string/palindromenumber.cpp|somecpptest/test_string.cpp|somecpptest/test_constructions.cpp|somecpptest/quiz_socket.cpp|somecpptest/ans.cpp|somecpptest/udpmulticast|somecpptest/test_virtual|somecpptest/tcpecho|others/rotatearray.cpp|others/findkthinsorted.cpp|dp/palindromepair.cpp|dp/mostwater.cpp|dp/minimumwindowsubstr.cpp|dp/longestpalindrome.cpp|dp/longestnonrepsubstr.cpp|dp/editdistance.cpp|dp/distinctsubsequence.cpp|dp/countersmallernumberafterself.cpp|combination/permutation.cpp|combination/combinations.cpp|boost/echo|miscellaneous/check_c11.cpp|miscellaneous/teststack.cpp|miscellaneous/spinlock.cpp|miscellaneous/endian.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="miscellaneous/bitsprint.cpp|tree/BSTProblems.cpp|list/listproblems.cpp|tree/pathsum.cpp|tree/tree_walk.cpp|dp/maxsubaaray.cpp|tree/levelorder.cpp|list/Node.cpp|somecpptest|dp/distinctsubsequence.cpp|string/partitionpalindrome.cpp|others/findkthinsorted.cpp|string/validpalindrome.cpp|somecpptest/test_constructions.cpp|dp/palindromepair.cpp|others/3sum.cpp|dp/editdistance.cpp|miscellaneous/spinlock.cpp|boost/echo|somecpptest/test_string.cpp|list/testlist.cpp|somecpptest/test_virtual|miscellaneous/endian.cpp|somecpptest/udpmulticast|dp/longestnonrepsubstr.cpp|dp/minimumwindowsubstr.cpp|miscellaneous/teststack.cpp|combination/combinations.cpp|somecpptest/quiz_socket.cpp|somecpptest/ans.cpp|dp/longestpalindrome.cpp|others/2sum.cpp|dp/trapping_water.cpp|dp/mostwater.cpp|somecpptest/tcpecho|combination/permutation.cpp|string/palindromenumber.cpp|dp/countersmallernumberafterself.cpp|dp/palindrome.cpp|others/rotatearray.cpp|list/add2number.cpp|miscellaneous/check_c11.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -57,16 +57,16 @@
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.exe.release.1847065731" moduleId="org.eclipse.cdt.core.settings" name="Release">
 				<externalSettings/>
 				<extensions>
-					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.exe.release.1847065731" name="Release" parent="cdt.managedbuild.config.gnu.exe.release">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.exe.release.1847065731" name="Release" parent="cdt.managedbuild.config.gnu.exe.release">
 					<folderInfo id="cdt.managedbuild.config.gnu.exe.release.1847065731." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.release.447598241" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.release">
 							<targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.release.1380172358" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.release"/>
@@ -95,7 +95,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="list/add2number.cpp|string/validpalindrome.cpp|string/partitionpalindrome.cpp|string/palindromenumber.cpp|somecpptest/test_string.cpp|somecpptest/test_constructions.cpp|somecpptest/quiz_socket.cpp|somecpptest/ans.cpp|somecpptest/udpmulticast|somecpptest/test_virtual|somecpptest/tcpecho|others/rotatearray.cpp|others/findkthinsorted.cpp|dp/palindromepair.cpp|dp/mostwater.cpp|dp/minimumwindowsubstr.cpp|dp/longestpalindrome.cpp|dp/longestnonrepsubstr.cpp|dp/editdistance.cpp|dp/distinctsubsequence.cpp|dp/countersmallernumberafterself.cpp|combination/permutation.cpp|combination/combinations.cpp|boost/echo|miscellaneous/check_c11.cpp|miscellaneous/teststack.cpp|miscellaneous/spinlock.cpp|miscellaneous/endian.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="miscellaneous/bitsprint.cpp|tree/BSTProblems.cpp|list/listproblems.cpp|tree/pathsum.cpp|tree/tree_walk.cpp|dp/maxsubaaray.cpp|tree/levelorder.cpp|list/Node.cpp|somecpptest|dp/distinctsubsequence.cpp|string/partitionpalindrome.cpp|others/findkthinsorted.cpp|string/validpalindrome.cpp|somecpptest/test_constructions.cpp|dp/palindromepair.cpp|others/3sum.cpp|dp/editdistance.cpp|miscellaneous/spinlock.cpp|boost/echo|somecpptest/test_string.cpp|list/testlist.cpp|somecpptest/test_virtual|miscellaneous/endian.cpp|somecpptest/udpmulticast|dp/longestnonrepsubstr.cpp|dp/minimumwindowsubstr.cpp|miscellaneous/teststack.cpp|combination/combinations.cpp|somecpptest/quiz_socket.cpp|somecpptest/ans.cpp|dp/longestpalindrome.cpp|others/2sum.cpp|dp/trapping_water.cpp|dp/mostwater.cpp|somecpptest/tcpecho|combination/permutation.cpp|string/palindromenumber.cpp|dp/countersmallernumberafterself.cpp|dp/palindrome.cpp|others/rotatearray.cpp|list/add2number.cpp|miscellaneous/check_c11.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

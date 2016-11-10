@@ -12,9 +12,12 @@
 
 #pragma once
 
-#incldue "Application.h"
+#include "Application.h"
 #include <ext/hash_map>
 #include <string>
+
+// dummy for test
+namespace hf_tools{}
 
 namespace hf_core  {
 	using namespace std;

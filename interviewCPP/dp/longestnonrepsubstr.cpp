@@ -2,14 +2,14 @@ using namespace std;
 
 #include <iostream>
 
-class longestnonrepsubstr{
+class solution{
 public:
-	int lengthOfLongestSubstring(string s) {
+	int lengthOfLongestNoRepSubstring(string s) {
 		int res = 0;
 		int m[256] = {0};
 		int left = 0;
 
-		for (int i = 0; i < s.size(); i++) {
+		for (int i = 0; (size_t)i < s.size(); i++) {
 			if (m[s[i]] == 0 || m[s[i]] < left) {
 				res = max(res, i-left+1);
 			} else {
@@ -20,7 +20,16 @@ public:
 		return res;
 	}
 
+	static solution &Instance() {
+		solution *p = new solution;
+		return *p;
+	}
 
+private:
+	solution(){};
+	~solution(){};
+	solution(const solution &other);
+	const solution &operator=(const solution &other);
 };
 
 int main(){
@@ -28,8 +37,8 @@ int main(){
 	string A = "abbca";
 	cout << A << endl;
 
-	longestnonrepsubstr test;
-	int result = test.lengthOfLongestSubstring(A);
+	solution &test = solution::Instance();
+	int result = test.lengthOfLongestNoRepSubstring(A);
 	cout << result << endl;
 
 	return 0;

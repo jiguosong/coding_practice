@@ -35,8 +35,8 @@ private:
 		int mid1 = start1+k/2-1;
 		int mid2 = start2+k/2-1;
 
-		int val1 = ((size_t)mid1 < nums1.size()) ? nums1[mid1]:INT_MAX;
-		int val2 = ((size_t)mid2 < nums2.size()) ? nums2[mid2]:INT_MAX;
+		int val1 = ((size_t)mid1 < nums1.size()) ? nums1[mid1] : std::numeric_limits<int>;
+		int val2 = ((size_t)mid2 < nums2.size()) ? nums2[mid2] : std::numeric_limits<int>;
 
 		if(val1 < val2) return findKth(nums1, mid1+1, nums2, start2, k-k/2);
 		else return findKth(nums1, start1, nums2, mid2+1, k-k/2);

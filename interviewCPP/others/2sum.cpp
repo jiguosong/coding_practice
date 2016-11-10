@@ -11,7 +11,7 @@ using namespace std;
 #include <vector>
 #include <unordered_map>
 
-class twosum {
+class solution {
 public:
 	vector<int> twoSum(vector<int> &nums, int target) {
 		unordered_map<int, int> map;
@@ -25,6 +25,13 @@ public:
 		}
 		return {};
 	}
+
+	static solution &Instance(){solution *p = new solution; return *p;};
+private:
+	solution(){};
+	solution(const solution &other);
+	const solution &operator=(const solution &other);
+	~solution(){};
 };
 
 int main(){
@@ -32,8 +39,8 @@ int main(){
 	vector<int> input {0, 1 , 2, 3, 4, 5, 6};
 	vector<int> res(2);
 
-	twosum testobj;
-	res = testobj.twoSum(input, 8);
+	solution &test = solution::Instance();
+	res = test.twoSum(input, 8);
 	cout << res[0] << endl;
 	cout << res[1] << endl;
 

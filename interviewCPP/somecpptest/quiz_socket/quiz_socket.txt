@@ -1,3 +1,7 @@
+For all text answer ,see here.
+For all code, please see tcpecho and udpmulticast
+
+
 /*
  * quiz_socket.cpp
  *
