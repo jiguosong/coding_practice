@@ -10,6 +10,7 @@ using namespace std;
 #include <iostream>
 #include <limits>
 #include <bitset>
+#include <memory>
 
 class reverse {
 public:
@@ -125,6 +126,7 @@ public:
 
 	static reverse_bits &instance() {
 		reverse_bits *p = new reverse_bits;
+		//unique_ptr<reverse_bits> p2 (p);
 		return *p;
 	}
 
