@@ -20,17 +20,4 @@ public class containmostwater {
 		
 		return max;
 	}
-	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		containmostwater test = new containmostwater();
-		int[] height = {1,3,2,4,5,6,10,2};
-		int ans = test.maxArea(height);
-		System.out.println(ans);
-
-	}
-	
-
 }

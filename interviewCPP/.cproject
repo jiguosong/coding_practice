@@ -18,7 +18,12 @@
 					<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.1590527349." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.debug.1016471330" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.debug">
 							<targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.debug.4130772" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.debug"/>
-							<builder buildPath="${workspace_loc:/interviewCPP}/Debug" id="cdt.managedbuild.target.gnu.builder.exe.debug.35510980" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.debug"/>
+							<builder buildPath="${workspace_loc:/interviewCPP}/Debug" id="cdt.managedbuild.target.gnu.builder.exe.debug.35510980" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.debug">
+								<outputEntries>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Debug"/>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Release"/>
+								</outputEntries>
+							</builder>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.base.778707792" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1463792096" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug">
 								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.49803462" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
@@ -27,27 +32,52 @@
 								<option id="gnu.cpp.compiler.option.preprocessor.def.866127629" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__cplusplus=201103L"/>
 								</option>
+								<option id="gnu.cpp.compiler.option.include.paths.63214984" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="/usr/include/c++"/>
+									<listOptionValue builtIn="false" value="/usr/local/src/googletest/googletest/include"/>
+									<listOptionValue builtIn="false" value="/usr/include"/>
+									<listOptionValue builtIn="false" value="/home/songjiguo/Documents/boost/boost_1_62_0"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1026157719" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1682506737" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.1661745421" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.985126176" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.include.paths.1102550302" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="/usr/include/c++"/>
+									<listOptionValue builtIn="false" value="/usr/include"/>
+									<listOptionValue builtIn="false" value="/home/songjiguo/Documents/boost/boost_1_62_0"/>
+								</option>
+								<option id="gnu.c.compiler.option.preprocessor.def.symbols.299437743" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="__cplusplus=201103L"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1719342081" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.1646248497" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.578943778" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
+								<option id="gnu.cpp.link.option.libs.784761391" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" value="pthread"/>
+								</option>
+								<option id="gnu.cpp.link.option.userobjs.1213821518" name="Other objects" superClass="gnu.cpp.link.option.userobjs" valueType="userObjs">
+									<listOptionValue builtIn="false" value="/usr/local/src/googletest/googletest/libgtest.a"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1193231495" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
 								</inputType>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.1250889221" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
+								<option id="gnu.both.asm.option.include.paths.825001091" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/usr/include/c++"/>
+									<listOptionValue builtIn="false" value="/usr/include"/>
+									<listOptionValue builtIn="false" value="/home/songjiguo/Documents/boost/boost_1_62_0"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.656784620" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="others/3sum_test.cpp|others/reverse.cpp|miscellaneous/smartpointer.cpp|miscellaneous/bitsprint.cpp|tree/BSTProblems.cpp|list/listproblems.cpp|tree/pathsum.cpp|tree/tree_walk.cpp|dp/maxsubaaray.cpp|tree/levelorder.cpp|list/Node.cpp|somecpptest|dp/distinctsubsequence.cpp|string/partitionpalindrome.cpp|others/findkthinsorted.cpp|string/validpalindrome.cpp|somecpptest/test_constructions.cpp|dp/palindromepair.cpp|others/3sum.cpp|dp/editdistance.cpp|miscellaneous/spinlock.cpp|boost/echo|somecpptest/test_string.cpp|list/testlist.cpp|somecpptest/test_virtual|miscellaneous/endian.cpp|somecpptest/udpmulticast|dp/longestnonrepsubstr.cpp|dp/minimumwindowsubstr.cpp|miscellaneous/teststack.cpp|combination/combinations.cpp|somecpptest/quiz_socket.cpp|somecpptest/ans.cpp|dp/longestpalindrome.cpp|dp/trapping_water.cpp|dp/mostwater.cpp|somecpptest/tcpecho|combination/permutation.cpp|string/palindromenumber.cpp|dp/countersmallernumberafterself.cpp|dp/palindrome.cpp|others/rotatearray.cpp|list/add2number.cpp|miscellaneous/check_c11.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="list/listproblems.cpp|miscellaneous/Counter_UnitTest/Counter_Test.cpp|string/word.cpp|miscellaneous/endian.cpp|dp/maxsubaaray.cpp|others/3sum_test.cpp|somecpptest/quiz_socket.cpp|somecpptest/test_constructions.cpp|somecpptest/test_string.cpp|others/sum.cpp|dp/mostwater.cpp|miscellaneous/hudson_interview/task2.cpp|tree/BSTProblems.cpp|miscellaneous/bitsprint.cpp|boost/testboost.cpp|dp/distinctsubsequence.cpp|string/validpalindrome.cpp|somecpptest/ans.cpp|tree/tree_walk.cpp|dp/minimumwindowsubstr.cpp|somecpptest/test_virtual|dp/editdistance.cpp|somecpptest/tcpecho|dp/countersmallernumberafterself.cpp|others/rotatearray.cpp|miscellaneous/check_c11.cpp|dp/longestpalindrome.cpp|hudson_interview/task2.cpp|miscellaneous/smartpointer.cpp|miscellaneous/teststack.cpp|hudson_interview/task3.cpp|dp/palindromepair.cpp|string/palindromenumber.cpp|list/testlist.cpp|Counter_Unittest|somecpptest|hudson_interview/task1.cpp|dp/trapping_water.cpp|miscellaneous/hudson_interview/task3.cpp|tree/parserstrtotree.cpp|combination/combinations.cpp|combination/permutation.cpp|tree/levelorder.cpp|others/3sum.cpp|miscellaneous/hudson_interview/task1.cpp|list/add2number.cpp|dp/palindrome.cpp|boost/echo|tree/pathsum.cpp|others/findkthinsorted.cpp|somecpptest/udpmulticast|miscellaneous/spinlock.cpp|others/reverse.cpp|string/partitionpalindrome.cpp|dp/longestnonrepsubstr.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -95,7 +125,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="others/3sum_test.cpp|others/reverse.cpp|miscellaneous/smartpointer.cpp|miscellaneous/bitsprint.cpp|tree/BSTProblems.cpp|list/listproblems.cpp|tree/pathsum.cpp|tree/tree_walk.cpp|dp/maxsubaaray.cpp|tree/levelorder.cpp|list/Node.cpp|somecpptest|dp/distinctsubsequence.cpp|string/partitionpalindrome.cpp|others/findkthinsorted.cpp|string/validpalindrome.cpp|somecpptest/test_constructions.cpp|dp/palindromepair.cpp|others/3sum.cpp|dp/editdistance.cpp|miscellaneous/spinlock.cpp|boost/echo|somecpptest/test_string.cpp|list/testlist.cpp|somecpptest/test_virtual|miscellaneous/endian.cpp|somecpptest/udpmulticast|dp/longestnonrepsubstr.cpp|dp/minimumwindowsubstr.cpp|miscellaneous/teststack.cpp|combination/combinations.cpp|somecpptest/quiz_socket.cpp|somecpptest/ans.cpp|dp/longestpalindrome.cpp|dp/trapping_water.cpp|dp/mostwater.cpp|somecpptest/tcpecho|combination/permutation.cpp|string/palindromenumber.cpp|dp/countersmallernumberafterself.cpp|dp/palindrome.cpp|others/rotatearray.cpp|list/add2number.cpp|miscellaneous/check_c11.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="list/listproblems.cpp|miscellaneous/Counter_UnitTest/Counter_Test.cpp|string/word.cpp|Counter_Unittest|miscellaneous/check_c11.cpp|miscellaneous/hudson_interview/task3.cpp|miscellaneous/hudson_interview/task2.cpp|miscellaneous/hudson_interview/task1.cpp|hudson_interview/task2.cpp|hudson_interview/task3.cpp|hudson_interview/task1.cpp|tree/parserstrtotree.cpp|boost/testboost.cpp|others/sum.cpp|others/3sum_test.cpp|others/reverse.cpp|miscellaneous/smartpointer.cpp|miscellaneous/bitsprint.cpp|tree/BSTProblems.cpp|tree/pathsum.cpp|tree/tree_walk.cpp|dp/maxsubaaray.cpp|tree/levelorder.cpp|somecpptest|dp/distinctsubsequence.cpp|string/partitionpalindrome.cpp|others/findkthinsorted.cpp|string/validpalindrome.cpp|somecpptest/test_constructions.cpp|dp/palindromepair.cpp|others/3sum.cpp|dp/editdistance.cpp|miscellaneous/spinlock.cpp|boost/echo|somecpptest/test_string.cpp|list/testlist.cpp|somecpptest/test_virtual|miscellaneous/endian.cpp|somecpptest/udpmulticast|dp/longestnonrepsubstr.cpp|dp/minimumwindowsubstr.cpp|miscellaneous/teststack.cpp|combination/combinations.cpp|somecpptest/quiz_socket.cpp|somecpptest/ans.cpp|dp/longestpalindrome.cpp|dp/trapping_water.cpp|dp/mostwater.cpp|somecpptest/tcpecho|combination/permutation.cpp|string/palindromenumber.cpp|dp/countersmallernumberafterself.cpp|dp/palindrome.cpp|others/rotatearray.cpp|list/add2number.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -122,10 +152,10 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
-		<configuration configurationName="Debug">
+		<configuration configurationName="Release">
 			<resource resourceType="PROJECT" workspacePath="/interviewCPP"/>
 		</configuration>
-		<configuration configurationName="Release">
+		<configuration configurationName="Debug">
 			<resource resourceType="PROJECT" workspacePath="/interviewCPP"/>
 		</configuration>
 	</storageModule>
