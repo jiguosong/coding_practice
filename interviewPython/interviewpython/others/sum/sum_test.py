@@ -8,6 +8,7 @@ import unittest
 import sum
 import random
 import time
+import timeit
 
 class Test(unittest.TestCase):        
     def testOK(self):
@@ -36,7 +37,7 @@ class Test(unittest.TestCase):
     def testRandom(self):
         count = 0
         p = sum.sumsolution()
-        for i in range(0, 1):
+        for i in range(0, 10):
             with self.subTest(i=i):
                 nums = [random.randint(-20,20) for _ in range(10)]
                 target = random.randint(5,10);
