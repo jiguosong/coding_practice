@@ -7,7 +7,7 @@
 
 #include "maxsubarraysum.h"
 
-/*
+
 int solution::maxSubArray(std::vector<int>& nums)
 {
 	int res = 0;
@@ -22,12 +22,15 @@ int solution::maxSubArray(std::vector<int>& nums)
 	}
 	return res;
 }
-*/
 
-/*Simple idea of the Kadane's algorithm is to look for all positive contiguous segments of the array
+/*   -- this will not handle the case of all negative
+ *
+ *  in another word, this method is looking for the min positive subsequence
+
+Simple idea of the Kadane's algorithm is to look for all positive contiguous segments of the array
 (max_ending_here is used for this). And keep track of maximum sum contiguous segment among all positive
 segments (max_so_far is used for this). Each time we get a positive sum compare it with max_so_far and
-update max_so_far if it is greater than max_so_far*/
+update max_so_far if it is greater than max_so_far
 int solution::maxSubArray(std::vector<int>& nums)
 {
 	int max_so_far = 0;
@@ -39,3 +42,4 @@ int solution::maxSubArray(std::vector<int>& nums)
 	return max_so_far;
 }
 
+*/

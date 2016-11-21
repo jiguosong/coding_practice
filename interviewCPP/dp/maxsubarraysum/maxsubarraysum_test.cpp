@@ -24,6 +24,14 @@ TEST(testcase_OK2, maxsubarraysum)
 	EXPECT_EQ(res, 1);
 }
 
+TEST(testcase_Allnegative, maxsubarraysum)
+{
+	solution c;
+	std::vector<int> nums = {-10, -2, -5, -12};
+	int res = c.maxSubArray(nums);
+	EXPECT_EQ(res, -2);
+}
+
 TEST(testcase_OK3, maxsubarraysum)
 {
 	solution c;
