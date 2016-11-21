@@ -12,7 +12,7 @@ using namespace std;
 
 #include "../Node.cpp"
 
-ListNode<int> * add2number::addTwoNumbers(ListNode<int> *l1, ListNode<int> *l2) {
+ListNode<int> * solution::addTwoNumbers(ListNode<int> *l1, ListNode<int> *l2) {
 	 if (!l1 && !l2) return nullptr;
 	 if (l1 && !l2) return l1;
 	 if (l2 && !l1) return l2;
@@ -48,27 +48,3 @@ ListNode<int> * add2number::addTwoNumbers(ListNode<int> *l1, ListNode<int> *l2) 
 
 	 return head;
 }
-/*
-
-int main() {
-
-	cout << "this is another test";
-	cout << "CPP:add2nums" << endl;
-	ListNode *l1 = new ListNode(2);
-	l1->next = new ListNode(4);
-	l1->next->next = new ListNode(3);
-
-	ListNode *l2 = new ListNode(5);
-	l2->next = new ListNode(6);
-	l2->next->next = new ListNode(4);
-
-	ListNode *tmp = addTwoNumbers(l1, l2);
-	while(tmp) {
-		cout << tmp->val << endl;
-		tmp = tmp->next;
-	}
-
-	return 0;
-}
-*/
-

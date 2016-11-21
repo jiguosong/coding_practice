@@ -10,8 +10,8 @@
 
 #include "../Node.cpp"
 
-TEST(add2number, addTwoNumbers) {
-	add2number c;
+TEST(test_case1, addTwoNumbers) {
+	solution c;
 
 	ListNode<int> *l1 = GetNode(2, GetNode(4, GetNode(3)));
 	ListNode<int> *l2 = GetNode(5, GetNode(6, GetNode(4)));
@@ -26,7 +26,7 @@ TEST(add2number, addTwoNumbers) {
 	}
 }
 
-GTEST_API_ int main(int argc, char **argv) {
+int main(int argc, char **argv) {
       ::testing::InitGoogleTest(&argc, argv);
       return RUN_ALL_TESTS();
 }

@@ -5,12 +5,12 @@
  *      Author: songjiguo
  */
 
-using namespace std;
-
 #include <iostream>
 #include <limits>
 #include <bitset>
 #include <memory>
+
+using namespace std;
 
 class reverse {
 public:
@@ -30,7 +30,7 @@ public:
 	}
 
 	static reverse_numer &instance() {
-		reverse_numer *p = new reverse_numer;
+		static reverse_numer *p = new reverse_numer;
 		return *p;
 	}
 

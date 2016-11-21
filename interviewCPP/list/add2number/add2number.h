@@ -18,10 +18,8 @@ struct ListNode {
 };
 */
 
-
-class add2number {
+class solution {
 public:
-	add2number(){};
 	ListNode<int> *addTwoNumbers(ListNode<int> *l1, ListNode<int> *l2);
 };
 
