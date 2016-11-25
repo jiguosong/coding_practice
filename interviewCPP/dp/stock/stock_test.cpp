@@ -8,7 +8,7 @@
 #include "stock.h"
 
 #include "gtest/gtest.h"
-#include "../../getinputdata.h"
+#include "../../INPUT_DATA/getinputdata.h"
 
 TEST(testcase_OK1, stock1)
 {
@@ -41,6 +41,7 @@ TEST(testcase_OK4, stock4)
 	stock_buy_sell c;
 
 	vector<int> prices;
+
 	getinputdata gpd;
 	gpd.read_input_int(prices);
 

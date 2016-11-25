@@ -20,7 +20,8 @@ using std::string;
 
 void getinputdata::read_input_int(vector<int> &input_data_int)
 {
-	ifstream infile("dummy_int_data");
+	ifstream infile("/home/songjiguo/workspace/interviewCPP/INPUT_DATA/dummy_int_data");  // need specifyt the name and path
+
 	while (infile) {
 		string s;
 		if (!getline(infile, s))
@@ -47,3 +48,9 @@ void getinputdata::read_input_int(vector<int> &input_data_int)
 
 }
 
+// int main() 
+// {
+// 	getinputdata test;
+// 	vector<int> data;
+// 	test.read_input_int(data);
+// }

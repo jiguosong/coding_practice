@@ -3,7 +3,7 @@ package dp;
 import java.util.*;
 
 // it helps to understand the problem from my DP model
-
+// Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
 public class minimumwindowsubstr {
 	
 	public String minWindow(String s, String t) {
