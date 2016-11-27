@@ -25,9 +25,11 @@ public class medianTwoSortedArray {
 	// find kth element in general
 	private double findKth(int[] a, int a_start, int[] b, int b_start, int k){
 		if (k <= 0 || k > a.length+b.length) return 0;
-		if (k == 1) return Math.min(a[a_start], b[b_start]);
+		
 		if (a_start >= a.length) return b[b_start+k-1];
-		if (b_start >= b.length) return a[a_start+k-1];		
+		if (b_start >= b.length) return a[a_start+k-1];	
+		
+		if (k == 1) return Math.min(a[a_start], b[b_start]);
 		
 		int mid_a = a_start + k/2 - 1;
 		int mid_b = b_start + k/2 - 1;
@@ -48,8 +50,11 @@ public class medianTwoSortedArray {
 	 */
 	public static void main(String[] args) {
 		medianTwoSortedArray test = new medianTwoSortedArray();
-		int[] nums1 = {1, 12, 15, 26, 51};
-		int[] nums2 = {2, 9, 17, 30, 45};
+		//int[] nums1 = {1, 12, 15, 26, 51};
+		//int[] nums2 = {2, 9, 17, 30, 45};
+		int[] nums1 = {1, 2};
+		int[] nums2 = {3, 4};
+
 		double ans = 0;
 		ans = test.findMedianSortedArrays(nums1, nums2);
 		System.out.println(ans);

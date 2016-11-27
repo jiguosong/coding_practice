@@ -12,7 +12,7 @@ class Test(unittest.TestCase):
     def testOK(self):
         p = longestnonrepsubstr.solution()
         s = "abbca"
-        expected = 2
+        expected = 3
         res = p.findLongestNonrepSubstr(s)
         self.assertEqual(res, expected)
 

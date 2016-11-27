@@ -1,6 +1,10 @@
 #include "gtest/gtest.h"
+#include <iostream>
 
-TEST(testcase_OK, )
+using std::cout; 
+using std::endl;
+
+TEST(testcase_OK1, )
 {
 	solution c;
 

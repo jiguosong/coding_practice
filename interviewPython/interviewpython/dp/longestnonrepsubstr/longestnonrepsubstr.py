@@ -5,7 +5,7 @@ class solution(object):
         map = [0]*255;
         left = 0
         ret = 0
-        
+
         for i in range(0, len(s)):
             idx = ord(s[i]);
             if (map[idx] == 0 or map[idx] < left):

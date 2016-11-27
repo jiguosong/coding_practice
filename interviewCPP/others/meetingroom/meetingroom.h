@@ -20,6 +20,7 @@ struct Interval {
 class meetingroom_sol {
 public:
 	int minMeetingRooms(vector<Interval>& intervals);
+	bool canAttendMeetings(vector<Interval>& intervals);
 };
 
 

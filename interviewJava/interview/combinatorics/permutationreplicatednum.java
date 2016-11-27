@@ -1,4 +1,4 @@
-package combinationpermutation;
+package combinatorics;
 
 import java.util.*;
 
