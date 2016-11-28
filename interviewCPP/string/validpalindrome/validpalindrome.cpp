@@ -57,5 +57,16 @@ bool validpalindrome::isPalindromenumber(int num)
 		p = p/10;
 	}
 	return (k == num);
+
+	// this is the solution without using any extra space. Not overflow.
+/*	if(num < 0) return false;
+	int div = 1;
+	while(num/div > 10) div *= 10;
+	while(num) {
+		if(num/div != num%10) return false;
+		num = (num%div)/10;   // remove left and right
+		div /= 100;       // remove 2 digits
+	}
+	return true;*/
 }
 
