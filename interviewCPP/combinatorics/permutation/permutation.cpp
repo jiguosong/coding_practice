@@ -1,31 +1,36 @@
-using namespace std;
+#include "permutation.h"
+#include <string>
 
-#include <iostream>
-#include <vector>
+/*Given a collection of numbers, return all possible permutations.
 
-class permutation{
-public:
-	vector<vector<int>> permute(vector<int> &nums) {
-		vector<vector<int>> res;
-		vector<int> tmp;
-		vector<bool> visited(nums.size(), false);
+For example,
+[1,2,3] have the following permutations:
+[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], and [3,2,1].*/
 
-		if (nums.size() == 0) return res;
+static void permute_helper(vector<int> &nums, int level, vector<bool> &visited,
+						  	  vector<int> &tmp, vector<vector<int>> &res);
 
-		permute_helper(nums, 0, visited, tmp, res);
+vector<vector<int>> permutation::permute(vector<int> &nums)
+{
+	vector<vector<int>> res;
 
-		return res;
-	}
+	vector<int> tmp;
+	vector<bool> visited(nums.size(), false);
 
-private:
-	void permute_helper(vector<int> &nums, int level, vector<bool> &visited,
-						  vector<int> &tmp, vector<vector<int>> &res){
+	permute_helper(nums, 0, visited, tmp, res);
+
+	return res;
+};
+
+
+static void permute_helper(vector<int> &nums, int level, vector<bool> &visited,
+						  	  vector<int> &tmp, vector<vector<int>> &res){
 		if (tmp.size() == nums.size()) {
 			res.push_back(tmp);
 			return;
 		}
 
-		for (int i = 0; i < nums.size(); i++) {
+		for (int i = 0; (size_t)i < nums.size(); i++) {
 			if (visited[i] == true) continue;
 
 			visited[i] = true;
@@ -35,33 +40,4 @@ private:
 			tmp.pop_back();
 		}
 		return;
-	}
-
-private:
-	void Print(const vector<vector<int>> &v){
-		for (auto &i:v) {
-			for (auto &k:i) {
-				cout << k;
-			}
-			cout << endl;
-		}
-	}
-};
-
-
-int main(int argc, char** argv) {
-	cout << "CPP:permutation" << endl;
-
-	permutation test;
-	vector<int> nums {1,2,3};
-	vector<vector<int>> res = test.permute(nums);
-
-	for (auto &i:res) {
-		for (auto &k:i) {
-			cout << k;
-		}
-		cout << endl;
-	}
-
-	return 0;
 }
