@@ -8,7 +8,7 @@
 #include "findvalueinbst.h"
 #include "gtest/gtest.h"
 
-TEST(testcase_OK1, findvalueinbst)
+TEST(findvalueinbst, findval)
 {
 	findvalInBST c;
 
@@ -28,7 +28,7 @@ TEST(testcase_OK1, findvalueinbst)
 	//int findvalInBST::findvalueinbst(TreeNode *root, int val)
 }
 
-TEST(testcase_OK2, findvalueinbst)
+TEST(findvalueinbst, cannotfindval)
 {
 	findvalInBST c;
 

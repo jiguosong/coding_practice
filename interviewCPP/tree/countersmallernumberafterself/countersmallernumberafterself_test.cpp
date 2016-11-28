@@ -13,7 +13,7 @@
 using std::cout;
 using std::endl;
 
-TEST(testcase_OK1, countersmallernumberafterself)
+TEST(countersmallernumberafterself, normal)
 {
 	countersmallernumberafterself c;
 
