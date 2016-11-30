@@ -1,0 +1,3 @@
+add_executable(longestpalindrome longestpalindrome.h longestpalindrome.cpp longestpalindrome_test.cpp)
+target_link_libraries(longestpalindrome gtest gmock_main)
+add_test(NAME longestpalindrome_test COMMAND longestpalindrome)

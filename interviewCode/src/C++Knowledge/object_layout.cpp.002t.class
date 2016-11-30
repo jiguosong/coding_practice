@@ -1,0 +1,125 @@
+Vtable for VBase
+VBase::_ZTV5VBase: 3u entries
+0     (int (*)(...))0
+4     (int (*)(...))(& _ZTI5VBase)
+8     (int (*)(...))VBase::corge
+
+Class VBase
+   size=8 align=4
+   base size=8 base align=4
+VBase (0x0xb6f83070) 0
+    vptr=((& VBase::_ZTV5VBase) + 8u)
+
+Vtable for SBase1
+SBase1::_ZTV6SBase1: 3u entries
+0     (int (*)(...))0
+4     (int (*)(...))(& _ZTI6SBase1)
+8     (int (*)(...))SBase1::grault
+
+Class SBase1
+   size=8 align=4
+   base size=8 base align=4
+SBase1 (0x0xb6f830a8) 0
+    vptr=((& SBase1::_ZTV6SBase1) + 8u)
+
+Vtable for SBase2
+SBase2::_ZTV6SBase2: 3u entries
+0     (int (*)(...))0
+4     (int (*)(...))(& _ZTI6SBase2)
+8     (int (*)(...))SBase2::grault
+
+Class SBase2
+   size=8 align=4
+   base size=8 base align=4
+SBase2 (0x0xb6f830e0) 0
+    vptr=((& SBase2::_ZTV6SBase2) + 8u)
+
+Class SBase3
+   size=4 align=4
+   base size=4 base align=4
+SBase3 (0x0xb6f83118) 0
+
+Vtable for Class
+Class::_ZTV5Class: 12u entries
+0     44u
+4     (int (*)(...))0
+8     (int (*)(...))(& _ZTI5Class)
+12    (int (*)(...))SBase1::grault
+16    (int (*)(...))Class::baz
+20    (int (*)(...))-8
+24    (int (*)(...))(& _ZTI5Class)
+28    (int (*)(...))SBase2::grault
+32    0u
+36    (int (*)(...))-44
+40    (int (*)(...))(& _ZTI5Class)
+44    (int (*)(...))VBase::corge
+
+VTT for Class
+Class::_ZTT5Class: 2u entries
+0     ((& Class::_ZTV5Class) + 12u)
+4     ((& Class::_ZTV5Class) + 44u)
+
+Class Class
+   size=52 align=4
+   base size=42 base align=4
+Class (0x0xb770aaa0) 0
+    vptridx=0u vptr=((& Class::_ZTV5Class) + 12u)
+  SBase1 (0x0xb6f83150) 0
+      primary-for Class (0x0xb770aaa0)
+  SBase2 (0x0xb6f83188) 8
+      vptr=((& Class::_ZTV5Class) + 28u)
+  SBase3 (0x0xb6f831c0) 16
+  VBase (0x0xb6f831f8) 44 virtual
+      vptridx=4u vbaseoffset=-12 vptr=((& Class::_ZTV5Class) + 44u)
+
+Vtable for Derived
+Derived::_ZTV7Derived: 13u entries
+0     44u
+4     (int (*)(...))0
+8     (int (*)(...))(& _ZTI7Derived)
+12    (int (*)(...))SBase1::grault
+16    (int (*)(...))Class::baz
+20    (int (*)(...))Derived::qux
+24    (int (*)(...))-8
+28    (int (*)(...))(& _ZTI7Derived)
+32    (int (*)(...))SBase2::grault
+36    0u
+40    (int (*)(...))-44
+44    (int (*)(...))(& _ZTI7Derived)
+48    (int (*)(...))VBase::corge
+
+Construction vtable for Class (0x0xb770ac80 instance) in Derived
+Derived::_ZTC7Derived0_5Class: 9u entries
+0     44u
+4     (int (*)(...))0
+8     (int (*)(...))(& _ZTI5Class)
+12    (int (*)(...))SBase1::grault
+16    (int (*)(...))Class::baz
+20    0u
+24    (int (*)(...))-44
+28    (int (*)(...))(& _ZTI5Class)
+32    (int (*)(...))VBase::corge
+
+VTT for Derived
+Derived::_ZTT7Derived: 4u entries
+0     ((& Derived::_ZTV7Derived) + 12u)
+4     ((& Derived::_ZTC7Derived0_5Class) + 12u)
+8     ((& Derived::_ZTC7Derived0_5Class) + 32u)
+12    ((& Derived::_ZTV7Derived) + 48u)
+
+Class Derived
+   size=52 align=4
+   base size=42 base align=4
+Derived (0x0xb6ec4870) 0
+    vptridx=0u vptr=((& Derived::_ZTV7Derived) + 12u)
+  Class (0x0xb770ac80) 0
+      primary-for Derived (0x0xb6ec4870)
+      subvttidx=4u
+    SBase1 (0x0xb6f83268) 0
+        primary-for Class (0x0xb770ac80)
+    SBase2 (0x0xb6f832a0) 8
+        vptr=((& Derived::_ZTV7Derived) + 32u)
+    SBase3 (0x0xb6f832d8) 16
+    VBase (0x0xb6f83310) 44 virtual
+        vptridx=12u vbaseoffset=-12 vptr=((& Derived::_ZTV7Derived) + 48u)
+

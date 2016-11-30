@@ -1,0 +1,4 @@
+add_executable(traversal_sideview traversal_sideview.h traversal_sideview.cpp traversal_sideview_test.cpp)
+target_link_libraries(traversal_sideview gtest gmock_main)
+cotire(traversal_sideview)
+add_test(NAME traversal_sideview_test COMMAND traversal_sideview)

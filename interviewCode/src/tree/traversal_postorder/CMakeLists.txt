@@ -1,0 +1,4 @@
+add_executable(traversal_postorder traversal_postorder.h traversal_postorder.cpp traversal_postorder_test.cpp)
+target_link_libraries(traversal_postorder gtest gmock_main)
+cotire(traversal_postorder)
+add_test(NAME traversal_postorder_test COMMAND traversal_postorder)

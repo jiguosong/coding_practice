@@ -1,0 +1,4 @@
+add_executable(median_datastream median_datastream.h median_datastream.cpp median_datastream_test.cpp)
+target_link_libraries(median_datastream gtest gmock_main)
+cotire(median_datastream)
+add_test(NAME median_datastream_test COMMAND median_datastream)

@@ -3,6 +3,7 @@
 #include "gtest/gtest.h"
 #include <iostream>
 #include <vector>
+#include "longestpalindrome.h"
 
 using std::cout; 
 using std::endl;
@@ -16,15 +17,18 @@ void PrintVector(const vector<T> &vec)
 }
 
 template<class T>
-void PrintVectorVector(const vector<vector<T>> &vec)
+void PrintVectorVector(const vector<vector<T> > &vec)
 {
 	for(size_t i = 0; i < vec.size(); ++i) PrintVector(vec[i]);
 }
 
-TEST(testcase, testname)
+TEST(longestpalindrome, normal)
 {
-	testcase tc;
+	longestpalindrome tc;
+	string s = "bananas";
+	string ans = tc.longestPalindrome(s);
 
+	ASSERT_EQ("anana", ans);
 }
 
 GTEST_API_ int main(int argc, char **argv)

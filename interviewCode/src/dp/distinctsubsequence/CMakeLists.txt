@@ -1,0 +1,4 @@
+add_executable(distinctsubsequence distinctsubsequence.h distinctsubsequence.cpp distinctsubsequence_test.cpp)
+target_link_libraries(distinctsubsequence gtest gmock_main)
+cotire(distinctsubsequence)
+add_test(NAME distinctsubsequence_test COMMAND distinctsubsequence)

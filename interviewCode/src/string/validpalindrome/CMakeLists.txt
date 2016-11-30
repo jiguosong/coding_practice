@@ -1,0 +1,4 @@
+add_executable(validpalindrome validpalindrome.h validpalindrome.cpp validpalindrome_test.cpp)
+target_link_libraries(validpalindrome gtest gmock_main)
+cotire(validpalindrome)
+add_test(NAME validpalindrome_test COMMAND validpalindrome)

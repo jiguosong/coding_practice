@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+#include "parsestr2tree.h"
+
 using std::cout; 
 using std::endl;
 using std::vector;
@@ -21,9 +23,13 @@ void PrintVectorVector(const vector<vector<T>> &vec)
 	for(size_t i = 0; i < vec.size(); ++i) PrintVector(vec[i]);
 }
 
-TEST(testcase, testname)
+TEST(parserstr2tree, normal)
 {
-	testcase tc;
+	parserstr2tree tc;
+
+	//string s = "{ name:a, children:[{name:aa, children:[{children:[{name:aaaa}], name:aaa}, {name:aab}]}, {name:ab}]}";
+	//string ss = "{children:[{lefts}, {rights}], name:roots}";
+	//TreeNode *ans = parserstr2tree(s);
 
 }
 

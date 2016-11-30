@@ -1,0 +1,3 @@
+add_executable(minimumwindowsubstr minimumwindowsubstr.h minimumwindowsubstr.cpp minimumwindowsubstr_test.cpp)
+target_link_libraries(minimumwindowsubstr gtest gmock_main)
+add_test(NAME minimumwindowsubstr_test COMMAND minimumwindowsubstr)

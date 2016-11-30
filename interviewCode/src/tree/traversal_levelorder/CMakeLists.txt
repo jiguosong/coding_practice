@@ -1,0 +1,4 @@
+add_executable(traversal_levelorder traversal_levelorder.h traversal_levelorder.cpp traversal_levelorder_test.cpp)
+target_link_libraries(traversal_levelorder gtest gmock_main)
+cotire(traversal_levelorder)
+add_test(NAME traversal_levelorder_test COMMAND traversal_levelorder)

@@ -1,0 +1,4 @@
+add_executable(maxsubsequncesum maxsubsequncesum.h maxsubsequncesum.cpp maxsubsequncesum_test.cpp)
+target_link_libraries(maxsubsequncesum gtest gmock_main)
+cotire(maxsubsequncesum)
+add_test(NAME maxsubsequncesum_test COMMAND maxsubsequncesum)

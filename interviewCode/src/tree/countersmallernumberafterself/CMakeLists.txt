@@ -1,0 +1,4 @@
+add_executable(countersmallernumberafterself countersmallernumberafterself.h countersmallernumberafterself.cpp countersmallernumberafterself_test.cpp)
+target_link_libraries(countersmallernumberafterself gtest gmock_main)
+cotire(countersmallernumberafterself)
+add_test(NAME countersmallernumberafterself_test COMMAND countersmallernumberafterself)

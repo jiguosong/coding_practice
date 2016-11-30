@@ -1,0 +1,4 @@
+add_executable(inordersuccessorbst inordersuccessorbst.h inordersuccessorbst.cpp inordersuccessorbst_test.cpp)
+target_link_libraries(inordersuccessorbst gtest gmock_main)
+cotire(inordersuccessorbst)
+add_test(NAME inordersuccessorbst_test COMMAND inordersuccessorbst)

@@ -1,0 +1,7 @@
+add_subdirectory(wordsearch)
+add_subdirectory(wordpattern)
+add_subdirectory(wordladder)
+add_subdirectory(wordbreak)
+add_subdirectory(validpalindrome)
+add_subdirectory(partitionpalindrome)
+add_subdirectory(longestprefix)
