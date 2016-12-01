@@ -1,0 +1,4 @@
+add_executable(alignedAllocate alignedAllocate.h alignedAllocate.cpp alignedAllocate_test.cpp)
+target_link_libraries(alignedAllocate gtest gmock_main)
+cotire(alignedAllocate)
+add_test(NAME alignedAllocate_test COMMAND alignedAllocate)

@@ -74,6 +74,22 @@ bool IsSameClass()
 
 */
 
+/*The job of the compiler is to do type inference, template instantiation,
+and type construction, which involve computation*/
+/*Here is an example of a class template which computes the factorial of a natural number:*/
+template<int n>
+struct Factorial {
+	enum {
+		RET = Factorial<n - 1>::RET * n
+	};
+};
+//the following template specialization terminates the recursion
+template<>
+struct Factorial<0> {
+	enum {
+		RET = 1
+	};
+};
 
 
 int main()
@@ -90,6 +106,8 @@ int main()
 
     std::cout << "my derive from test:" << IsDerivedFrom<B, A>() << '\n';
     //std::cout << "my same class test:" << IsSameClass<B, A>() << '\n';
+
+    cout << Factorial<7>::RET << endl; //prints 5040
 }
 
 

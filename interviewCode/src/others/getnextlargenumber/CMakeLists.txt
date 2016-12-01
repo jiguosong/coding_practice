@@ -1,0 +1,4 @@
+add_executable(getnextlargenumber getnextlargenumber.h getnextlargenumber.cpp getnextlargenumber_test.cpp)
+target_link_libraries(getnextlargenumber gtest gmock_main)
+cotire(getnextlargenumber)
+add_test(NAME getnextlargenumber_test COMMAND getnextlargenumber)

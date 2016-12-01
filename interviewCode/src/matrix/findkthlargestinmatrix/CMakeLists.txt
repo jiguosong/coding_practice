@@ -1,0 +1,4 @@
+add_executable(findkthlargestinmatrix findkthlargestinmatrix.h findkthlargestinmatrix.cpp findkthlargestinmatrix_test.cpp)
+target_link_libraries(findkthlargestinmatrix gtest gmock_main)
+cotire(findkthlargestinmatrix)
+add_test(NAME findkthlargestinmatrix_test COMMAND findkthlargestinmatrix)

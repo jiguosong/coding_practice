@@ -7,3 +7,8 @@ add_subdirectory(N_sum)
 add_subdirectory(meetingroom)
 add_subdirectory(median_datastream)
 add_subdirectory(median_2sortedarray)
+add_subdirectory(alignedAllocate)
+add_subdirectory(getnextlargenumber)
+
+add_subdirectory(leastdifferencearray)
+add_subdirectory(movezerotoright)

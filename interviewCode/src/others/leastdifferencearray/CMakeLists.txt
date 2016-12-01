@@ -1,0 +1,4 @@
+add_executable(leastdifferencearray leastdifferencearray.h leastdifferencearray.cpp leastdifferencearray_test.cpp)
+target_link_libraries(leastdifferencearray gtest gmock_main)
+cotire(leastdifferencearray)
+add_test(NAME leastdifferencearray_test COMMAND leastdifferencearray)

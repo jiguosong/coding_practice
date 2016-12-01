@@ -1,0 +1,4 @@
+add_subdirectory(quiz_overloading)
+add_subdirectory(quiz_template)
+add_subdirectory(test_constructions)
+add_subdirectory(test_string)

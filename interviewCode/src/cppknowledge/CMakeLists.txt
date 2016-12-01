@@ -1,0 +1,3 @@
+add_executable(moveconstructor_test moveconstructor_test.cpp)
+add_executable(smartpointer smartpointer.cpp)
+add_executable(template_test template_test.cpp)

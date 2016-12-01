@@ -44,8 +44,8 @@ class app{
 public:
 	static int lineC;
 	int a;
-	app(int x):a(x){}
-	app() {a = 0;};
+	app(int x):a(x){ std::cout << "Andy" << std::endl;}
+	app() {a = 0; std::cout << "Kevin" << std::endl;};
 	app operator+(const int k) const { return app(a + k);}
 };
 

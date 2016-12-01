@@ -1,0 +1,4 @@
+add_executable(movezerotoright movezerotoright.h movezerotoright.cpp movezerotoright_test.cpp)
+target_link_libraries(movezerotoright gtest gmock_main)
+cotire(movezerotoright)
+add_test(NAME movezerotoright_test COMMAND movezerotoright)
