@@ -62,7 +62,7 @@ throw (MessageParseError)
 
 	std::string value = str.substr(startValue, soh - startValue);
 
-	return (typname) value;
+	return value;
 }
 
 

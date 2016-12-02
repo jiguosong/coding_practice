@@ -15,7 +15,7 @@ using std::cout;
 using std::endl;
 using std::set;
 
-TEST(testcase_OK1, combination)
+TEST(combination, normal)
 {
 	combination c;
 

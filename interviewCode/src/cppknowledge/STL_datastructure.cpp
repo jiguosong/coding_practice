@@ -107,11 +107,23 @@ iterator is invalidated only when the corresponding element is
 deleted.
 
 6)
-std::unordered_map implemented as a hash table and linked list
-std::map 		   typically implemented as a red-black tree
-std::set 		   typically implemented as a red-black tree
-std::vector 	   implemented by using an underlying array
-std::deque 		   typically implemented as a vector of vectors
-std::list 		   typically implemented as a doubly-linked list
-std::forward_list  singly linked list
+std::array           	a container that encapsulates fixed size arrays
+std::vector          	a sequence container that encapsulates dynamic size arrays, implemented by using an underlying array
+std::deque 		     	typically implemented as a vector of vectors
+std::map 		     	typically implemented as a red-black tree
+std::unordered_map   	implemented as a hash table and linked list
+std::multimap        	an associative container that contains a sorted list of key-value pairs
+std::unordered_multimap an unordered associative container that supports equivalent keys
+std::set 		     	an associative container, typically implemented as a red-black tree
+std::unordered_set   	an associative container that contains a set of unique objects of type Key
+std::multiset        	an associative container (multiple keys with equivalent values are allowed)
+std::unordered_multiset an associative container that contains set of possibly non-unique objects of type Key
+std::list 		     	typically implemented as a doubly-linked list
+std::forward_list    	singly linked list
+
+std::stack           	a container adapter, typically using deque/list/vector
+std::queue           	a container adapter, typically using deque/list
+std::priority_queue  	a container adaptor, typically using deque/vector
+
+
 */

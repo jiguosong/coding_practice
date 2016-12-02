@@ -9,7 +9,7 @@
 
 using namespace std;
 
-// method 1
+// method 1    --- at compile time
 template<int N>
 struct PrintN {
 	static void print() {
