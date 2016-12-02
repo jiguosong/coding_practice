@@ -13,7 +13,7 @@
 using std::cout;
 using std::endl;
 
-TEST(testcase_OK1, distinctsubsequence)
+TEST(distinctsubsequence, normal1)
 {
 	distinctsubsequence c;
 	string s = "rabbbit";
@@ -21,7 +21,7 @@ TEST(testcase_OK1, distinctsubsequence)
 	ASSERT_EQ(3, c.numDistinct(s, t));
 }
 
-TEST(testcase_OK2, distinctsubsequence)
+TEST(distinctsubsequence, normal2)
 {
 	distinctsubsequence c;
 	string s = "rabbbit";
@@ -29,7 +29,7 @@ TEST(testcase_OK2, distinctsubsequence)
 	ASSERT_EQ(1, c.numDistinct(s, t));
 }
 
-TEST(testcase_OK3, distinctsubsequence)
+TEST(distinctsubsequence, normal3)
 {
 	distinctsubsequence c;
 	string s = "";
@@ -37,7 +37,7 @@ TEST(testcase_OK3, distinctsubsequence)
 	ASSERT_EQ(0, c.numDistinct(s, t));
 }
 
-TEST(testcase_OK4, distinctsubsequence)
+TEST(distinctsubsequence, normal4)
 {
 	distinctsubsequence c;
 	string s = "abc";

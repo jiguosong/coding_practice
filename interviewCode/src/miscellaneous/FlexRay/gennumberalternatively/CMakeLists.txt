@@ -1,0 +1,4 @@
+add_executable(gennumberalternatively gennumberalternatively.h gennumberalternatively.cpp gennumberalternatively_test.cpp)
+target_link_libraries(gennumberalternatively gtest gmock_main)
+cotire(gennumberalternatively)
+add_test(NAME gennumberalternatively_test COMMAND gennumberalternatively)

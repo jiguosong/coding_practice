@@ -1,0 +1,4 @@
+add_executable(containsKnumbers containsKnumbers.h containsKnumbers.cpp containsKnumbers_test.cpp)
+target_link_libraries(containsKnumbers gtest gmock_main)
+cotire(containsKnumbers)
+add_test(NAME containsKnumbers_test COMMAND containsKnumbers)

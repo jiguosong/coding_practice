@@ -44,7 +44,6 @@ public:
 
 };
 
-
 template <class C, class P>
 bool IsDerivedFrom() {
     return IsDerivedFromHelper<C, P>::Is;
@@ -90,6 +89,9 @@ struct Factorial<0> {
 		RET = 1
 	};
 };
+
+
+
 
 
 int main()

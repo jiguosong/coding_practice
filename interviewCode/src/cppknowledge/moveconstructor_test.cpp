@@ -64,6 +64,8 @@ whether a given inline function is actually inlined is dependent on the implemen
 /*transfers the ownership of the triangle from a to b. We also say "a is moved into b" or "the triangle is moved from a to b".*/
 /*To move an object means to transfer ownership of some resource it manages to another object.*/
 
+/*static data members must be explicitly defined in exactly one compilation unit.*/
+
 #include <iostream>
 #include <utility>
 

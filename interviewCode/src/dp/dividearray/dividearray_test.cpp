@@ -10,17 +10,23 @@ using std::cout;
 using std::endl;
 using std::vector;
 
+/*
+Choose auto x when you want to work with copies.
+Choose auto &x when you want to work with original items and may modify them.
+Choose auto const &x when you want to work with original items and will not modify them
+*/
+
 template<class T>
 void PrintVector(const vector<T> &vec)
 {
-	for(size_t i = 0; i < vec.size(); ++i) cout << vec[i] << ' ';
+	for(auto const &v:vec) cout << v << ' ';
 	cout << endl;
 }
 
 template<class T>
 void PrintVectorVector(const vector<vector<T>> &vec)
 {
-	for(size_t i = 0; i < vec.size(); ++i) PrintVector(vec[i]);
+	for(auto const &v:vec) PrintVector(v);
 }
 
 TEST(dividearray, normal)

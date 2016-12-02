@@ -1,3 +1,7 @@
 add_executable(moveconstructor_test moveconstructor_test.cpp)
-add_executable(smartpointer smartpointer.cpp)
+add_executable(smartpointer_test smartpointer_test.cpp)
 add_executable(template_test template_test.cpp)
+add_executable(con_de_sctruction_test, con_de_sctruction_test.cpp)
+add_executable(exception_test exception_test.cpp)
+add_executable(dreaded_diamon, dreaded_diamon.cpp)
+add_executable(print1to100, print1to100.cpp)

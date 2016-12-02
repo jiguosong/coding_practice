@@ -1,0 +1,4 @@
+add_subdirectory(isswapsorted)
+add_subdirectory(buildfortress)
+add_subdirectory(containsKnumbers)
+add_subdirectory(gennumberalternatively)
