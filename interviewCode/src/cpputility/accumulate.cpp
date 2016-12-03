@@ -21,15 +21,15 @@ int main()
 
     int product = std::accumulate(v.begin(), v.end(), 1, std::multiplies<int>());
 
-    std::string s = std::accumulate(std::next(v.begin()), v.end(),
+/*    std::string s = std::accumulate(std::next(v.begin()), v.end(),
                                     std::to_string(v[0]), // start with first element
                                     [](std::string a, int b) {
                                         return a + '-' + std::to_string(b);
-                                    });
+                                    });*/
 
-    std::cout << "sum: " << sum << '\n'
+/*    std::cout << "sum: " << sum << '\n'
               << "product: " << product << '\n'
-              << "dash-separated string: " << s << '\n';
+              << "dash-separated string: " << s << '\n';*/
 }
 
 

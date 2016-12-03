@@ -20,7 +20,8 @@ S = "rabbbit", T = "rabbit"
 Return 3.*/
 
 
-int distinctsubsequence::numDistinct(string S, string T)
+//int distinctsubsequence::numDistinct(string S, string T)
+int numDistinct(string S, string T)
 {
 	int m = S.size();
 	int n = T.size();

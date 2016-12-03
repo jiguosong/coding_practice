@@ -11,10 +11,12 @@
 #include <string>
 using std::string;
 
-class distinctsubsequence {
-public:
+// just try to not use any class and gtest
+
+/*class distinctsubsequence {
+public:*/
 	int numDistinct(string S, string T);
-};
+//};
 
 
 

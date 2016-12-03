@@ -125,5 +125,6 @@ std::stack           	a container adapter, typically using deque/list/vector
 std::queue           	a container adapter, typically using deque/list
 std::priority_queue  	a container adaptor, typically using deque/vector
 
+http://www.cs.northwestern.edu/~riesbeck/programming/c++/stl-summary.html
 
 */
