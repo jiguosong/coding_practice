@@ -1,0 +1,4 @@
+add_executable(reverselinkedlist reverselinkedlist.h reverselinkedlist.cpp reverselinkedlist_test.cpp)
+target_link_libraries(reverselinkedlist gtest gmock_main)
+cotire(reverselinkedlist)
+add_test(NAME reverselinkedlist_test COMMAND reverselinkedlist)

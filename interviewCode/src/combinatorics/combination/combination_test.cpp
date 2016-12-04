@@ -18,7 +18,6 @@ using std::set;
 TEST(combination, normal)
 {
 	combination c;
-
 	vector<vector<int>> ans = c.combine(4,2);
 
 	ASSERT_EQ(6, ans.size());
