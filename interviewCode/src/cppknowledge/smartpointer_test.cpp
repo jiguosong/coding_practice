@@ -9,6 +9,7 @@
 #include <memory>
 #include <cassert>
 #include <utility>
+#include <vector>
 
 using namespace std;
 
@@ -56,6 +57,11 @@ private:
 	Kevin *p_;
 };
 
+
+class X
+{
+};
+
 int main() {
 	T* pt1 = new T;
 	// right now, we own the allocated object
@@ -86,7 +92,19 @@ int main() {
 	cout << old->getCount() << endl;
 	delete p2;
 
+
+/*	The C++ Standard says that an STL element must be "copy-constructible"
+	and "assignable." In other words, an element must be able to be assigned
+	or copied and the two elements are logically independent.
+	std::auto_ptr does not fulfill this requirement.*/
+	// http://ootips.org/yonat/4dev/smart-pointers.html
+	std::vector<std::auto_ptr<X> > vecX;
+	// vecX.push_back(new X);  -? wrong
+
+	std::auto_ptr<X> pX = vecX[0];  // vecX[0] is assigned NULL.
+
 	return 0;
 }
+
 
 

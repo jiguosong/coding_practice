@@ -38,12 +38,16 @@ parameter: it is always the integral or the integral of the square that is impor
 #include "PayOff.h"
 #include "Vanilla.h"
 #include "Parameters.h"
+#include "MCStatistics.h"
+#include "random2.h"
 
 class testest
 {
 public:
-	double SimpleMonteCarlo(const VanillaOption& TheOption, double Spot, const Parameters& Vol,
-						      const Parameters& r, unsigned long NumberOfPaths);
+	void SimpleMonteCarlo(const VanillaOption& TheOption, double Spot,
+							const Parameters& Vol, const Parameters& r,
+							unsigned long NumberOfPaths,
+							StatisticsMC& gatherer, RandomBase& generator);
 };
 
 #endif /* SIMPLEMC_H_ */

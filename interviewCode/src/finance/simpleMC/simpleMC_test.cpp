@@ -5,6 +5,10 @@
 #include <vector>
 #include "simpleMC.h"
 #include "DoubleDigital.h"
+#include "MCStatistics.h"
+#include "ConvergenceTable.h"
+#include "AntiThetic.h"
+#include "ParkMiller.h"
 
 using std::cout;
 using std::endl;
@@ -60,18 +64,35 @@ TEST(testest, normal)
 	ParametersConstant VolParam(Vol);
 	ParametersConstant rParam(r);
 
-	double resultCall = tc.SimpleMonteCarlo(theOption, Spot, VolParam, rParam, NumberOfPaths);
-	cout << "the price is " << resultCall << "\n";
+	StatisticsMean gatherer;
+	ConvergenceTable gathererTwo(gatherer);
+
+	RandomParkMiller generator(1);
+	AntiThetic GenTwo(generator);
+
+	//double resultCall = tc.SimpleMonteCarlo(theOption, Spot, VolParam, rParam, NumberOfPaths, gatherer);
+	tc.SimpleMonteCarlo(theOption, Spot, VolParam, rParam, NumberOfPaths,
+						gathererTwo, GenTwo);
+	vector<vector<double> > results = gatherer.GetResultsSoFar();
+	PrintVectorVector<double> (results);
 
 	VanillaOption secondOption(theOption);
-	resultCall = tc.SimpleMonteCarlo(secondOption, Spot, VolParam, rParam, NumberOfPaths);
-	cout << "the price is " << resultCall << "\n";
+	//resultCall = tc.SimpleMonteCarlo(secondOption, Spot, VolParam, rParam, NumberOfPaths, gatherer);
+	tc.SimpleMonteCarlo(secondOption, Spot, VolParam, rParam, NumberOfPaths,
+						gathererTwo, GenTwo);
+	results = gatherer.GetResultsSoFar();
+	PrintVectorVector<double> (results);
+	//cout << "the price is " << resultCall << "\n";
 
 	PayOffPut otherPayOff(Strike);
 	VanillaOption thirdOption(otherPayOff, Expiry);
 	theOption = thirdOption;
-	resultCall = tc.SimpleMonteCarlo(theOption, Spot, VolParam, rParam, NumberOfPaths);
-	cout << "the price is " << resultCall << "\n";
+	//resultCall = tc.SimpleMonteCarlo(theOption, Spot, VolParam, rParam, NumberOfPaths, gatherer);
+	tc.SimpleMonteCarlo(theOption, Spot, VolParam, rParam, NumberOfPaths,
+						gathererTwo, GenTwo);
+	results = gatherer.GetResultsSoFar();
+	PrintVectorVector<double> (results);
+	//cout << "the price is " << resultCall << "\n";
 }
 
 GTEST_API_ int main(int argc, char **argv)
