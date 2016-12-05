@@ -6,6 +6,15 @@
  */
 
 /*
+
+0) STL is designed to be
+    -- generic (can be used with any kind of object) and
+    -- efficient (does not incur time overhead compared to alternatives).
+
+To achieve these two design goals, STL containers store their objects by value.
+This means that if you have an STL container that stores objects of class Base,
+it cannot store of objects of classes derived from Base.
+
 1) 
 Probably the two most common self balancing tree algorithms are
 Red-Black trees and AVL trees. To balance the tree after an

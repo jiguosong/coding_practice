@@ -22,6 +22,11 @@ public:
 		DataPtr = inner.clone();
 	}
 
+	Wrapper(T* DataPtr_)
+	{
+		DataPtr = DataPtr_;
+	}
+
 	~Wrapper()
 	{
 		if (DataPtr != nullptr) delete DataPtr;  // why check nullptr?
@@ -39,8 +44,11 @@ public:
 	{
 		if (this != &original)
 		{
+			T* newPtr = (original.DataPtr != nullptr) ? original.DataPtr->clone() : nullptr;
+
 			if (DataPtr != nullptr) delete DataPtr;
-			DataPtr = (original.DataPtr != nullptr) ? original.DataPtr->clone() : 0;
+
+			DataPtr = newPtr;
 		}
 		return *this;
 	}

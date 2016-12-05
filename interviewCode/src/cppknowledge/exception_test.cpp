@@ -5,6 +5,21 @@
  *      Author: songjiguo
  */
 
+/*
+look at the smart pointer too!!!!
+
+For constructor and destructor,
+!!!it’s ok to throw in a constructor but never throw in a destructor
+
+that destructors are only called for fully constructed objects.
+So if an exception is thrown in the main body of the constructor,
+the destructors for all the data members are called but the
+destructor for the object being created is not.
+
+
+
+*/
+
 #include <iostream>
 
 #include <exception>

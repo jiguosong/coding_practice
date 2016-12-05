@@ -6,3 +6,5 @@ add_executable(exception_test exception_test.cpp)
 add_executable(dreaded_diamon, dreaded_diamon.cpp)
 add_executable(print1to100, print1to100.cpp)
 add_executable(fast_copy_paste_test, fast_copy_paste_test.cpp)
+
+add_subdirectory(GotW)
