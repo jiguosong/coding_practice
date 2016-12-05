@@ -68,7 +68,7 @@ TEST(containsKnumbers, largevariance)
 {
 	containsKnumbers tc;
 	vector<int> nums = {-100,-80,1,1,2,3,10,100, 200, 200};
-	int K = 3;
+	int K = 2;
 	ASSERT_TRUE(tc.isContainsAllKNumbers(nums, K));
 	//ASSERT_TRUE(tc.solution(nums, K));
 }

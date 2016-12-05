@@ -13,6 +13,11 @@ Example 2: A = [1,1,3], K = 2. Return should be false.*/
 
 #include "containsKnumbers.h"
 
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
 bool containsKnumbers::isContainsAllKNumbers(vector<int> &nums, int K)
 {
 	if(nums.size() < K) return false;
@@ -39,8 +44,8 @@ bool containsKnumbers::isContainsAllKNumbers(vector<int> &nums, int K)
 
 bool containsKnumbers::solution(vector<int> &A, int K) {
 	int n = A.size();
-	for (int i = 0; i < n - 2; i++) {   // change to n-2
-		if (A[i] + 1 < A[i + 1])
+	for (int i = 0; i < n - 1; ++i) {
+		if (A.at(i) + 1 < A.at(i+1))
 			return false;
 	}
 	if (A[0] != 1 || A[n - 1] != K)     // change to OR   ????? who said two ends must be 1 and K???

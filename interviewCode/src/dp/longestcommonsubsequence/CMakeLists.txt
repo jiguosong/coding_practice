@@ -1,0 +1,4 @@
+add_executable(longestcommonsubsequence longestcommonsubsequence.h longestcommonsubsequence.cpp longestcommonsubsequence_test.cpp)
+target_link_libraries(longestcommonsubsequence gtest gmock_main)
+cotire(longestcommonsubsequence)
+add_test(NAME longestcommonsubsequence_test COMMAND longestcommonsubsequence)

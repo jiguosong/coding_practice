@@ -49,6 +49,19 @@ const int max_int = std::numeric_limits<int>::max();
 */
 
 
+// example to handle overflow
+
+/*#include <limits.h>
+int safe_add(int a, int b) {
+    if (a > 0 && b > INT_MAX - a) {
+         handle overflow
+    } else if (a < 0 && b < INT_MIN - a) {
+         handle underflow
+    }
+    return a + b;
+}*/
+
+
 #include <iostream>
 #include <limits>
 

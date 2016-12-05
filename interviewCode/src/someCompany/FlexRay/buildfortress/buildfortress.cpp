@@ -27,6 +27,7 @@ int buildfortress::numberofFortresstoBuild(vector<int> &numbers)
 {
 	if(numbers.empty()) return 0;
 
+
 /*    can not use this since space O(1)
 	vector<int> tmp;
 	int pre = numbers[0];
