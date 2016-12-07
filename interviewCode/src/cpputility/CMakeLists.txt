@@ -11,5 +11,6 @@ cotire(spinlock)
 #add_executable(pragma, pragma.cpp)
 add_executable(endian, endian.cpp)
 add_executable(typepromote, typepromote.cpp)
+add_executable(floatingpoint, floatingpoint.cpp)
 
 add_subdirectory(ReadDataasInput)

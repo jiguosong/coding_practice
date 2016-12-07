@@ -1,1 +1,4 @@
-add_executable(helloGotW helloGotW.cpp)
+add_executable(GotW01_varinitialize GotW01_varinitialize.cpp)
+add_executable(GotW04_complex GotW04_complex.cpp)
+add_executable(GotW05_overridevrifun, GotW05_overridevrifun.cpp)
+add_executable(GotW02_tempvar GotW02_tempvar.cpp)

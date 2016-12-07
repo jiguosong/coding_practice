@@ -10,37 +10,17 @@
 #include <iostream>
 using namespace std;
 
-int Task1::solution(vector<int> &A) {
-	if(A.empty()) return -1;
-
-	int sz = A.size();
-
-	// to handle overflow, there are 2 approaches (not mention safeint and x86 instruction)
-	// 1) use long long
-/*	long long left = 0;
-	long long right = 0;
-	for(int e : A) right += static_cast<long long> (e);*/
-
-	// 2) return the error
-	int left = 0;
-	int right = 0;
-	for(int e : A) {
-		if(right > 0 && e > std::numeric_limits<int>::max() - right) {
-			cerr << "overflow, return -1" << endl;
-			return -1;
-		} else if(right < 0 && e < std::numeric_limits<int>::min() - right) {
-			cerr << "underflow, return -1" << endl;
-			return -1;
-		} else {
-			right += e;
-		}
-	}
-
-	for(int i = 0; i < sz; ++i) {
-		right -= A[i];
-		if(right == left) return i;
-		left += A[i];
-	}
-
-	return -1;
+int Task1::solution(vector<int> &A, vector<int> &B) {
+    int n = A.size();
+    int m = B.size();
+    sort(A.begin(), A.end());
+    sort(B.begin(), B.end());
+    int i = 0;
+    for (int k = 0; k < n; k++) {
+        while (i < m - 1 && B[i] < A[k])
+            i++;
+        if (A[k] == B[i])
+            return A[k];
+    }
+    return -1;
 }

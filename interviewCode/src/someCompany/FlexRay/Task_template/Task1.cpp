@@ -36,6 +36,42 @@ int Task1::solution(vector<int> &A) {
 }
 
 
+#include <limits.h>
+int a = <something>;
+int x = <something>;
+a += x;              /* UB */
+if (a < 0) {         /* unreliable test */
+  /* ... */
+}
+
+
+/*// for addition
+#include <limits.h>
+int a = <something>;
+int x = <something>;
+if ((x > 0) && (a > INT_MAX - x))  `a + x` would overflow ;
+if ((x < 0) && (a < INT_MIN - x))  `a + x` would underflow ;
+
+
+// for subtraction
+#include <limits.h>
+int a = <something>;
+int x = <something>;
+if ((x < 0) && (a > INT_MAX + x))  `a - x` would overflow ;
+if ((x > 0) && (a < INT_MIN + x))  `a - x` would underflow ;
+
+// for multiplication
+#include <limits.h>
+int a = <something>;
+int x = <something>;
+if (a > INT_MAX / x)  `a * x` would overflow ;
+if ((a < INT_MIN / x))  `a * x` would underflow ;
+// there may be need to check for -1 for two's complement machines
+if ((a == -1) && (x == INT_MIN))  `a * x` can overflow
+if ((x == -1) && (a == INT_MIN))  `a * x` (or `a / x`) can overflow */
+
+
+
 int Task1::solution2(vector<int> &A) {
 	if(A.empty()) return -1;
 

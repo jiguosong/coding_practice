@@ -31,9 +31,49 @@ TEST(Task1, normal)
 {
 	Task1 tc;
 
-	vector<int> nums = { -7, 1, 5, 2, -4, 3, 0};
-	ASSERT_EQ(3, tc.solution(nums));
+	vector<int> A = { 1,3,2,1};
+	vector<int> B = { 4,2,5,3,2};
+	ASSERT_EQ(2, tc.solution(A, B));
 }
+
+TEST(Task1, normal2)
+{
+	Task1 tc;
+
+	vector<int> A = { 2,1};
+	vector<int> B = { 3,3};
+	ASSERT_EQ(-1, tc.solution(A, B));
+}
+
+TEST(Task1, normal3)
+{
+	Task1 tc;
+
+	vector<int> A = { 3,2,5,6,87,2,4,5,54};
+	vector<int> B = { 1,1,1,1,1,1,1,1,1,1,4};
+	ASSERT_EQ(4, tc.solution(A, B));
+}
+
+TEST(Task1, normal4)
+{
+	Task1 tc;
+
+	vector<int> A = { 7,7,7,7,7,7,7,7,7,7,7,7,7,7,54,100};
+	vector<int> B = { 3,2,5,6,87,2,4,12,54};
+
+	ASSERT_EQ(54, tc.solution(A, B));
+}
+
+TEST(Task1, normal5)
+{
+	Task1 tc;
+
+	vector<int> A = { 1,1,1,1,1,1,1,1,1,1,1,1,54,100};
+	vector<int> B = { 3,2,5,6,2,3,53,5,3,6,67,567,2,2,87,2,4,12,54};
+
+	ASSERT_EQ(54, tc.solution(A, B));
+}
+
 
 GTEST_API_ int main(int argc, char **argv)
 {

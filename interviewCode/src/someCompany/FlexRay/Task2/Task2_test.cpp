@@ -31,6 +31,39 @@ TEST(Task2, normal)
 {
 	Task2 tc;
 
+	vector<int> A = {1,3,-3};
+	ASSERT_EQ(6, tc.solution(A));
+}
+
+TEST(Task2, normal2)
+{
+	Task2 tc;
+
+	vector<int> A = {4,3,2,5,1,1};
+	ASSERT_EQ(4, tc.solution(A));
+}
+
+TEST(Task2, normal3)
+{
+	Task2 tc;
+
+	vector<int> A = {0};
+	ASSERT_EQ(0, tc.solution(A));
+}
+
+TEST(Task2, overflow)
+{
+	Task2 tc;
+	vector<int> A = {std::numeric_limits<int>::max(), 2,3,4,-100, std::numeric_limits<int>::min(),1, -6, 2, std::numeric_limits<int>::min(),-2};
+	ASSERT_EQ(0, tc.solution(A));
+}
+
+
+TEST(Task2, underflow)
+{
+	Task2 tc;
+	vector<int> A = {std::numeric_limits<int>::min(), 2,3,4,-100, std::numeric_limits<int>::max(),1, -6, 2, std::numeric_limits<int>::min(),-2};
+	ASSERT_EQ(0, tc.solution(A));
 }
 
 GTEST_API_ int main(int argc, char **argv)

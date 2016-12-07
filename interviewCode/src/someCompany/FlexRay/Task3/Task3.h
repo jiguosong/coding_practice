@@ -14,7 +14,7 @@ using std::vector;
 
 class Task3 {
 public:
-	int solution(vector<int> &A);
+	int solution(int A, int B);
 };
 
 

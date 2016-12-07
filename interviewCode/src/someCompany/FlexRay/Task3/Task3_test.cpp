@@ -31,6 +31,73 @@ TEST(Task3, normal)
 {
 	Task3 tc;
 
+	int A = 4;
+	int B = 17;
+	ASSERT_EQ(3, tc.solution(A, B));
+}
+
+TEST(Task3, normal2)
+{
+	Task3 tc;
+
+	int A = 4;
+	int B = -17;
+	ASSERT_EQ(0, tc.solution(A, B));
+}
+
+TEST(Task3, normal3)
+{
+	Task3 tc;
+
+	int A = 40;
+	int B = 17;
+	ASSERT_EQ(0, tc.solution(A, B));
+}
+
+TEST(Task3, normal4)
+{
+	Task3 tc;
+
+	int A = 0;
+	int B = 17;
+	ASSERT_EQ(5, tc.solution(A, B));
+}
+
+
+TEST(Task3, normal5)
+{
+	Task3 tc;
+
+	int A = -10;
+	int B = 1;
+	ASSERT_EQ(2, tc.solution(A, B));
+}
+
+TEST(Task3, normal6)
+{
+	Task3 tc;
+
+	int A = -10;
+	int B = 0;
+	ASSERT_EQ(1, tc.solution(A, B));
+}
+
+TEST(Task3, normal7)
+{
+	Task3 tc;
+
+	int A = 5;
+	int B = 5;
+	ASSERT_EQ(0, tc.solution(A, B));
+}
+
+TEST(Task3, normal8)
+{
+	Task3 tc;
+
+	int A = 4;
+	int B = 4;
+	ASSERT_EQ(1, tc.solution(A, B));
 }
 
 GTEST_API_ int main(int argc, char **argv)

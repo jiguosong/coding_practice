@@ -13,9 +13,8 @@ using std::vector;
 
 class Task1 {
 public:
-	int solution(vector<int> &A);
+	int solution(vector<int> &A, vector<int> &B);
 };
-
 
 
 #endif /* TASK1_H_ */

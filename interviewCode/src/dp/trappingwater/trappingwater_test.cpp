@@ -60,6 +60,7 @@ TEST(testcase_OK6, trappingwater_trap)
 GTEST_API_ int main(int argc, char **argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
+	//::testing::GTEST_FLAG(filter) = "testcase_OK6";
 	return RUN_ALL_TESTS();
 }
 
