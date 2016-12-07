@@ -1,1 +1,2 @@
 add_subdirectory(FlexRay)
+add_subdirectory(GenevaTrading)
