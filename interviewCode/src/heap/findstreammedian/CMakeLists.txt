@@ -1,0 +1,4 @@
+add_executable(findstreammedian findstreammedian.h findstreammedian.cpp findstreammedian_test.cpp)
+target_link_libraries(findstreammedian gtest gmock_main)
+cotire(findstreammedian)
+add_test(NAME findstreammedian_test COMMAND findstreammedian)
