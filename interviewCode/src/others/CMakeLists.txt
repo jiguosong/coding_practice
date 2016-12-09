@@ -12,3 +12,5 @@ add_subdirectory(getnextlargenumber)
 
 add_subdirectory(leastdifferencearray)
 add_subdirectory(movezerotoright)
+add_subdirectory(maxbingap)
+
