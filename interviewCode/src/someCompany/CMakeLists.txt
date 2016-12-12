@@ -1,3 +1,4 @@
 add_subdirectory(FlexRay)
 add_subdirectory(GenevaTrading)
 add_subdirectory(GoldmanSach)
+add_subdirectory(mobi)

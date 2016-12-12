@@ -1,0 +1,69 @@
+Finding files... done.
+Importing test modules ... done.
+
+Test Case 1 << Input >>
+xyz+y+z
+2y4+3y-z
+<< Output >>
+    2      2       5     2           2     4      5
+-xyz  + 3xy z + 2xy z - z  + 2yz + 3y  + 2y z + 2y 
+
+Test Case 2 << Input >>
+-yx8+9x3-1+y
+x5y+1+x3
+<< Output >>
+  13 2    11      8      6    5     5 2     3    3         
+-x  y  - x  y + 8x y + 9x  - x y + x y  + 8x  + x y - 1 + y
+
+Test Case 3 << Input >>
+-yx8+9x323238473289476529837465928344975-19845+y
+x52340975y+11293874+3294875x3
+<< Output >>
+  323238473289476529837465980685950             323238473289476529837465928344978             323238473289476529837465928344975    52340983 2         52340975     52340975 2           11             8                3           3                            
+9x                                 y + 29653875x                                  + 101644866x                                  - x        y  - 19845x        y + x        y  - 3294875x  y - 11293874x y - 65386794375x  + 3294875x y - 224126929530 + 11293874y
+
+Test Case 4 << Input >>
+-yx8+x3-1+y
+x5y+1+x3
+<< Output >>
+  13 2    11     6    5     5 2    3         
+-x  y  - x  y + x  - x y + x y  + x y - 1 + y
+
+Test Case 5 << Input >>
+-yx888+x3-1+y2+32x19
+x5y887+1+x320
+<< Output >>
+  1208     893 888    888       339    323    320    320 2      24 887      19    8 887    5 887    5 889    3        2
+-x    y - x   y    - x   y + 32x    + x    - x    + x   y  + 32x  y    + 32x   + x y    - x y    + x y    + x  - 1 + y 
+
+Test Case 9 << Input >>
+-yxt+xz-1+43t2y2+32x19
+x5y+1+x3
+<< Output >>
+   24       22      19    6       6 2    5       2 5 3    4      4     3      2 3 2                     2 2
+32x  y + 32x   + 32x   + x yz - tx y  - x y + 43t x y  + x z - tx y - x  + 43t x y  + xz - txy - 1 + 43t y 
+
+Test Case 6 << Input >>
+1
+1
+<< Output >>
+ 
+1
+Test Case 8 << Input >>
+-yx888+x3-1+y2+32x19
+1
+<< Output >>
+  888       19    3        2
+-x   y + 32x   + x  - 1 + y 
+
+Test Case 7 << Input >>
+-yx888+x3-1+y2+32x19
+0
+<< Output >>
+
+0
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.009s
+
+OK

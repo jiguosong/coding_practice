@@ -1,0 +1,304 @@
+'''
+Created on Dec 10, 2016
+
+@author: songjiguo
+'''
+
+import numpy as np
+
+class Reverse:
+    """Iterator for looping over a sequence backwards."""
+    def __init__(self, data):
+        self.data = data
+        self.index = len(data)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.index == 0:
+            raise StopIteration
+        self.index = self.index - 1
+        return self.data[self.index]
+
+class poly(object):
+    '''
+    classdocs: this is the interview question "The Errant Physicist" at Esgestream
+    '''
+
+    def __init__(self):
+        '''
+        Constructor
+        '''
+        ## just use to indicate what data structures we use. this can be done anywhere before we use them
+        self.highest_power = 15  # this is a given assumption
+        self.ans = np.zeros((self.highest_power, self.highest_power), dtype=np.int32)
+        self.x_map = {}  # another solution that uses the map {x_i:[{y_1:al}, {y_2:val}...]}
+        self.power_line = ""
+        self.symbol_line = ""
+        
+        self.line1 = ""
+        self.line2 = ""
+
+    # utility functions
+    def getsign(self, char):
+        if char == '+':
+            return 1
+        elif char == '-':
+            return -1
+        else:
+            return 0
+               
+    def is_sign(self, char):
+        if char == '+' or char == '-':
+            return char
+        else:
+            return 0       
+        
+    def getnum(self, eq, k):
+        ans = 0
+        while(k < len(eq) and eq[k].isdigit()):
+            ans = ans*10 + int(eq[k])
+            k = k + 1
+        return ans
+        
+    def parse_single_eq(self, eq):
+        res = []
+        tmp = {}       
+        
+        if eq[0] != '-':  # just facilitate the computation
+            eq = '+' + eq
+        
+        for i in range(0, len(eq)):    ## eq1 = "-yx8+9x3-1+y"
+            char = eq[i]
+            if self.is_sign(char) != 0:
+                if tmp:
+                    res.append(tmp)
+                    tmp = {}
+                if eq[i+1].isdigit():
+                    tmp["co"] = self.getnum(eq, i+1)*self.getsign(self.is_sign(char))
+                    i = i + 1
+                else:
+                    tmp["co"] = self.getsign(self.is_sign(char))
+            elif char.isalpha():
+                if i < len(eq)-1 and eq[i+1].isdigit():
+                    tmp[char] = self.getnum(eq, i+1)
+                    i = i + 1
+                else:
+                    tmp[char] = 1
+        
+        res.append(tmp)
+        return res
+
+    def parse_expression(self, eq_list):
+       
+        res = []
+        for eq in eq_list:
+            res.append(self.parse_single_eq(eq))        
+        return res
+     
+    def format_output(self, stack_power, stack_symbol):        
+#        print (stack_power)
+#        print (stack_symbol)
+        while stack_symbol:
+            t = stack_symbol.pop()
+            if t == 'x' or t == 'y':
+                self.symbol_line += t;
+                self.power_line += " ";
+                k = stack_power.pop()
+                if k == 1:                   # do not display power of 1
+                    continue                
+                self.power_line += str(k)                
+                while k > 0:
+                    k //= 10
+                    self.symbol_line += " "
+            elif t == ' - ' or t == ' + ':
+                self.symbol_line += t;
+                self.power_line += "   ";
+            elif t == 'x#' or t == 'y#' or t == 'v#':
+                continue
+            else:    # value digits
+                self.symbol_line += t;
+                self.power_line += " ";
+        
+        
+    def prepare_result(self):
+        # walk through the matrix according to the specifications
+        # for example, x is decreasing order and y is increasing order for the same x
+        print(self.ans)
+        (m, n) = self.ans.shape
+        
+        # idea: use 2 stacks for formating output
+        stack_power = []     # for power of x, y
+        stack_symbol = []     # for x, y and coefficient
+        for row in range(0, m):
+             for col in range(n, 0, -1):
+                 v = self.ans[row-1][col-1]
+                 if(v != 0):
+                    # y power
+                    k = col-1
+                    if (k > 0):
+                        stack_power.append(k)
+
+                    # x power
+                    k = row-1
+                    if (k > 0):
+                        stack_power.append(k)
+                    
+                    # y
+                    if col-1 != 0:
+                        stack_symbol.append('y')
+                    else:
+                        stack_symbol.append('y#')   # anchor
+                    
+                    # x
+                    if row-1 != 0:
+                        stack_symbol.append('x')
+                    else:
+                        stack_symbol.append('x#')   # anchor
+                  
+                    # absolute coefficient
+                    if ((col-1 == 0 and row-1 == 0) or abs(v) != 1):
+                        k = abs(v)
+                        digits = 0
+                        if (k == 1):
+                            stack_symbol.append(str(k))
+                        else:    # k > 1
+                            while(k):
+                                stack_symbol.append(str(k%10))
+                                k = k//10
+                                digits += 1
+                    else:
+                        stack_symbol.append("v#")
+                        
+                    # sign       each sign occupies 3 digits
+                    if v < 0:
+                        sign = " - "
+                    else:
+                        sign = " + "
+                    stack_symbol.append(sign)                    
+        
+        # fix the leading sign issue here
+        if stack_symbol[-1] == ' - ':
+            stack_symbol[-1] = '-'
+        elif stack_symbol[-1] == ' + ':
+            del stack_symbol[-1]            
+        
+        self.format_output(stack_power, stack_symbol)
+        
+        
+        # method2: using map of map. This can be extended to higher dimensional space
+        print (self.x_map)
+        key_order = sorted(self.x_map.keys(), reverse=True)
+        first_time = True
+        for key_x in key_order:
+            map_x = self.x_map[key_x]
+            print(key_x)
+            print(map_x)
+            for key_y, key_v in map_x.items():  
+                # sign
+                if first_time is True:
+                    if key_v < 0:
+                        self.line1 += " "
+                        self.line2 += "-"
+                    first_time = False
+                else:
+                    sign = '+' if key_v > 0 else '-'
+                    self.line1 += "   ";
+                    self.line2 += " " + sign + " "
+                               
+                # constant and coefficient
+                k = abs(key_v)
+                if key_x == 0 and key_y == 0:   # constant 
+                    self.line2 += str(k)
+                    while k > 0:
+                        k //= 10
+                        self.line1 += " "
+                else:                           # coefficient
+                    if k != 1:
+                        self.line2 += str(k)
+                        while k > 0:
+                            k //= 10
+                            self.line1 += " "
+                                
+               # x               
+                if key_x != 0:
+                    k = key_x 
+                    self.line2 += 'x';
+                    self.line1 += " "
+                    if k == 1:                   # do not display power of 1
+                        continue                
+                    self.line1 += str(k)         # x power in characters
+                    while k > 0:
+                        k //= 10
+                        self.line2 += " "        # correspinding space in symbols
+                
+                # y
+                if key_y != 0:
+                    k = key_y  
+                    self.line2 += 'y';
+                    self.line1 += " ";                    
+                    if k == 1:                   # do not display power of 1
+                        continue           
+                    self.line1 += str(k)         # y power in characters
+                    while k > 0:
+                        k //= 10
+                        self.line2 += " "        # correspinding space in symbols 
+                
+ 
+
+                          
+            
+        print("new map....")        
+        print (self.line1)     
+        print (self.line2)
+        print("new map....done")
+#                 
+#             
+#             if t == 'x' or t == 'y':
+#                 self.symbol_line += t;
+#                 self.power_line += " ";
+#                 k = stack_power.pop()
+#                 if k == 1:                   # do not display power of 1
+#                     continue                
+#                 self.power_line += str(k)                
+#                 while k > 0:
+#                     k //= 10
+#                     self.symbol_line += " "
+#             elif t == ' - ' or t == ' + ':
+#                 self.symbol_line += t;
+#                 self.power_line += "   ";
+#             elif t == 'x#' or t == 'y#' or t == 'v#':
+#                 continue
+#             else:    # value digits
+#                 self.symbol_line += t;
+#                 self.power_line += " ";
+
+    def do_computation(self, parsed_eq):  
+        # fill the ans matrix
+        for ai in parsed_eq[0]:   # TODO: operator override or sparse matrix
+            for bi in parsed_eq[1]:
+                new_val   = ai['co']*bi['co']
+                t1 = ai['x'] if 'x' in ai else 0;
+                t2 = bi['x'] if 'x' in bi else 0;
+                new_x_idx = t1 + t2
+                t1 = ai['y'] if 'y' in ai else 0;
+                t2 = bi['y'] if 'y' in bi else 0;
+                new_y_idx = t1 + t2     
+                
+                # using matrix           
+                self.ans[new_x_idx][new_y_idx] += new_val
+                
+                # using map of map
+                if new_x_idx not in self.x_map:
+                    self.x_map[new_x_idx] = {new_y_idx:new_val}
+                else:
+                    if new_y_idx not in self.x_map[new_x_idx]:
+                        self.x_map[new_x_idx][new_y_idx] = new_val
+                    else:
+                        self.x_map[new_x_idx][new_y_idx] += new_val   # already in the map
+        self.prepare_result()        
+                
+    def product(self, equation1, equation2):
+        eq_list = [equation1, equation2]             
+        self.do_computation(self.parse_expression(eq_list))
