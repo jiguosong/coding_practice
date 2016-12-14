@@ -54,6 +54,7 @@ void display(base *obj, int ele) {
 
 int main() {
 
+	constexpr int a = {3};
 	constexpr int i = {3};
 	base arrb[i];
 	display(arrb, 3);

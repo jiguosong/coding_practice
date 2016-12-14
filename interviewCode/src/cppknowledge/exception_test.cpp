@@ -16,8 +16,6 @@ So if an exception is thrown in the main body of the constructor,
 the destructors for all the data members are called but the
 destructor for the object being created is not.
 
-
-
 */
 
 #include <iostream>
@@ -41,12 +39,12 @@ public:
 
 int main(int argc, const char * argv[])
 {
-/*	try {
+	try {
 		A a;
 		throw 32;
 	} catch (int a) {
 		std::cout << a;
-	}*/
+	}
 
 /*
 	try {

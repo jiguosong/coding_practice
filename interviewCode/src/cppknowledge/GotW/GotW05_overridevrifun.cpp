@@ -6,9 +6,11 @@
  */
 /*
 Overload, override and hide:
-  To overload a function f means to provide another function with the same name in the same scope but with different parameter types. When f is actually called, the compiler will try to pick the best match based on the actual parameters that are supplied.
-  To override a virtual function f means to provide another function with the same name and the same parameter types in a derived class.
-  To hide a function f that exists in an enclosing scope (base class, outer class, or namespace) means to provide another function with the same name in an inner scope (derived class, nested class, or namespace), which will hide the same function name in an enclosing scope.
+  1) To overload a function f means to provide another function with the same name in the same scope but with different parameter types.
+     When f is actually called, the compiler will try to pick the best match based on the actual parameters that are supplied.
+  2) To override a virtual function f means to provide another function with the same name and the same parameter types in a derived class.
+  3) To hide a function f that exists in an enclosing scope (base class, outer class, or namespace) means to provide another function with
+     the same name in an inner scope (derived class, nested class, or namespace), which will hide the same function name in an enclosing scope.
 */
 
 #include <iostream>
@@ -17,9 +19,10 @@ Overload, override and hide:
 
 using namespace std;
 
-// Guideline: Prefer to have a class contain only public virtual functions, or no public virtual functions (other than the destructor which is special).
-//            A pure abstract base class should have only public virtual functions. …
-// Non-Virtual Interface pattern (NVI) ::  For any other base class, prefer making public member functions non-virtual, and virtual member functions non-public; the former should have any default arguments and can be implemented in terms of the latter.
+// Guideline: Prefer to have a class contains only public virtual functions, or no public virtual functions (other than the destructor which is special).
+//            A pure abstract base class should have only public virtual functions.
+// Non-Virtual Interface pattern (NVI) ::  For any other base class, prefer making public member functions non-virtual, and virtual member functions non-public;
+//                                         the former should have any default arguments and can be implemented in terms of the latter.
 class base
 {
 public:
@@ -72,12 +75,14 @@ int main() {
 	auto pb = std::unique_ptr<base>{new derived};
 
 	b.f(1.0);
-	d.f(1.0);  // complex<double> provides an implicit conversion from double, since there is no using base::f
-	pb->f(1.0);  // overload resolution is done on the static type (here base), not the dynamic type (here derived). You have a base pointer, you get the base interface.
+	d.f(1.0);    // complex<double> provides an implicit conversion from double, since there is no using base::f
+	pb->f(1.0);  // overload resolution is done on the static type (here base), not the dynamic type (here derived).
+	             // You have a base pointer, you get the base interface.
 
 	b.g();
 	d.g();
-	pb->g(); //default parameters are taken from the static type (here base) of the object, hence the default value of 10 is taken. However, the function happens to be virtual, and so the function actually called is based on the dynamic type (here derived) of the object.
+	pb->g(); // default parameters are taken from the static type (here base) of the object, hence the default value of 10 is taken.
+	         // However, the function happens to be virtual, and so the function actually called is based on the dynamic type (here derived) of the object.
 
 	//delete pb;  // no need due to uniqe_ptr
 }

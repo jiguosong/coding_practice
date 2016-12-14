@@ -33,7 +33,7 @@ class Der2: public virtual Base { /*...*/
 class Join: public Der1, public Der2 {
 public:
 	void method() {
-		data_ = 1;  // Bad: this is ambiguous; solution : add virtual
+		data_ = 1;  // Bad: this is ambiguous; solution : add virtual as the solution
 	}
 };
 

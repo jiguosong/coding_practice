@@ -12,5 +12,6 @@ cotire(spinlock)
 add_executable(endian, endian.cpp)
 add_executable(typepromote, typepromote.cpp)
 add_executable(floatingpoint, floatingpoint.cpp)
+add_executable(rdtsc_measure, rdtsc_measure.cpp)
 
 add_subdirectory(ReadDataasInput)

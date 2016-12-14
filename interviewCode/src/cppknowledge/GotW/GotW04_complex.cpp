@@ -17,7 +17,9 @@ public:
 	complex(double r, double i):real(r), imag(i) {std::cout << "constructor" << std::endl;}
 
 	// Guideline: Prefer passing a read-only parameter by const& if you are only going to read from it (not make a copy of it).
-	// Guideline: If you supply a standalone version of an operator (e.g., operator+), always supply an assignment version of the same operator (e.g., operator+=) and prefer implementing the former in terms of the latter. Also, always preserve the natural relationship between op and op= (where op stands for any operator).
+	// Guideline: If you supply a standalone version of an operator (e.g., operator+), always supply an assignment version of the same operator (e.g., operator+=)
+	//            and prefer implementing the former in terms of the latter. Also, always preserve the natural relationship between op and op= (where op stands
+    //            for any operator).
 	// Guideline: Prefer writing a op= b instead of a = a op b (where op stands for any operator). It’s clearer, and it’s often more efficient.
 	complex& operator+=(complex &other){
 		std::cout << "+= operator" << std::endl;
@@ -39,7 +41,8 @@ public:
 		return *this;
 	}
 
-	// Guideline: For consistency, always implement postincrement in terms of preincrement, otherwise your users will get surprising (and often unpleasant) results.
+	// Guideline: For consistency, always implement postincrement in terms of preincrement, otherwise your users
+	// will get surprising (and often unpleasant) results.
 	complex operator++(int) {
 		std::cout << "++ operator with int" << std::endl;
 		auto tmp = *this;

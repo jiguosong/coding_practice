@@ -1,11 +1,13 @@
-#ifndef XXX_H_
-#define XXX_H_
+#ifndef IKM_H_
+#define IKM_H_
 
 #include <vector>
 using std::vector;
 
-class XXX {
+class IKM
+{
 public:
+	void test();
 
 private:
 
