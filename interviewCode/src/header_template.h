@@ -6,7 +6,7 @@ using std::vector;
 
 class XXX {
 public:
-
+	void dummy();
 private:
 
 };

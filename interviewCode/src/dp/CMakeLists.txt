@@ -10,3 +10,6 @@ add_subdirectory(distinctsubsequence)
 add_subdirectory(palindromepair)
 add_subdirectory(dividearray)
 add_subdirectory(longestcommonsubsequence)
+add_subdirectory(removekdigits)
+add_subdirectory(createmaxnumber)
+

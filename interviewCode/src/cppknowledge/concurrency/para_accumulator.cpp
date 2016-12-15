@@ -10,14 +10,13 @@
 #include <vector>
 #include <algorithm>
 
-#include <chrono>
-
 template<typename Iterator, typename T>
 struct accumulate_block
 {
 	void operator()(Iterator first, Iterator last, T &result)
 	{
-		std::cout << "D" << std::endl;
+		std::cout << "thread " << std::this_thread::get_id()
+				<< " computing....." << std::endl;
 		result = std::accumulate(first, last, result);
 	}
 };
@@ -25,7 +24,6 @@ struct accumulate_block
 template<typename Iterator, typename T>
 T parallel_accumulate(Iterator first, Iterator last, T init)
 {
-	std::cout << "A" << std::endl;
 	unsigned long const len = std::distance(first, last);
 	if (!len)
 		return init;
@@ -37,7 +35,6 @@ T parallel_accumulate(Iterator first, Iterator last, T init)
 	unsigned long const thread_nums = std::min(
 			hardware_threads != 0 ? hardware_threads : 2, max_thread);
 
-	std::cout << "B" << std::endl;
 	unsigned long const block_size = len / thread_nums;
 	std::vector<T> result(thread_nums);
 	std::vector<std::thread> threads(thread_nums - 1); // the creator thread is also doing some work
@@ -47,6 +44,7 @@ T parallel_accumulate(Iterator first, Iterator last, T init)
 	std::cout << "len " << len << std::endl;
 	std::cout << "min_per_thread " << min_per_thread << std::endl;
 	std::cout << "thread_nums " << thread_nums << std::endl;
+	std::cout << std::endl;
 	for (unsigned long i = 0; i < (thread_nums - 1); ++i) {
 		Iterator block_end = block_start;
 		std::advance(block_end, block_size);
@@ -65,8 +63,7 @@ T parallel_accumulate(Iterator first, Iterator last, T init)
 
 void hello()
 {
-	std::cout << "Hello from thread " << std::this_thread::get_id()
-			<< std::endl;
+	std::cout << "Hello" << std::endl;
 }
 
 int main()

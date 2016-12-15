@@ -13,5 +13,5 @@ add_subdirectory(getnextlargenumber)
 add_subdirectory(leastdifferencearray)
 add_subdirectory(movezerotoright)
 add_subdirectory(maxbingap)
-
-add_subdirectory(removekdigits)
+add_subdirectory(finddifference)
+add_subdirectory(elimination_game)

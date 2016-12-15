@@ -1,0 +1,4 @@
+add_executable(elimination_game elimination_game.h elimination_game.cpp elimination_game_test.cpp)
+target_link_libraries(elimination_game gtest gmock_main)
+cotire(elimination_game)
+add_test(NAME elimination_game_test COMMAND elimination_game)

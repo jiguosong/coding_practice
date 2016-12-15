@@ -33,7 +33,8 @@
 
 using namespace std;
 
-#include "XXX.h"
+
+#include "finddifference.h"
 
 
 /*
@@ -41,6 +42,7 @@ using namespace std;
    Choose auto &x when you want to work with original items and may modify them.
    Choose auto const &x when you want to work with original items and will not modify them 
 */
+
 template<class T>
 void PrintVector(const vector<T> &vec)
 {
@@ -54,10 +56,44 @@ void PrintVectorVector(const vector<vector<T>> &vec)
 	for(auto const &v:vec) PrintVector(v);
 }
 
-TEST(XXX, normal1)
+TEST(finddifference, normal1)
 {
-	XXX tc;
+	finddifference<string, char> tc;
 
+	string s = "abcde";
+	string r = "abcdef";
+
+	ASSERT_EQ('f', tc.findoneletterdifference(s, r));
+}
+
+TEST(finddifference, normal2)
+{
+	finddifference<string, char> tc;
+
+	string s = "abcde";
+	string r = s;
+
+	// generate randome number between 0 and 100
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<uint32_t> dist(0, 100);
+	int pos = dist(gen);
+	std::sort(r.begin(), r.end());
+	int k = 0;
+	do {    // randomly choose one permutation
+		if(++k > pos) break;
+	} while (std::next_permutation(r.begin(), r.end()));
+
+	// generate random position
+	std::uniform_int_distribution<> dist2(0, r.size()-1);
+	int pos2 = dist2(gen);
+
+	/* random letter */
+	std::uniform_int_distribution<> dist3(0, 25);
+	int pos3 = dist3(gen);
+	char rand_char = 'a'+pos3;
+	r.insert(pos2, 1, rand_char);
+	ASSERT_EQ(rand_char, tc.findoneletterdifference(s, r));
 }
 
 GTEST_API_ int main(int argc, char **argv)

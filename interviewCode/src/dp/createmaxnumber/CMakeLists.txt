@@ -1,0 +1,4 @@
+add_executable(createmaxnumber createmaxnumber.h createmaxnumber.cpp createmaxnumber_test.cpp)
+target_link_libraries(createmaxnumber gtest gmock_main)
+cotire(createmaxnumber)
+add_test(NAME createmaxnumber_test COMMAND createmaxnumber)

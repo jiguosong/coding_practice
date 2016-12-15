@@ -33,7 +33,7 @@
 
 using namespace std;
 
-#include "XXX.h"
+#include "elimination_game.h"
 
 
 /*
@@ -54,10 +54,18 @@ void PrintVectorVector(const vector<vector<T>> &vec)
 	for(auto const &v:vec) PrintVector(v);
 }
 
-TEST(XXX, normal1)
+TEST(elimination_game, normal1)
 {
-	XXX tc;
+	elimination_game tc;
+	int n = 9;
+	ASSERT_EQ(6, tc.lastRemaining(n));
+}
 
+TEST(elimination_game, normal2)
+{
+	elimination_game tc;
+	int n = 1;
+	ASSERT_EQ(1, tc.lastRemaining(n));
 }
 
 GTEST_API_ int main(int argc, char **argv)

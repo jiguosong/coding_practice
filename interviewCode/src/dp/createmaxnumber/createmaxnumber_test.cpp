@@ -3,7 +3,7 @@
 #include "gtest/gtest.h"
 #include <iostream>
 #include <vector>
-#include "removekdigits.h"
+#include "createmaxnumber.h"
 
 using std::cout; 
 using std::endl;
@@ -27,28 +27,16 @@ void PrintVectorVector(const vector<vector<T>> &vec)
 	for(auto const &v:vec) PrintVector(v);
 }
 
-TEST(removekdigits, normal1)
+TEST(createmaxnumber, normal1)
 {
-	removekdigits tc;
-	std::string s = "1432219";
-	int k = 3;
-	ASSERT_EQ("1219", tc.removeKdigits(s, k));
-}
+	createmaxnumber tc;
+	vector<int> a1 = {3, 4, 6, 5};
+	vector<int> a2 = {9, 1, 2, 5, 8, 3};
+	int k = 5;
+	vector<int> ans = tc.maxNumber(a1, a2, k);
 
-TEST(removekdigits, zerocases)
-{
-	removekdigits tc;
-	std::string s = "10200";
-	int k = 1;
-	ASSERT_EQ("200", tc.removeKdigits(s, k));
-}
+	for(int e:ans) cout << e << endl;
 
-TEST(removekdigits, allremoved)
-{
-	removekdigits tc;
-	std::string s = "10";
-	int k = 0;
-	ASSERT_EQ("0", tc.removeKdigits(s, k));
 }
 
 GTEST_API_ int main(int argc, char **argv)
