@@ -5,6 +5,7 @@ MYCM=$1
 bpath='/home/songjiguo/workspace/interviewCode/src/'
 
 mkdir $MYCM
+echo >> CMakeLists.txt
 echo add_subdirectory\($MYCM\) >> CMakeLists.txt
 
 sed -e s/XXX/$MYCM/g $bpath/CMakeLists_template.txt > $MYCM/CMakeLists.txt

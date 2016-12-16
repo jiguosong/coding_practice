@@ -1,0 +1,4 @@
+add_executable(resorvoirsampling resorvoirsampling.h resorvoirsampling.cpp resorvoirsampling_test.cpp)
+target_link_libraries(resorvoirsampling gtest gmock_main)
+cotire(resorvoirsampling)
+add_test(NAME resorvoirsampling_test COMMAND resorvoirsampling)

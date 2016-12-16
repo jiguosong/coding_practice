@@ -8,7 +8,7 @@
 #include "gtest/gtest.h"
 #include "add2number.h"
 
-#include "../Node.cpp"
+#include "../Node.h"
 
 TEST(test_case1, addTwoNumbers) {
 	solution c;

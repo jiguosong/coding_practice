@@ -1,2 +1,3 @@
 add_subdirectory(add2number)
 add_subdirectory(reverselinkedlist)
+add_subdirectory(resorvoirsampling)

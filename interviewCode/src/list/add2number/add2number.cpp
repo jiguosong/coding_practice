@@ -10,7 +10,7 @@ using namespace std;
 #include <iostream>
 #include "add2number.h"
 
-#include "../Node.cpp"
+#include "../Node.h"
 
 ListNode<int> * solution::addTwoNumbers(ListNode<int> *l1, ListNode<int> *l2) {
 	 if (!l1 && !l2) return nullptr;

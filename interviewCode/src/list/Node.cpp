@@ -1,9 +1,10 @@
 /*
+
  * Node.cpp
  *
  *  Created on: Nov 6, 2016
  *      Author: songjiguo
- */
+
 
 #include "Node.h"
 
@@ -62,3 +63,4 @@ ListNode<T> * GetNode(const T& item, ListNode<T>* nextptr = NULL)
     return newnode;
 }
 
+*/

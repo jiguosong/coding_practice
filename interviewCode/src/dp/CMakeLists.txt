@@ -13,3 +13,5 @@ add_subdirectory(longestcommonsubsequence)
 add_subdirectory(removekdigits)
 add_subdirectory(createmaxnumber)
 
+add_subdirectory(largestdivisiblesubset)
+add_subdirectory(painthouses)
