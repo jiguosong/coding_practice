@@ -12,3 +12,5 @@ add_subdirectory(findvalueinbst)
 add_subdirectory(countersmallernumberafterself)
 add_subdirectory(buildtreefrompreordernorder)
 add_subdirectory(rangesum)
+
+add_subdirectory(binaryindextree)

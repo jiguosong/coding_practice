@@ -126,7 +126,9 @@ private:
 	ListNode<T> *GenerateList();
 	ListNode<T> *Generate_List_Helper(ListNode<T>* head, int listLen, T low,
 			T high);
+	T getRandom();
 };
+
 
 template<class T>
 List<T>::List() :
@@ -136,16 +138,22 @@ List<T>::List() :
 ;
 
 template<class T>
+T List<T>::getRandom()
+{
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<T> dist(this->lower, this->upper);
+	return dist(gen);
+}
+
+template<class T>
 ListNode<T> *List<T>::Generate_List_Helper(ListNode<T>* head, int listLen,
 		T lower, T upper)
 {
 	if (head == nullptr || listLen == 0)
 		return head;
 
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<T> dist(this->lower, this->upper);
-	T item = dist(gen);
+	T item = getRandom();
 
 	head->next = GetNode(item);
 	--listLen;
@@ -155,10 +163,7 @@ ListNode<T> *List<T>::Generate_List_Helper(ListNode<T>* head, int listLen,
 template<class T>
 ListNode<T> *List<T>::GenerateList()
 {
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<T> dist(this->lower, this->upper);
-	T item = dist(gen);
+	T item = getRandom();
 
 	ListNode<T> *head = GetNode(item);
 	Generate_List_Helper(head, this->length - 1, this->lower, this->upper);

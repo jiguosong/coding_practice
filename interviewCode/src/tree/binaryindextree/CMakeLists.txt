@@ -1,0 +1,4 @@
+add_executable(binaryindextree binaryindextree.h binaryindextree.cpp binaryindextree_test.cpp)
+target_link_libraries(binaryindextree gtest gmock_main)
+cotire(binaryindextree)
+add_test(NAME binaryindextree_test COMMAND binaryindextree)
