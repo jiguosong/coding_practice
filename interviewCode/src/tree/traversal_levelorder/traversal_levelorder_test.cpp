@@ -57,6 +57,17 @@ TEST(testcase_OK2, levelorder_traversal)
 	ASSERT_TRUE(ans.empty());
 }
 
+TEST(testcase_OK2, test_randomBSTgenerator)
+{
+	levelorder_traversal c;
+
+	TreeNode *root = randomBST(10, -1000,1000);
+
+	vector<vector<int>> ans = c.levelOrder(root);
+	PrintVectorVector(ans);
+
+	//ASSERT_TRUE(ans.empty());
+}
 
 GTEST_API_ int main(int argc, char **argv)
 {

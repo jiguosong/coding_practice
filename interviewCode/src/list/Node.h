@@ -113,9 +113,7 @@ public:
 		head = GenerateList();
 	}
 
-	~List()
-	{
-	}
+	~List() {}
 
 	ListNode<T> *head;
 private:

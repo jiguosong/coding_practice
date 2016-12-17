@@ -10,7 +10,7 @@
 #include "gtest/gtest.h"
 #include "../Tree.h"
 
-TEST(testcase_OK1, validbst)
+TEST(validbst_test, validbst1)
 {
 	solution c;
 
@@ -26,7 +26,7 @@ TEST(testcase_OK1, validbst)
 	ASSERT_TRUE(c.isValidBST(root));
 }
 
-TEST(testcase_OK2, validbst)
+TEST(validbst_test, validbst2)
 {
 	solution c;
 
@@ -41,6 +41,16 @@ TEST(testcase_OK2, validbst)
 
 	ASSERT_FALSE(c.isValidBST(root));
 }
+
+TEST(validbst_test, testrandBST)
+{
+	solution c;
+
+	TreeNode *root = randomBST(10, 1,100);
+	//TreeNode *root = randomBT(20, 1,100);
+	ASSERT_TRUE(c.isValidBST(root));
+}
+
 
 GTEST_API_ int main(int argc, char **argv)
 {

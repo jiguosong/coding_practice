@@ -57,6 +57,17 @@ TEST(testcase_OK2, verticalorder_traversal)
 	ASSERT_TRUE(ans.empty());
 }
 
+TEST(verticalorder_traversal, testrandomBST)
+{
+	verticalorder_traversal c;
+
+	TreeNode *root = randomBST(5, 1,100);
+
+	vector<vector<int>> ans = c.verticalOrder(root);
+	PrintVectorVector(ans);
+
+}
+
 GTEST_API_ int main(int argc, char **argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
