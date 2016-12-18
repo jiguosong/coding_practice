@@ -33,25 +33,26 @@
 
 using namespace std;
 
-#include "XXX.h"
-
+#include "minimumheighttree.h"
 
 /*
-   Choose auto x when you want to work with copies.
-   Choose auto &x when you want to work with original items and may modify them.
-   Choose auto const &x when you want to work with original items and will not modify them 
-*/
+ Choose auto x when you want to work with copies.
+ Choose auto &x when you want to work with original items and may modify them.
+ Choose auto const &x when you want to work with original items and will not modify them
+ */
 template<class T>
 void PrintVector(const vector<T> &vec)
 {
-	for(auto const &v:vec) cout << v << ' ';
+	for (auto const &v : vec)
+		cout << v << ' ';
 	cout << endl;
 }
 
 template<class T>
 void PrintVectorVector(const vector<vector<T>> &vec)
 {
-	for(auto const &v:vec) PrintVector(v);
+	for (auto const &v : vec)
+		PrintVector(v);
 }
 
 template<class T>
@@ -68,10 +69,27 @@ bool CompareVectorVector(const vector<T> &v1, const vector<T> &v2)
 	return (v3.size() == v1.size());
 }
 
-TEST(XXX, normal1)
+TEST(minimumheighttree, normal1)
 {
-	XXX tc;
+	minimumheighttree tc;
 
+	int n = 4;
+	vector<pair<int, int>> edges = { { 1, 0 }, { 1, 2 }, { 1, 3 } };
+	vector<int> ans = tc.findMinHeightTrees(n, edges);
+	vector<int> expected = {1};
+	ASSERT_TRUE(CompareVectorVector(ans, expected));
+}
+
+TEST(minimumheighttree, normal2)
+{
+	minimumheighttree tc;
+
+	int n = 6;
+	vector<pair<int, int>> edges = { { 0, 3 }, { 1, 3 }, { 2, 3 }, { 4, 3 }, {
+			5, 4 } };
+	vector<int> ans = tc.findMinHeightTrees(n, edges);
+	vector<int> expected = { 3, 4 };
+	ASSERT_TRUE(CompareVectorVector(ans, expected));
 }
 
 GTEST_API_ int main(int argc, char **argv)

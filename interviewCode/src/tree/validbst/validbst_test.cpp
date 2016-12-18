@@ -46,7 +46,7 @@ TEST(validbst_test, testrandBST)
 {
 	solution c;
 
-	TreeNode *root = randomBST(10, 1,100);
+	TreeNode *root = randomBST(100, -100,100);
 	//TreeNode *root = randomBT(20, 1,100);
 	ASSERT_TRUE(c.isValidBST(root));
 }

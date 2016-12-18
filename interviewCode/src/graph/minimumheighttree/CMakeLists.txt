@@ -1,0 +1,4 @@
+add_executable(minimumheighttree minimumheighttree.h minimumheighttree.cpp minimumheighttree_test.cpp)
+target_link_libraries(minimumheighttree gtest gmock_main)
+cotire(minimumheighttree)
+add_test(NAME minimumheighttree_test COMMAND minimumheighttree)

@@ -12,14 +12,7 @@ TEST(findvalueinbst, findval)
 {
 	findvalInBST c;
 
-	TreeNode *root;
-	root = new TreeNode(4);
-	root->left = new TreeNode(2);
-	root->right = new TreeNode(6);
-	root->left->left = new TreeNode(1);
-	root->right->left = new TreeNode(5);
-	root->left->right = new TreeNode(3);
-	root->right->right = new TreeNode(7);
+	TreeNode *root = randomBST(10, 1, 10);
 
 	int target = 5;
 
@@ -32,16 +25,9 @@ TEST(findvalueinbst, cannotfindval)
 {
 	findvalInBST c;
 
-	TreeNode *root;
-	root = new TreeNode(4);
-	root->left = new TreeNode(2);
-	root->right = new TreeNode(6);
-	root->left->left = new TreeNode(1);
-	root->right->left = new TreeNode(5);
-	root->left->right = new TreeNode(3);
-	root->right->right = new TreeNode(7);
+	TreeNode *root = randomBST(10, 1, 10);
 
-	int target = 9;
+	int target = 12;
 
 	ASSERT_FALSE(c.findvalueinbst(root, target));
 

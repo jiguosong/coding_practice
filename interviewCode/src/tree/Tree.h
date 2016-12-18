@@ -36,9 +36,6 @@ struct TreeNode
 
 static TreeNode *generateTree_helper(vector<int> nums, int left, int right)
 {
-	if (nums.empty())
-		return nullptr;
-
 	if (left > right)
 		return nullptr;
 
