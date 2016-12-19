@@ -1,0 +1,4 @@
+add_executable(verifypreorderBT verifypreorderBT.h verifypreorderBT.cpp verifypreorderBT_test.cpp)
+target_link_libraries(verifypreorderBT gtest gmock_main)
+cotire(verifypreorderBT)
+add_test(NAME verifypreorderBT_test COMMAND verifypreorderBT)

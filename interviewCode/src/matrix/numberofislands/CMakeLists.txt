@@ -1,0 +1,4 @@
+add_executable(numberofislands numberofislands.h numberofislands.cpp numberofislands_test.cpp)
+target_link_libraries(numberofislands gtest gmock_main)
+cotire(numberofislands)
+add_test(NAME numberofislands_test COMMAND numberofislands)

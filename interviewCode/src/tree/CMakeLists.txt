@@ -14,3 +14,7 @@ add_subdirectory(buildtreefrompreordernorder)
 add_subdirectory(rangesum)
 
 add_subdirectory(binaryindextree)
+
+add_subdirectory(verifypreorderBT)
+
+add_subdirectory(serializedeserializeBT)

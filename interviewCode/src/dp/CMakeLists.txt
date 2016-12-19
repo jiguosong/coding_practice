@@ -15,3 +15,5 @@ add_subdirectory(createmaxnumber)
 
 add_subdirectory(largestdivisiblesubset)
 add_subdirectory(painthouses)
+
+add_subdirectory(leftmostsmallernumber)

@@ -17,6 +17,7 @@
 #include <cassert>
 #include <random>
 #include <algorithm>
+#include <memory>
 
 using std::cout;
 using std::string;
@@ -40,7 +41,11 @@ static TreeNode *generateTree_helper(vector<int> nums, int left, int right)
 		return nullptr;
 
 	int mid = left + (right - left) / 2;
+
+	//std::unique_ptr<TreeNode> t(new TreeNode(nums[mid]));
+	//TreeNode *root = t.get();
 	TreeNode *root = new TreeNode(nums[mid]);
+
 	root->left = generateTree_helper(nums, left, mid - 1);
 	root->right = generateTree_helper(nums, mid + 1, right);
 

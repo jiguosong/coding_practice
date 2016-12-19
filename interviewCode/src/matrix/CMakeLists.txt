@@ -1,3 +1,5 @@
 add_subdirectory(findkthlargestinmatrix)
 
 add_subdirectory(search2dmatrix)
+
+add_subdirectory(numberofislands)
