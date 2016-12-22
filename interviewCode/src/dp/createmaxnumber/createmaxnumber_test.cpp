@@ -35,7 +35,7 @@ TEST(createmaxnumber, normal1)
 	int k = 5;
 	vector<int> ans = tc.maxNumber(a1, a2, k);
 
-	for(int e:ans) cout << e << endl;
+	for(int e:ans) cout << e << " ";
 
 }
 

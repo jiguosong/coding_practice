@@ -34,25 +34,26 @@
 
 using namespace std;
 
-#include "XXX.h"
-
+#include "simplehashfunction.h"
 
 /*
-   Choose auto x when you want to work with copies.
-   Choose auto &x when you want to work with original items and may modify them.
-   Choose auto const &x when you want to work with original items and will not modify them 
-*/
+ Choose auto x when you want to work with copies.
+ Choose auto &x when you want to work with original items and may modify them.
+ Choose auto const &x when you want to work with original items and will not modify them
+ */
 template<class T>
 void PrintVector(const vector<T> &vec)
 {
-	for(auto const &v:vec) cout << v << ' ';
+	for (auto const &v : vec)
+		cout << v << ' ';
 	cout << endl;
 }
 
 template<class T>
 void PrintVectorVector(const vector<vector<T>> &vec)
 {
-	for(auto const &v:vec) PrintVector(v);
+	for (auto const &v : vec)
+		PrintVector(v);
 }
 
 template<class T>
@@ -97,7 +98,7 @@ string getRandomString(int len)
 }
 
 // second way to generate random string of len
-string gen_random(const int len)
+string getRandomString2(const int len)
 {
 	static const char alphanum[] = "0123456789"
 			"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -112,9 +113,17 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(XXX, normal1)
+TEST(simplehashfunction, normal1)
 {
-	XXX tc;
+	simplehashfunction tc;
+
+	int table_sz = 10;
+
+	for (int i = 0; i < 10; ++i) {
+		string t = getRandomString(10);
+		int hashed_val = tc.SimpleHash_Fn(t, table_sz);
+		cout << hashed_val << endl;
+	}
 
 }
 

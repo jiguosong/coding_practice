@@ -34,7 +34,7 @@
 
 using namespace std;
 
-#include "XXX.h"
+#include "containduplicate.h"
 
 
 /*
@@ -112,10 +112,18 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(XXX, normal1)
-{
-	XXX tc;
 
+#include "../Array.h"
+
+TEST(containduplicate, normal1)
+{
+	containduplicate tc;
+
+	Array<int> x(10, 1, 100);
+
+	vector<int> nums = x.getRandomArray();
+	PrintVector(nums);
+	ASSERT_TRUE(tc.containDuplicates(nums));
 }
 
 GTEST_API_ int main(int argc, char **argv)

@@ -30,29 +30,29 @@
 #include <random>
 #include <string>
 #include <memory>
-#include <random>
 
 using namespace std;
 
-#include "XXX.h"
-
+#include "swapnodesinpairs.h"
 
 /*
-   Choose auto x when you want to work with copies.
-   Choose auto &x when you want to work with original items and may modify them.
-   Choose auto const &x when you want to work with original items and will not modify them 
-*/
+ Choose auto x when you want to work with copies.
+ Choose auto &x when you want to work with original items and may modify them.
+ Choose auto const &x when you want to work with original items and will not modify them
+ */
 template<class T>
 void PrintVector(const vector<T> &vec)
 {
-	for(auto const &v:vec) cout << v << ' ';
+	for (auto const &v : vec)
+		cout << v << ' ';
 	cout << endl;
 }
 
 template<class T>
 void PrintVectorVector(const vector<vector<T>> &vec)
 {
-	for(auto const &v:vec) PrintVector(v);
+	for (auto const &v : vec)
+		PrintVector(v);
 }
 
 template<class T>
@@ -69,53 +69,15 @@ bool CompareVectorVector(const vector<T> &v1, const vector<T> &v2)
 	return (v3.size() == v1.size());
 }
 
-static int getRandom(int lower, int upper)
+TEST(swapnodesinpairs, normal1)
 {
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<int> dist(lower, upper);
-	return dist(gen);
-}
+	swapnodesinpairs tc;
+	List<int> mylist = List<int>(9, 1, 20); // a list that has 10 int, in the range(1,20)
+	ListNode<int> *l2 = mylist.head;
+	l2->print_list();
 
-// first way to generate random string of len
-string getRandomString(int len)
-{
-	string str(len, ' ');
-	for (int i = 0; i < len; ++i) {
-		int randchar =
-				getRandom(0, std::numeric_limits<int>::max()) % (26 + 26 + 10);
-		if (randchar < 26) {
-			str[i] = 'a' + randchar;
-		} else if (randchar < 26 + 26) {
-			str[i] = 'A' + randchar - 26;
-		} else {
-			str[i] = '0' + randchar - 26 - 26;
-		}
-	}
-
-	return str;
-}
-
-// second way to generate random string of len
-string gen_random(const int len)
-{
-	static const char alphanum[] = "0123456789"
-			"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-			"abcdefghijklmnopqrstuvwxyz";
-
-	string str(len, ' ');
-	for (int i = 0; i < len; ++i) {
-		str[i] =
-				alphanum[getRandom(0, std::numeric_limits<int>::max()) % (sizeof(alphanum) - 1)];
-	}
-
-	return str;
-}
-
-TEST(XXX, normal1)
-{
-	XXX tc;
-
+	ListNode<int> *l3 = tc.SwapNodePairs(l2);
+	l3->print_list();
 }
 
 GTEST_API_ int main(int argc, char **argv)

@@ -18,3 +18,5 @@ add_subdirectory(binaryindextree)
 add_subdirectory(verifypreorderBT)
 
 add_subdirectory(serializedeserializeBT)
+
+add_subdirectory(trie)

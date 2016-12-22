@@ -15,3 +15,5 @@ add_subdirectory(maxbingap)
 add_subdirectory(finddifference)
 add_subdirectory(elimination_game)
 add_subdirectory(findminrottedarray)
+
+add_subdirectory(containduplicate)

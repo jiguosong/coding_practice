@@ -80,6 +80,6 @@ vector<int> createmaxnumber::maxNumber(vector<int>& nums1, vector<int>& nums2,
 		res = std::max(res, mergetest(t1, t2));
 	}
 
-	return {};
+	return res;
 }
 

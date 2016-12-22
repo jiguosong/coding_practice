@@ -11,11 +11,11 @@ class solution(object):
 		
 		return (k == num)
 	
-if __name__=="__main__":
-	print("PY:isPalindromenumber")	
-	solu = solution()
-	num = 121
-	if (solu.isPalindromenumber(num)):
-		print("yes")
-	else:
-		print("not")
+# if __name__=="__main__":
+# 	print("PY:isPalindromenumber")	
+# 	solu = solution()
+# 	num = 121
+# 	if (solu.isPalindromenumber(num)):
+# 		print("yes")
+# 	else:
+# 		print("not")

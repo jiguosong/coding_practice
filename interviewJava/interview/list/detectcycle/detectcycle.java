@@ -1,4 +1,7 @@
-package list;
+package list.detectcycle;
+
+import list.ListNode;
+import list.MyList;
 
 public class detectcycle {
 	public boolean hasCycle(ListNode head) {
@@ -6,6 +9,8 @@ public class detectcycle {
 		
 		ListNode fast = head;
 		ListNode slow = head;
+		
+		
 		
 		while(fast != null && fast.next != null) {
 			fast = fast.next.next;
@@ -70,7 +75,7 @@ public class detectcycle {
 	 */
 	public static void main(String[] args) {
 		detectcycle test = new detectcycle();
-		int[] data = {1,2,3,4,5,6,7,8,9};
+		int[] data = {1,2,3,4,5,6,7,3,9};
 		MyList ll = new MyList(data);
 		ll.PrintListAll();
 		ListNode head = ll.getHead();
