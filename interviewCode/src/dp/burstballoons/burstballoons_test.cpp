@@ -34,26 +34,25 @@
 
 using namespace std;
 
-#include "containduplicate.h"
+#include "burstballoons.h"
+
 
 /*
- Choose auto x when you want to work with copies.
- Choose auto &x when you want to work with original items and may modify them.
- Choose auto const &x when you want to work with original items and will not modify them
- */
+   Choose auto x when you want to work with copies.
+   Choose auto &x when you want to work with original items and may modify them.
+   Choose auto const &x when you want to work with original items and will not modify them 
+*/
 template<class T>
 void PrintVector(const vector<T> &vec)
 {
-	for (auto const &v : vec)
-		cout << v << ' ';
+	for(auto const &v:vec) cout << v << ' ';
 	cout << endl;
 }
 
 template<class T>
 void PrintVectorVector(const vector<vector<T>> &vec)
 {
-	for (auto const &v : vec)
-		PrintVector(v);
+	for(auto const &v:vec) PrintVector(v);
 }
 
 template<class T>
@@ -113,34 +112,13 @@ string gen_random(const int len)
 	return str;
 }
 
-#include "../Array.h"
-
-TEST(containduplicate, normal1)
+TEST(burstballoons, normal1)
 {
-	containduplicate tc;
+	burstballoons tc;
 
-	Array<int> x(10, 1, 100);
+	vector<int> balloons = {3, 1, 5, 8};
+	ASSERT_EQ(167, tc.maxCoins(balloons));
 
-	vector<int> nums = x.getRandomArray();
-	PrintVector(nums);
-	ASSERT_TRUE(tc.containDuplicates(nums));
-
-	int k = 2;
-	ASSERT_TRUE(tc.containDuplicatesatMostK(nums, k));
-}
-
-TEST(containduplicate, normal2)
-{
-	containduplicate tc;
-
-	int t = 1;
-	int k = 1;
-	Array<int> x(10, 1, 100);
-
-	vector<int> nums = x.getRandomArray();
-	PrintVector(nums);
-
-	ASSERT_TRUE(tc.containDuplicatesatMostKMostT(nums, k, t));
 }
 
 GTEST_API_ int main(int argc, char **argv)
