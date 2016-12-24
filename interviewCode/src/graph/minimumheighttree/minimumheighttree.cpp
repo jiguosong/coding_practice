@@ -64,7 +64,7 @@ std::vector<int> minimumheighttree::findMinHeightTrees(int n,
 			q.pop();
 			for (auto a : graph[t]) {
 				graph[a].erase(t);
-				if (graph[a].size() == 1)
+				if (graph[a].size() == 1)   /// there are some issue here:: what if the graph is meshed??
 					q.push(a);
 			}
 		}

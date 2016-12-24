@@ -15,6 +15,7 @@ using std::string;
 class longestnonrepsubstr {
 public:
 	int lengthOfLongestNoRepSubstring(string s);
+	int lengthOfLongestNoRepSubstring_set(string s);
 };
 
 

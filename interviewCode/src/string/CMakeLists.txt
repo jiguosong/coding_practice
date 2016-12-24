@@ -5,3 +5,5 @@ add_subdirectory(wordbreak)
 add_subdirectory(validpalindrome)
 add_subdirectory(partitionpalindrome)
 add_subdirectory(longestprefix)
+
+add_subdirectory(rearrangestringkdistance)
