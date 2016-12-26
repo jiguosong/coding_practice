@@ -34,8 +34,8 @@
 
 using namespace std;
 
-#include "rearrangestringkdistance.h"
-
+#include "minimumpathsum.h"
+#include "../Array.h"
 
 /*
    Choose auto x when you want to work with copies.
@@ -112,36 +112,26 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(rearrangestringkdistance, normal1)
+TEST(minimumpathsum, normal1)
 {
-	rearrangestringkdistance tc;
+	minimumpathsum tc;
 
-	string str = "aabbcc";
-	int k = 3;
-	string Result = "cbacba";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
+	int m = 4;
+	int n = 4;
+
+	vector<vector<int>> matrix;
+	for(int i = 0; i < m; ++i) {
+		Array<int> x(n, 1, 10);
+		//matrix.push_back(x.getRandomArray());
+		matrix.push_back(x.getUniqueArray());
+	}
+
+	PrintVectorVector(matrix);
+
+	cout << tc.minPathSum(matrix) << endl;;
+
+
 }
-
-TEST(rearrangestringkdistance, normal2)
-{
-	rearrangestringkdistance tc;
-
-	string str = "aaabc";
-	int k = 3;
-	string Result = "";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
-}
-
-TEST(rearrangestringkdistance, normal3)
-{
-	rearrangestringkdistance tc;
-
-	string str = "aaadbbcc";
-	int k = 2;
-	string Result = "acbadcba";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
-}
-
 
 GTEST_API_ int main(int argc, char **argv)
 {

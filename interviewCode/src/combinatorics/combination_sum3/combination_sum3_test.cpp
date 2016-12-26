@@ -34,7 +34,7 @@
 
 using namespace std;
 
-#include "rearrangestringkdistance.h"
+#include "combination_sum3.h"
 
 
 /*
@@ -112,36 +112,45 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(rearrangestringkdistance, normal1)
+TEST(combination_sum3, normal1)
 {
-	rearrangestringkdistance tc;
-
-	string str = "aabbcc";
+	combination_sum3 tc;
 	int k = 3;
-	string Result = "cbacba";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
+	int n = 7;
+	vector<vector<int>> ans = tc.combinationSum3(k, n);
+	PrintVectorVector(ans);
 }
 
-TEST(rearrangestringkdistance, normal2)
+TEST(combination_sum3, normal2)
 {
-	rearrangestringkdistance tc;
-
-	string str = "aaabc";
+	combination_sum3 tc;
 	int k = 3;
-	string Result = "";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
+	int n = 9;
+	vector<vector<int>> ans = tc.combinationSum3(k, n);
+
+	PrintVectorVector(ans);
 }
 
-TEST(rearrangestringkdistance, normal3)
+
+TEST(combination_sum3, normal3)
 {
-	rearrangestringkdistance tc;
+	combination_sum3 tc;
+	int k = 4;
+	int n = 24;
+	vector<vector<int>> ans = tc.combinationSum3(k, n);
 
-	string str = "aaadbbcc";
-	int k = 2;
-	string Result = "acbadcba";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
+	PrintVectorVector(ans);
 }
 
+TEST(combination_sum3, normal4)
+{
+	combination_sum3 tc;
+	int k = 9;
+	int n = 45;
+	vector<vector<int>> ans = tc.combinationSum3(k, n);
+
+	PrintVectorVector(ans);
+}
 
 GTEST_API_ int main(int argc, char **argv)
 {

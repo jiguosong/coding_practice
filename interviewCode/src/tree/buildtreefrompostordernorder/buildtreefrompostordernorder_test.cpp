@@ -34,7 +34,7 @@
 
 using namespace std;
 
-#include "rearrangestringkdistance.h"
+#include "buildtreefrompostordernorder.h"
 
 
 /*
@@ -112,36 +112,11 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(rearrangestringkdistance, normal1)
+TEST(buildtreefrompostordernorder, normal1)
 {
-	rearrangestringkdistance tc;
+	buildtreefrompostordernorder tc;
 
-	string str = "aabbcc";
-	int k = 3;
-	string Result = "cbacba";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
 }
-
-TEST(rearrangestringkdistance, normal2)
-{
-	rearrangestringkdistance tc;
-
-	string str = "aaabc";
-	int k = 3;
-	string Result = "";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
-}
-
-TEST(rearrangestringkdistance, normal3)
-{
-	rearrangestringkdistance tc;
-
-	string str = "aaadbbcc";
-	int k = 2;
-	string Result = "acbadcba";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
-}
-
 
 GTEST_API_ int main(int argc, char **argv)
 {

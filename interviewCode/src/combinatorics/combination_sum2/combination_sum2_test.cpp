@@ -34,7 +34,7 @@
 
 using namespace std;
 
-#include "rearrangestringkdistance.h"
+#include "combination_sum2.h"
 
 
 /*
@@ -112,34 +112,26 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(rearrangestringkdistance, normal1)
+TEST(combination_sum2, normal1)
 {
-	rearrangestringkdistance tc;
+	combination_sum2 tc;
 
-	string str = "aabbcc";
-	int k = 3;
-	string Result = "cbacba";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
+	vector<int> nums = {10,1,2,7,6,1,5};
+	int target = 8;
+	vector<vector<int>> ans = tc.combinationSum2(nums, target);
+
+	PrintVectorVector(ans);
 }
 
-TEST(rearrangestringkdistance, normal2)
+TEST(combination_sum2, normal2)
 {
-	rearrangestringkdistance tc;
+	combination_sum2 tc;
 
-	string str = "aaabc";
-	int k = 3;
-	string Result = "";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
-}
+	vector<int> nums = {10,1,2,7,6,1,5};
+	int target = 1;
+	vector<vector<int>> ans = tc.combinationSum2(nums, target);
 
-TEST(rearrangestringkdistance, normal3)
-{
-	rearrangestringkdistance tc;
-
-	string str = "aaadbbcc";
-	int k = 2;
-	string Result = "acbadcba";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
+	PrintVectorVector(ans);
 }
 
 

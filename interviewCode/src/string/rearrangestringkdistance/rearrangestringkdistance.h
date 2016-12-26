@@ -8,7 +8,7 @@ using std::vector;
 class rearrangestringkdistance {
 public:
 	void dummy();
-	std::string rearrangeStringKDistance(std::string str, int k);
+	std::string rearrangeStringKDistance(std::string &str, int k);
 private:
 
 };

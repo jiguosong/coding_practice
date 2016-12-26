@@ -34,7 +34,7 @@
 
 using namespace std;
 
-#include "rearrangestringkdistance.h"
+#include "combination_sum4.h"
 
 
 /*
@@ -112,36 +112,38 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(rearrangestringkdistance, normal1)
+TEST(combination_sum4, normal1)
 {
-	rearrangestringkdistance tc;
+	combination_sum4 tc;
 
-	string str = "aabbcc";
-	int k = 3;
-	string Result = "cbacba";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
+	vector<int> nums = {1,2,3};
+	int target = 4;
+
+	ASSERT_EQ(7, tc.combinationSum4(nums, target));
+
 }
 
-TEST(rearrangestringkdistance, normal2)
+TEST(combination_sum4, normal2)
 {
-	rearrangestringkdistance tc;
+	combination_sum4 tc;
 
-	string str = "aaabc";
-	int k = 3;
-	string Result = "";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
+	vector<int> nums = {4,1,2};
+	int target = 32;
+
+	ASSERT_EQ(39882198, tc.combinationSum4(nums, target));
+
 }
 
-TEST(rearrangestringkdistance, normal3)
+TEST(combination_sum4, normal3)
 {
-	rearrangestringkdistance tc;
+	combination_sum4 tc;
 
-	string str = "aaadbbcc";
-	int k = 2;
-	string Result = "acbadcba";
-	ASSERT_EQ(Result, tc.rearrangeStringKDistance(str, k));
+	vector<int> nums = {1,2,3,4};
+	int target = 0;
+
+	ASSERT_EQ(1, tc.combinationSum4(nums, target));
+
 }
-
 
 GTEST_API_ int main(int argc, char **argv)
 {

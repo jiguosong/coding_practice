@@ -20,3 +20,7 @@ add_subdirectory(verifypreorderBT)
 add_subdirectory(serializedeserializeBT)
 
 add_subdirectory(trie)
+
+add_subdirectory(flattenBTtolinkedlist)
+
+add_subdirectory(buildtreefrompostordernorder)

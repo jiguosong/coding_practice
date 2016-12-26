@@ -18,7 +18,6 @@ Note that this is not a binary search tree: the nodes are not in sorted order in
 Note You may assume that duplicates do not exist in the tree.
 */
 
-
 #include "buildtreefrompreordernorder.h"
 
 static TreeNode *buildTree_helper(vector<int> &preorder, int pLeft, int pRight,
