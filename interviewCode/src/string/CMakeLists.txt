@@ -7,3 +7,5 @@ add_subdirectory(partitionpalindrome)
 add_subdirectory(longestprefix)
 
 add_subdirectory(rearrangestringkdistance)
+
+add_subdirectory(firstcharacterinstring)

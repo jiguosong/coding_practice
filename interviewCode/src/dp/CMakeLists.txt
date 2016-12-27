@@ -23,3 +23,14 @@ add_subdirectory(burstballoons)
 add_subdirectory(longestincreasingpathinmatrix)
 
 add_subdirectory(minimumpathsum)
+add_subdirectory(combination_sum4)
+
+add_subdirectory(buysellstock)
+
+add_subdirectory(buysellstock2)
+
+add_subdirectory(buysellstock3)
+
+add_subdirectory(buysellstock4)
+
+add_subdirectory(buysellstock5)

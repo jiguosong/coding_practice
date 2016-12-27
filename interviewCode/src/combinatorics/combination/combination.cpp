@@ -10,17 +10,18 @@
 #include <iostream>
 
 /*Given two integers n and k, return all possible
-combinations of k numbers out of 1 ... n.*/
+ combinations of k numbers out of 1 ... n.*/
 
 static void combine_helper(int n, int k, int level, vector<int> &tmp,
-							 vector<vector<int>> &res);
+		vector<vector<int>> &res);
 
 vector<vector<int>> combination::combine(int n, int k)
 {
 	vector<vector<int>> res;
 	vector<int> tmp;
 
-	if (n == 0 || n < k) return res;
+	if (n == 0 || n < k)
+		return res;
 
 	combine_helper(n, k, 1, tmp, res);
 
@@ -28,9 +29,9 @@ vector<vector<int>> combination::combine(int n, int k)
 }
 
 static void combine_helper(int n, int k, int level, vector<int> &tmp,
-							  vector<vector<int>> &res)
+		vector<vector<int>> &res)
 {
-	if (tmp.size() == (unsigned int)k) {
+	if (tmp.size() == k) {
 		res.push_back(tmp);
 		return;
 	}

@@ -25,6 +25,21 @@ void burstballoons::dummy()
 {
 }
 
+
+/*
+ *     Different len window size, from left to right.
+ *     In each window, apply the dp equation
+ *       ________________________________
+ *      |__|__|__|__|__|__|__|__|__|__|__
+ *
+ *       ________________________________
+ *      |_____|_____|_____|_____|_____|__
+ *
+ *
+ *      .....
+ *
+ */
+
 int burstballoons::maxCoins(vector<int> &nums)
 {
 	int n = nums.size();

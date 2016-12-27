@@ -11,11 +11,10 @@
 #include <vector>
 using std::vector;
 
-class permutation {
+class permutation
+{
 public:
 	vector<vector<int>> permute(vector<int> &nums);
 };
-
-
 
 #endif /* PERMUTATION_H_ */

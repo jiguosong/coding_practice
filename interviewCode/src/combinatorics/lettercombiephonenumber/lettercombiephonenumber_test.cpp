@@ -34,13 +34,13 @@
 
 using namespace std;
 
-#include "median_datastream.h"
-#include "../Array.h"
+#include "lettercombiephonenumber.h"
+
 
 /*
    Choose auto x when you want to work with copies.
    Choose auto &x when you want to work with original items and may modify them.
-   Choose auto const &x when you want to work with original items and will not modify them
+   Choose auto const &x when you want to work with original items and will not modify them 
 */
 template<class T>
 void PrintVector(const vector<T> &vec)
@@ -112,40 +112,35 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(testcase_OK1, median_datastream)
+TEST(lettercombiephonenumber, normal1)
 {
-	median_datastream c;
-	c.addNum(1);
-	c.addNum(2);
-	ASSERT_EQ(1.5, c.findMedian());
-	c.addNum(3);
-	ASSERT_EQ(2, c.findMedian());
+	lettercombiephonenumber tc;
+
+	string s = "2";
+	vector<string> ans = tc.letterCombinations(s);
+
+	PrintVector(ans);
+
 }
 
-TEST(testcase_OK2, median_datastream)
+TEST(lettercombiephonenumber, normal2)
 {
-	median_datastream c;
-	c.addNum(2);
-	c.addNum(3);
-	c.addNum(4);
-	ASSERT_EQ(3, c.findMedian());
+	lettercombiephonenumber tc;
+
+	string s = "120";
+	vector<string> ans = tc.letterCombinations(s);
+
+	PrintVector(ans);
 }
 
-TEST(testcase_OK3, median_datastream_random)
+TEST(lettercombiephonenumber, normal3)
 {
-	median_datastream c;
-	Array<int> x(10,1,10);
-	vector<int> nums = x.getRandomArray();
-	PrintVector(nums);
+	lettercombiephonenumber tc;
 
-	for(auto e:nums) c.addNum(e);
-	cout << c.findMedian() << endl;
+	string s = "99";
+	vector<string> ans = tc.letterCombinations(s);
 
-	for(auto e:nums) c.addNum_set(e);
-	cout << c.findMedian_set() << endl;
-
-	for(auto e:nums) c.addNum_BST(e);
-	cout << c.findMedian_BST() << endl;
+	PrintVector(ans);
 }
 
 
@@ -154,6 +149,3 @@ GTEST_API_ int main(int argc, char **argv)
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
 }
-
-
-

@@ -34,13 +34,13 @@
 
 using namespace std;
 
-#include "median_datastream.h"
+#include "buysellstock2.h"
 #include "../Array.h"
 
 /*
    Choose auto x when you want to work with copies.
    Choose auto &x when you want to work with original items and may modify them.
-   Choose auto const &x when you want to work with original items and will not modify them
+   Choose auto const &x when you want to work with original items and will not modify them 
 */
 template<class T>
 void PrintVector(const vector<T> &vec)
@@ -112,48 +112,27 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(testcase_OK1, median_datastream)
+TEST(buysellstock2, normal1)
 {
-	median_datastream c;
-	c.addNum(1);
-	c.addNum(2);
-	ASSERT_EQ(1.5, c.findMedian());
-	c.addNum(3);
-	ASSERT_EQ(2, c.findMedian());
+	buysellstock2 tc;
+	Array<int> x(10, 1, 10);
+	vector<int> prices = x.getUniqueArray();
+	//sort(prices.begin(), prices.end(), std::greater<int>());
+	PrintVector(prices);
+	int ans = tc.maxStockProfit(prices);
+	cout << ans << endl;
 }
 
-TEST(testcase_OK2, median_datastream)
+TEST(buysellstock2, normal2)
 {
-	median_datastream c;
-	c.addNum(2);
-	c.addNum(3);
-	c.addNum(4);
-	ASSERT_EQ(3, c.findMedian());
+	buysellstock2 tc;
+	vector<int> prices = {1};
+	int ans = tc.maxStockProfit(prices);
+	cout << ans << endl;
 }
-
-TEST(testcase_OK3, median_datastream_random)
-{
-	median_datastream c;
-	Array<int> x(10,1,10);
-	vector<int> nums = x.getRandomArray();
-	PrintVector(nums);
-
-	for(auto e:nums) c.addNum(e);
-	cout << c.findMedian() << endl;
-
-	for(auto e:nums) c.addNum_set(e);
-	cout << c.findMedian_set() << endl;
-
-	for(auto e:nums) c.addNum_BST(e);
-	cout << c.findMedian_BST() << endl;
-}
-
 
 GTEST_API_ int main(int argc, char **argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
 }
-
-
-

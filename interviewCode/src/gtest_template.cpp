@@ -36,7 +36,6 @@ using namespace std;
 
 #include "XXX.h"
 
-
 /*
    Choose auto x when you want to work with copies.
    Choose auto &x when you want to work with original items and may modify them.
