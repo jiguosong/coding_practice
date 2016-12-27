@@ -5,6 +5,14 @@
  *      Author: songjiguo
  */
 
+/*
+ *
+ *   Read the CSV data
+ *
+ *
+ */
+
+
 //  http://stackoverflow.com/questions/1120140/how-can-i-read-and-parse-csv-files-in-c#1120224
 #include <iostream>
 #include <fstream>
@@ -118,7 +126,7 @@ private:
 
 int main()
 {
-	std::ifstream file("/home/songjiguo/workspace/interviewCode/src/cpputility/ReadDataasInput/stockdata.csv");
+	std::ifstream file("/home/songjiguo/workspace/interviewCode/src/cpputility/ReadData/stockdata.csv");
 
 	std::vector<double> price;
 	bool head = true;   // skip the title line

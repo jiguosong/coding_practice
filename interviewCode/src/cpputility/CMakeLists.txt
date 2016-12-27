@@ -15,4 +15,4 @@ add_executable(floatingpoint, floatingpoint.cpp)
 add_executable(rdtsc_measure, rdtsc_measure.cpp)
 add_executable(genRandom, genRandom.cpp)
 
-add_subdirectory(ReadDataasInput)
+add_subdirectory(ReadData)

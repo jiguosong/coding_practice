@@ -5,6 +5,14 @@
  *      Author: songjiguo
  */
 
+/*
+ *
+ *   Read the column based data
+ *
+ *
+ */
+
+
 // based on  http://stackoverflow.com/questions/1120140/how-can-i-read-and-parse-csv-files-in-c#1120224
 #include <iostream>
 #include <fstream>
@@ -118,7 +126,7 @@ private:
 
 int main()
 {
-	std::ifstream simplefile("/home/songjiguo/workspace/interviewCode/src/cpputility/ReadDataasInput/simpledata.txt");
+	std::ifstream simplefile("/home/songjiguo/workspace/interviewCode/src/cpputility/ReadData/simpledata.txt");
 	for (TEXTIterator loop(simplefile); loop != TEXTIterator(); ++loop) {
 		std::cout << std::stod((*loop)[0]) << " ";
 		std::cout << std::stod((*loop)[1]) << "\n";

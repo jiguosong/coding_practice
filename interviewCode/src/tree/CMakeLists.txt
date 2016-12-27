@@ -24,3 +24,5 @@ add_subdirectory(trie)
 add_subdirectory(flattenBTtolinkedlist)
 
 add_subdirectory(buildtreefrompostordernorder)
+
+add_subdirectory(segmenttree)
