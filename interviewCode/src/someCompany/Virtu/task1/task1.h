@@ -1,14 +1,13 @@
-#ifndef XXX_H_
-#define XXX_H_
+#ifndef task1_H_
+#define task1_H_
 
 #include <vector>
-#include <string>
 using std::vector;
-using std::string;
 
-class XXX {
+class task1 {
 public:
 	void dummy();
+	int solution(int X);
 private:
 
 };
