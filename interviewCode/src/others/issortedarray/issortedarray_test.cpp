@@ -32,31 +32,6 @@
 #include <memory>
 #include <random>
 
-// hackerrank header
-#include <map>
-#include <set>
-#include <list>
-#include <cmath>
-#include <ctime>
-#include <deque>
-#include <queue>
-#include <stack>
-#include <string>
-#include <bitset>
-#include <cstdio>
-#include <limits>
-#include <vector>
-#include <climits>
-#include <cstring>
-#include <cstdlib>
-#include <fstream>
-#include <numeric>
-#include <sstream>
-#include <iostream>
-#include <algorithm>
-#include <unordered_map>
-
-using namespace std;
 
 // UVA header examples
 #include <iostream>
@@ -86,26 +61,31 @@ using namespace std;
 #define pi acos(-1.0)
 #define E 2.71828182845904523536
 
+
 using namespace std;
 
-#include "XXX.h"
+#include "issortedarray.h"
+
+#include "../Array.h"
 
 /*
-   Choose auto x when you want to work with copies.
-   Choose auto &x when you want to work with original items and may modify them.
-   Choose auto const &x when you want to work with original items and will not modify them 
-*/
+ Choose auto x when you want to work with copies.
+ Choose auto &x when you want to work with original items and may modify them.
+ Choose auto const &x when you want to work with original items and will not modify them
+ */
 template<class T>
 void PrintVector(const vector<T> &vec)
 {
-	for(auto const &v:vec) cout << v << ' ';
+	for (auto const &v : vec)
+		cout << v << ' ';
 	cout << endl;
 }
 
 template<class T>
 void PrintVectorVector(const vector<vector<T>> &vec)
 {
-	for(auto const &v:vec) PrintVector(v);
+	for (auto const &v : vec)
+		PrintVector(v);
 }
 
 template<class T>
@@ -165,9 +145,25 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(XXX, normal1)
+TEST(issortedarray, normal1)
 {
-	XXX tc;
+	issortedarray tc;
+	Array<int> x(10, 1, 100);
+	vector<int> nums = x.getRandomArray();
+	sort(nums.begin(), nums.end());
+	PrintVector(nums);
+	string ans = tc.is_sorted_and_how(nums);
+	cout << ans << endl;
+
+	sort(nums.begin(), nums.end(), [](int l, int r) {return l > r;});
+	PrintVector(nums);
+	ans = tc.is_sorted_and_how(nums);
+	cout << ans << endl;
+
+	sort(nums.begin() + 2, nums.end(), [](int l, int r) {return l < r;});
+	PrintVector(nums);
+	ans = tc.is_sorted_and_how(nums);
+	cout << ans << endl;
 
 }
 

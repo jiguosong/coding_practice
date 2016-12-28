@@ -88,24 +88,26 @@ using namespace std;
 
 using namespace std;
 
-#include "XXX.h"
+#include "beautifulbinarystr.h"
 
 /*
-   Choose auto x when you want to work with copies.
-   Choose auto &x when you want to work with original items and may modify them.
-   Choose auto const &x when you want to work with original items and will not modify them 
-*/
+ Choose auto x when you want to work with copies.
+ Choose auto &x when you want to work with original items and may modify them.
+ Choose auto const &x when you want to work with original items and will not modify them
+ */
 template<class T>
 void PrintVector(const vector<T> &vec)
 {
-	for(auto const &v:vec) cout << v << ' ';
+	for (auto const &v : vec)
+		cout << v << ' ';
 	cout << endl;
 }
 
 template<class T>
 void PrintVectorVector(const vector<vector<T>> &vec)
 {
-	for(auto const &v:vec) PrintVector(v);
+	for (auto const &v : vec)
+		PrintVector(v);
 }
 
 template<class T>
@@ -165,10 +167,28 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(XXX, normal1)
+TEST(beautifulbinarystr, normal1)
 {
-	XXX tc;
+	beautifulbinarystr tc;
 
+	string str = "0101010";
+	ASSERT_EQ(2, tc.minStepstoBeautifulStr(str));
+}
+
+TEST(beautifulbinarystr, normal2)
+{
+	beautifulbinarystr tc;
+
+	string str = "01100";
+	ASSERT_EQ(0, tc.minStepstoBeautifulStr(str));
+}
+
+TEST(beautifulbinarystr, normal3)
+{
+	beautifulbinarystr tc;
+
+	string str = "0100101010";
+	ASSERT_EQ(3, tc.minStepstoBeautifulStr(str));
 }
 
 GTEST_API_ int main(int argc, char **argv)

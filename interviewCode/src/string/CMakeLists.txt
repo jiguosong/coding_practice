@@ -9,3 +9,5 @@ add_subdirectory(longestprefix)
 add_subdirectory(rearrangestringkdistance)
 
 add_subdirectory(firstcharacterinstring)
+
+add_subdirectory(beautifulbinarystr)

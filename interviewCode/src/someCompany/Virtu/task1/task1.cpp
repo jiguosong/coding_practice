@@ -5,6 +5,8 @@
 
  */
 
+// http://stackoverflow.com/questions/7843048/finding-the-closest-fibonacci-numbers#7843192
+
 #include "task1.h"
 
 #include <iostream>
@@ -14,6 +16,7 @@ using namespace std;
 void task1::dummy()
 {
 }
+
 
 static void getFibonacci(int target, vector<unsigned long> &fibs)
 {

@@ -32,63 +32,9 @@
 #include <memory>
 #include <random>
 
-// hackerrank header
-#include <map>
-#include <set>
-#include <list>
-#include <cmath>
-#include <ctime>
-#include <deque>
-#include <queue>
-#include <stack>
-#include <string>
-#include <bitset>
-#include <cstdio>
-#include <limits>
-#include <vector>
-#include <climits>
-#include <cstring>
-#include <cstdlib>
-#include <fstream>
-#include <numeric>
-#include <sstream>
-#include <iostream>
-#include <algorithm>
-#include <unordered_map>
-
 using namespace std;
 
-// UVA header examples
-#include <iostream>
-#include <cstdio>
-#include <algorithm>
-#include <cstring>
-#include <string>
-#include <cctype>
-#include <stack>
-#include <queue>
-#include <list>
-#include <vector>
-#include <map>
-#include <sstream>
-#include <cmath>
-#include <bitset>
-#include <utility>
-#include <set>
-#include <numeric>
-#include <time.h>
-#include <fstream>
-#include <limits>
-#include <iomanip>
-#include <iterator>
-#define INT_MAX 2147483647
-#define INT_MIN -2147483648
-#define pi acos(-1.0)
-#define E 2.71828182845904523536
-
-using namespace std;
-
-#include "XXX.h"
+#include "longestbinarygap.h"
 
 /*
    Choose auto x when you want to work with copies.
@@ -165,10 +111,52 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(XXX, normal1)
+TEST(longestbinarygap, normal1)
 {
-	XXX tc;
+	longestbinarygap tc;
 
+	int ans = tc.longestBinGap(3);
+	ASSERT_EQ(0, ans);
+}
+
+TEST(longestbinarygap, normal2)
+{
+	longestbinarygap tc;
+
+	int ans = tc.longestBinGap(9);
+	ASSERT_EQ(2, ans);
+}
+
+TEST(longestbinarygap, normal3)
+{
+	longestbinarygap tc;
+
+	int ans = tc.longestBinGap(529);
+	ASSERT_EQ(4, ans);
+}
+
+TEST(longestbinarygap, normal4)
+{
+	longestbinarygap tc;
+
+	int ans = tc.longestBinGap(20);
+	ASSERT_EQ(1, ans);
+}
+
+TEST(longestbinarygap, normal5)
+{
+	longestbinarygap tc;
+
+	int ans = tc.longestBinGap(15);
+	ASSERT_EQ(0, ans);
+}
+
+TEST(longestbinarygap, normal6)
+{
+	longestbinarygap tc;
+
+	int ans = tc.longestBinGap(1041);
+	ASSERT_EQ(5, ans);
 }
 
 GTEST_API_ int main(int argc, char **argv)

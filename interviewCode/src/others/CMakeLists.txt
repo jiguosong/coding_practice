@@ -19,3 +19,9 @@ add_subdirectory(findminrottedarray)
 add_subdirectory(containduplicate)
 
 add_subdirectory(sqrtx)
+
+add_subdirectory(longestbinarygap)
+
+add_subdirectory(issortedarray)
+
+add_subdirectory(Fibonacci)

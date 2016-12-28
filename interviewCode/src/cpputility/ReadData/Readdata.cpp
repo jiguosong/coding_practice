@@ -6,6 +6,9 @@
  */
 
 /*
+http://en.cppreference.com/w/cpp/io
+
+http://upload.cppreference.com/mwiki/images/0/06/std-io-complete-inheritance.svg
 
  ios_base <-- ios <--  istream  <--  iostream  <--  fstream <--  stringstream
                   <--  ostream
