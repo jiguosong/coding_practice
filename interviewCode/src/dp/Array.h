@@ -85,4 +85,30 @@ vector<T> Array<T>::getRandomArray()
 	return array_;
 }
 
+
+// https://www.sitmo.com/?p=378
+template <int d1,int d2=1,int d3=1,int d4=1>
+class TensorIndex {
+  public:
+	enum {SIZE = d1*d2*d3*d4 };
+	enum {LEN1 = d1 };
+	enum {LEN2 = d2 };
+	enum {LEN3 = d3 };
+	enum {LEN4 = d4 };
+
+    static int indexOf(const int i) {
+      return i;
+    }
+    static int indexOf(const int i,const int j) {
+      return j*d1 + i;
+    }
+    static int indexOf(const int i,const int j, const int k) {
+      return (k*d2 + j)*d1 + i;
+    }
+    static int indexOf(const int i,const int j, const int k,const int l) {
+      return ((l*d3 + k)*d2 + j)*d1 + i;
+    }
+};
+
+
 #endif /* ARRAY_NODE_H_ */

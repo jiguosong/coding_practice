@@ -78,6 +78,42 @@ TEST(search2dmatrix, randommatrix)
 	ASSERT_TRUE(tc.searchMatrix(matrix, target));
 }
 
+TEST(search2dmatrix, testtensortemplate)
+{
+	// First example
+	//=================================
+
+	// A matrix of 3 rows and 4 columns.
+	typedef TensorIndex<3, 4> M;
+
+	// Store the matrix in a std::vector
+	std::vector<double> M_Storage(M::SIZE);
+
+	// Fill it with ones
+	for (int row = 0; row < M::LEN1; ++row)
+		for (int col = 0; col < M::LEN2; ++col)
+			M_Storage[M::indexOf(row, col)] = 1.0;
+
+	// Second example
+	//=================================
+	// A 4 x 5 x 6 x 7 cube
+	typedef TensorIndex<4, 5, 6, 7> T;
+
+	// Use an array for storage
+	double T_Storage[T::SIZE];
+
+	// Fill it with ones
+	for (int i = 0; i < T::LEN1; ++i)
+		for (int j = 0; j < T::LEN2; ++j)
+			for (int k = 0; k < T::LEN3; ++k)
+				for (int l = 0; l < T::LEN4; ++l)
+					T_Storage[T::indexOf(i, j, k, l)] = 1.0;
+
+	PrintVector (M_Storage);
+
+	for(int i = 0; i < T::SIZE; ++i) cout << T_Storage[i];
+}
+
 GTEST_API_ int main(int argc, char **argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
