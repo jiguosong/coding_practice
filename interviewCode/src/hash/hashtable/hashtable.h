@@ -55,8 +55,8 @@ int hash(int key);
 template<class HashedObj>
 int HashTable<HashedObj>::myhash(const HashedObj &x) const
 {
-	using ::hash;           // with using, we still have
-	int hashVal = hash(x);  // argument-dependent lookup (ADL)
+	using ::hash;           // with using, we still have argument-dependent lookup (ADL)... see above 2 hash functions
+	int hashVal = hash(x);
 
 	hashVal %= theLists.size();
 	if (hashVal < 0)

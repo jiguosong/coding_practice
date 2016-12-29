@@ -16,3 +16,4 @@ add_executable(rdtsc_measure, rdtsc_measure.cpp)
 add_executable(genRandom, genRandom.cpp)
 
 add_subdirectory(ReadData)
+add_subdirectory(randomMonteCarlo)

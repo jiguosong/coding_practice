@@ -11,3 +11,5 @@ add_subdirectory(rearrangestringkdistance)
 add_subdirectory(firstcharacterinstring)
 
 add_subdirectory(beautifulbinarystr)
+
+add_subdirectory(sortcharsbyfrequency)
