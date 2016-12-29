@@ -13,7 +13,11 @@ add_executable(endian, endian.cpp)
 add_executable(typepromote, typepromote.cpp)
 add_executable(floatingpoint, floatingpoint.cpp)
 add_executable(rdtsc_measure, rdtsc_measure.cpp)
+
 add_executable(genRandom, genRandom.cpp)
+cotire(genRandom)
+add_executable(ereaseitem, ereaseitem.cpp)
+cotire(ereaseitem)
 
 add_subdirectory(ReadData)
 add_subdirectory(randomMonteCarlo)

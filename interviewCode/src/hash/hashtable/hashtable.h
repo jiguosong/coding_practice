@@ -68,13 +68,11 @@ int HashTable<HashedObj>::myhash(const HashedObj &x) const
 template<class HashedObj>
 bool HashTable<HashedObj>::insert(const HashedObj &x)
 {
-	std::cout << "insert" << std::endl;
-	std::cout << "theLists size" << theLists.size() << std::endl;
+	//std::cout << "insert" << std::endl;
+	//std::cout << "theLists size" << theLists.size() << std::endl;
 	std::list<HashedObj> &whichlist = theLists[myhash(x)];
-	std::cout << "A" << std::endl;
 	if (std::find(whichlist.begin(), whichlist.end(), x) != whichlist.end())
 		return false;
-	std::cout << "B" << std::endl;
 	whichlist.push_back(x);
 
 	//if (++currentSize > theLists.size())
