@@ -259,6 +259,8 @@ static void printLeaves(int indentSpace, int level, int nodesInThisLevel,
 // @ param
 // level  Control how wide you want the tree to sparse (eg, level 1 has the minimum space between nodes, while level 2 has a larger space between nodes)
 // indentSpace  Change this to add some indent space to the left (eg, indentSpace of 0 means the lowest level of the left node will stick to the left margin)
+
+// how to use example: printPretty(root, 1, 0, cout);
 static void printPretty(TreeNode *root, int level, int indentSpace,
 		ostream& out)
 {
@@ -297,6 +299,8 @@ static void printPretty(TreeNode *root, int level, int indentSpace,
 	printBranches(branchLen, nodeSpaceLen, startLen, nodesInThisLevel,
 			nodesQueue, out);
 	printLeaves(indentSpace, level, nodesInThisLevel, nodesQueue, out);
+
+	out << "\n";
 }
 
 #endif /* TREE_TREE_H_ */

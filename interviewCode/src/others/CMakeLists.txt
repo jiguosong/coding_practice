@@ -25,3 +25,7 @@ add_subdirectory(longestbinarygap)
 add_subdirectory(issortedarray)
 
 add_subdirectory(Fibonacci)
+
+add_subdirectory(wigglesort)
+
+add_subdirectory(wigglesort2)

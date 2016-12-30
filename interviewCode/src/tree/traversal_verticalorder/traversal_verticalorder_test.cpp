@@ -24,25 +24,11 @@ TEST(testcase_OK1, verticalorder_traversal)
 {
 	verticalorder_traversal c;
 
-	TreeNode *root;
-	root = new TreeNode(1);
-	root->left = new TreeNode(2);
-	root->right = new TreeNode(3);
-	root->left->left = new TreeNode(4);
-	root->right->left = new TreeNode(6);
-	root->left->right = new TreeNode(5);
-	root->right->right = new TreeNode(7);
+	TreeNode *root = randomBT(7, 1, 100);
+	printPretty(root, 1, 4, cout);
 
 	vector<vector<int>> ans = c.verticalOrder(root);
 	PrintVectorVector(ans);
-
-	ASSERT_EQ(ans[0][0], 4);
-	ASSERT_EQ(ans[1][0], 2);
-	ASSERT_EQ(ans[2][0], 1);
-	ASSERT_EQ(ans[2][1], 5);
-	ASSERT_EQ(ans[2][2], 6);
-	ASSERT_EQ(ans[3][0], 3);
-	ASSERT_EQ(ans[4][0], 7);
 }
 
 TEST(testcase_OK2, verticalorder_traversal)
@@ -55,17 +41,6 @@ TEST(testcase_OK2, verticalorder_traversal)
 	PrintVectorVector(ans);
 
 	ASSERT_TRUE(ans.empty());
-}
-
-TEST(verticalorder_traversal, testrandomBST)
-{
-	verticalorder_traversal c;
-
-	TreeNode *root = randomBST(5, 1,100);
-
-	vector<vector<int>> ans = c.verticalOrder(root);
-	PrintVectorVector(ans);
-
 }
 
 GTEST_API_ int main(int argc, char **argv)
