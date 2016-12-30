@@ -1,5 +1,5 @@
 /*
- * ereaseitem.cpp
+ * init_erase.cpp
  *
  *  Created on: Dec 29, 2016
  *      Author: songjiguo
@@ -40,7 +40,7 @@ using namespace std;
 int main(int argc, char **argv)
 {
 	int myarray[] = { 1, 2, 8, 4, 8, 6, 7, 8, 9, 10 };
-	array<int, 10> myarray2 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	//array<int, 10> myarray2 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
 	cout << "initilizaing vector....." << endl;
 	// initialize vector from array -- method 1

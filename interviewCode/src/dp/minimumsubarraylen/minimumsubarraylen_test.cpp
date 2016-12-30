@@ -84,14 +84,14 @@ using namespace std;
 #include <limits>
 #include <iomanip>
 #include <iterator>
-//#define INT_MAX 2147483647
-//#define INT_MIN -2147483648
-//#define pi acos(-1.0)
-//#define E 2.71828182845904523536
+#define INT_MAX 2147483647
+#define INT_MIN -2147483648
+#define pi acos(-1.0)
+#define E 2.71828182845904523536
 
 using namespace std;
 
-#include "XXX.h"
+#include "minimumsubarraylen.h"
 
 /*
    Choose auto x when you want to work with copies.
@@ -168,11 +168,30 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(XXX, normal1)
+TEST(minimumsubarraylen, normal1)
 {
-	XXX tc;
+	minimumsubarraylen tc;
 
+	vector<int> nums = {2,3,1,2,4,3};
+	ASSERT_EQ(2, tc.minSubArrayLen(7, nums));
 }
+
+TEST(minimumsubarraylen, normal2)
+{
+	minimumsubarraylen tc;
+
+	vector<int> nums = {20};
+	ASSERT_EQ(1, tc.minSubArrayLen(7, nums));
+}
+
+TEST(minimumsubarraylen, normal3)
+{
+	minimumsubarraylen tc;
+
+	vector<int> nums = {1,1};
+	ASSERT_EQ(0, tc.minSubArrayLen(7, nums));
+}
+
 
 GTEST_API_ int main(int argc, char **argv)
 {

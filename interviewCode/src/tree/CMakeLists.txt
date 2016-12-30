@@ -26,3 +26,5 @@ add_subdirectory(flattenBTtolinkedlist)
 add_subdirectory(buildtreefrompostordernorder)
 
 add_subdirectory(segmenttree)
+
+add_subdirectory(deletenodeinBST)
