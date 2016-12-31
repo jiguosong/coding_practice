@@ -1,14 +1,24 @@
 /*
- * reverselinkedlist.cpp
- *
- *  Created on: Dec 3, 2016
- *      Author: songjiguo
+
  */
 
 #include "reverselinkedlist.h"
 
-ListNode<int> *reverselinkedlist::reverseList(ListNode<int> *head)
+void reverselinkedlist::dummy()
 {
-	return nullptr;
 }
 
+ListNode<int> *reverselinkedlist::ReverseList(ListNode<int> *list)
+{
+	ListNode<int> *prev, *curr, *next;
+	prev = nullptr;
+	curr = list;
+	while (curr != nullptr) {
+		next = curr->next;
+		curr->next = prev;
+		prev = curr;
+		curr = next;
+	}
+
+	return prev;
+}

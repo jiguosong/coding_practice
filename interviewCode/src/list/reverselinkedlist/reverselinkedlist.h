@@ -1,20 +1,19 @@
-/*
- * reverselinkedlist.h
- *
- *  Created on: Dec 3, 2016
- *      Author: songjiguo
- */
+#ifndef reverselinkedlist_H_
+#define reverselinkedlist_H_
 
-#ifndef REVERSELINKEDLIST_H_
-#define REVERSELINKEDLIST_H_
+#include <vector>
+#include <string>
+using std::vector;
+using std::string;
 
 #include "../Node.h"
 
 class reverselinkedlist {
 public:
-	ListNode<int> *reverseList(ListNode<int> *head);
+	void dummy();
+	ListNode<int> *ReverseList(ListNode<int> *list);
+private:
+
 };
 
-
-
-#endif /* REVERSELINKEDLIST_H_ */
+#endif
