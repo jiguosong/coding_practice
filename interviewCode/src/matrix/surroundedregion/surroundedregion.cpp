@@ -82,13 +82,6 @@ void surroundedregion::solve(vector<vector<char>>& board)
 		}
 	}
 
-	cout << endl;
-	for (auto m : board) {
-		for (auto e : m)
-			cout << e;
-		cout << endl;
-	}
-
 	for (int i = 0; i < row; ++i) {
 		for (int j = 0; j < col; ++j) {
 			if (board[i][j] == 'O')

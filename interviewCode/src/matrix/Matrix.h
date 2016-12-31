@@ -19,7 +19,7 @@ public:
 	Matrix();
 	Matrix(const unsigned int row, const unsigned int column, int lower,
 			int upper);
-	~Matrix();
+	~Matrix(){};
 
 	std::vector<std::vector<T>> getRandomMatrix();
 	std::vector<std::vector<T>> getRowSortedMatrix();
@@ -122,6 +122,9 @@ class TensorIndex {
       return ((l*d3 + k)*d2 + j)*d1 + i;
     }
 };
+
+
+
 
 
 #endif /* MATRIX_H_ */

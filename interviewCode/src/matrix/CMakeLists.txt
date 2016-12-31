@@ -7,3 +7,5 @@ add_subdirectory(numberofislands)
 add_subdirectory(nqueens)
 
 add_subdirectory(surroundedregion)
+
+add_subdirectory(spiralmatrix)

@@ -13,3 +13,5 @@ add_subdirectory(firstcharacterinstring)
 add_subdirectory(beautifulbinarystr)
 
 add_subdirectory(sortcharsbyfrequency)
+
+add_subdirectory(oneeditdistance)

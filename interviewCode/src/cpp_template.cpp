@@ -1,8 +1,5 @@
 /*
 
-
-
-
 */
 
 #include "XXX.h"

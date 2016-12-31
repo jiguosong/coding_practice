@@ -65,30 +65,34 @@ using namespace std;
 #include <cstring>
 #include <string>
 #include <cctype>
+#include <cassert>
 #include <stack>
 #include <queue>
 #include <list>
 #include <vector>
 #include <map>
+#include <unordered_map>
 #include <sstream>
 #include <cmath>
 #include <bitset>
 #include <utility>
 #include <set>
+#include <unordered_set>
 #include <numeric>
 #include <time.h>
 #include <fstream>
 #include <limits>
 #include <iomanip>
 #include <iterator>
-#define INT_MAX 2147483647
-#define INT_MIN -2147483648
-#define pi acos(-1.0)
-#define E 2.71828182845904523536
+//#define INT_MAX 2147483647
+//#define INT_MIN -2147483648
+//#define pi acos(-1.0)
+//#define E 2.71828182845904523536
 
 using namespace std;
 
-#include "surroundedregion.h"
+#include "spiralmatrix.h"
+#include "../Matrix.h"
 
 /*
  Choose auto x when you want to work with copies.
@@ -99,7 +103,7 @@ template<class T>
 void PrintVector(const vector<T> &vec)
 {
 	for (auto const &v : vec)
-		cout << setw(2) << v << ' ';
+		cout << setw(3) << v << ' ';
 	cout << endl;
 }
 
@@ -167,55 +171,18 @@ string gen_random(const int len)
 	return str;
 }
 
-void getRandomXOMatrix(std::vector<std::vector<char>> &m)
+TEST(spiralmatrix, normal1)
 {
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<int> dist(1, 10000000);
+	spiralmatrix tc;
 
-	for (int i = 0; i < m.size(); ++i) {
-		for (int j = 0; j < m[0].size(); ++j) {
-			m[i][j] = dist(gen) % 5 == 0 ? 'O' : 'X';
-		}
-	}
-}
+	Matrix<int> x(3, 5, 1, 20);
+	vector<vector<int>> matrix = x.getRandomMatrix();
 
-TEST(surroundedregion, normal1)
-{
-	surroundedregion tc;
+	PrintVectorVector(matrix);
 
-	/*vector<vector<char>> board = { { 'X', 'X', 'X', 'X' },
-	 { 'X', 'O', 'O', 'X' }, { 'X', 'X', 'O', 'X' },
-	 { 'X', 'O', 'X', 'X' } };*/
-
-	int col = 5;
-	int row = 5;
-	std::vector<std::vector<char>> matrix(row, vector<char>(col, ' '));
-	getRandomXOMatrix(matrix);
-	PrintVectorVector<char>(matrix);
-
-	tc.solve(matrix);
-
+	vector<int> ans = tc.printSpiralMatrix(matrix);
 	cout << endl;
-	PrintVectorVector<char>(matrix);
-
-	/*
-	 for (auto m : board) {
-	 for (auto e : m)
-	 cout << e;
-	 cout << endl;
-	 }
-
-	 tc.solve(board);
-
-	 cout << endl;
-	 for (auto m : board) {
-	 for (auto e : m)
-	 cout << e;
-	 cout << endl;
-	 }
-	 */
-
+	PrintVector(ans);
 }
 
 GTEST_API_ int main(int argc, char **argv)

@@ -65,30 +65,33 @@ using namespace std;
 #include <cstring>
 #include <string>
 #include <cctype>
+#include <cassert>
 #include <stack>
 #include <queue>
 #include <list>
 #include <vector>
 #include <map>
+#include <unordered_map>
 #include <sstream>
 #include <cmath>
 #include <bitset>
 #include <utility>
 #include <set>
+#include <unordered_set>
 #include <numeric>
 #include <time.h>
 #include <fstream>
 #include <limits>
 #include <iomanip>
 #include <iterator>
-#define INT_MAX 2147483647
-#define INT_MIN -2147483648
-#define pi acos(-1.0)
-#define E 2.71828182845904523536
+//#define INT_MAX 2147483647
+//#define INT_MIN -2147483648
+//#define pi acos(-1.0)
+//#define E 2.71828182845904523536
 
 using namespace std;
 
-#include "surroundedregion.h"
+#include "oneeditdistance.h"
 
 /*
  Choose auto x when you want to work with copies.
@@ -99,7 +102,7 @@ template<class T>
 void PrintVector(const vector<T> &vec)
 {
 	for (auto const &v : vec)
-		cout << setw(2) << v << ' ';
+		cout << setw(3) << v << ' ';
 	cout << endl;
 }
 
@@ -167,55 +170,42 @@ string gen_random(const int len)
 	return str;
 }
 
-void getRandomXOMatrix(std::vector<std::vector<char>> &m)
+TEST(oneeditdistance, normal1)
 {
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<int> dist(1, 10000000);
+	oneeditdistance tc;
+	string s1 = "asdgadfgsdf";
+	string s2 = "csdfgsdfgsfgsdfgab";
 
-	for (int i = 0; i < m.size(); ++i) {
-		for (int j = 0; j < m[0].size(); ++j) {
-			m[i][j] = dist(gen) % 5 == 0 ? 'O' : 'X';
-		}
-	}
+	ASSERT_FALSE(tc.isOneEditDistance(s1, s2));
 }
 
-TEST(surroundedregion, normal1)
+TEST(oneeditdistance, normal2)
 {
-	surroundedregion tc;
+	oneeditdistance tc;
+	string s1 = "cat";
+	string s2 = "cab";
 
-	/*vector<vector<char>> board = { { 'X', 'X', 'X', 'X' },
-	 { 'X', 'O', 'O', 'X' }, { 'X', 'X', 'O', 'X' },
-	 { 'X', 'O', 'X', 'X' } };*/
+	ASSERT_TRUE(tc.isOneEditDistance(s1, s2));
+}
 
-	int col = 5;
-	int row = 5;
-	std::vector<std::vector<char>> matrix(row, vector<char>(col, ' '));
-	getRandomXOMatrix(matrix);
-	PrintVectorVector<char>(matrix);
 
-	tc.solve(matrix);
+TEST(oneeditdistance, normal3)
+{
+	oneeditdistance tc;
+	string s1 = "cat";
+	string s2 = "cata";
 
-	cout << endl;
-	PrintVectorVector<char>(matrix);
+	ASSERT_TRUE(tc.isOneEditDistance(s1, s2));
+}
 
-	/*
-	 for (auto m : board) {
-	 for (auto e : m)
-	 cout << e;
-	 cout << endl;
-	 }
 
-	 tc.solve(board);
+TEST(oneeditdistance, normal4)
+{
+	oneeditdistance tc;
+	string s1 = "cat";
+	string s2 = "cat";
 
-	 cout << endl;
-	 for (auto m : board) {
-	 for (auto e : m)
-	 cout << e;
-	 cout << endl;
-	 }
-	 */
-
+	ASSERT_FALSE(tc.isOneEditDistance(s1, s2));
 }
 
 GTEST_API_ int main(int argc, char **argv)

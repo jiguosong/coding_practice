@@ -77,7 +77,7 @@ template<class T>
 void PrintVector(const vector<T> &vec)
 {
 	for (auto const &v : vec)
-		cout << v << ' ';
+		cout << setw(3) << v << ' ';
 	cout << endl;
 }
 

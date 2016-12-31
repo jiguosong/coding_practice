@@ -98,7 +98,7 @@ using namespace std;
 template<class T>
 void PrintVector(const vector<T> &vec)
 {
-	for(auto const &v:vec) cout << v << ' ';
+	for(auto const &v:vec) cout << setw(2) << v << ' ';
 	cout << endl;
 }
 
