@@ -33,8 +33,32 @@ void longestconsecutivesequence::dummy()
 {
 }
 
+static void helper(TreeNode *root, int level, int &res)
+{
+	if (root == nullptr)
+		return;
+	res = std::max(res, level);
+
+	if (root->left) {
+		if (root->val == root->left->val - 1)
+			helper(root->left, level + 1, res);
+		else
+			helper(root->left, 1, res);
+	}
+
+	if (root->right) {
+		if (root->val == root->right->val - 1)
+			helper(root->right, level + 1, res);
+		else
+			helper(root->right, 1, res);
+	}
+
+}
+
 int longestconsecutivesequence::longestConsecutive(TreeNode* root)
 {
-
+	int res = 0;
+	helper(root, 1, res);
+	return res;
 }
 

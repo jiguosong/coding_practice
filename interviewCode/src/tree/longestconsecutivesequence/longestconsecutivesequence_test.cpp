@@ -172,6 +172,11 @@ TEST(longestconsecutivesequence, normal1)
 {
 	longestconsecutivesequence tc;
 
+	TreeNode *root = randomBT(10, 1, 10);
+	printPretty(root, 1, 0, cout);
+
+	cout << tc.longestConsecutive(root) << endl;
+
 }
 
 GTEST_API_ int main(int argc, char **argv)
