@@ -29,3 +29,5 @@ add_subdirectory(segmenttree)
 
 add_subdirectory(deletenodeinBST)
 add_subdirectory(longestconsecutivesequence)
+
+add_subdirectory(uniqueBSTs)

@@ -32,9 +32,66 @@
 #include <memory>
 #include <random>
 
+// hackerrank header
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
 using namespace std;
 
-#include "hashtable.h"
+// UVA header examples
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+#include <cstring>
+#include <string>
+#include <cctype>
+#include <cassert>
+#include <stack>
+#include <queue>
+#include <list>
+#include <vector>
+#include <map>
+#include <unordered_map>
+#include <sstream>
+#include <cmath>
+#include <bitset>
+#include <utility>
+#include <set>
+#include <unordered_set>
+#include <numeric>
+#include <time.h>
+#include <fstream>
+#include <limits>
+#include <iomanip>
+#include <iterator>
+//#define INT_MAX 2147483647
+//#define INT_MIN -2147483648
+//#define pi acos(-1.0)
+//#define E 2.71828182845904523536
+
+using namespace std;
+
+#include "differentwaystoaddparentheses.h"
 
 /*
  Choose auto x when you want to work with copies.
@@ -45,7 +102,7 @@ template<class T>
 void PrintVector(const vector<T> &vec)
 {
 	for (auto const &v : vec)
-		cout << v << ' ';
+		cout << setw(3) << v << ' ';
 	cout << endl;
 }
 
@@ -113,92 +170,26 @@ string gen_random(const int len)
 	return str;
 }
 
-// Example of using hash function
-// http://en.cppreference.com/w/cpp/utility/hash
-#include <iostream>
-#include <iomanip>
-#include <functional>
-#include <string>
-#include <unordered_set>
-
-struct S
+TEST(differentwaystoaddparentheses, normal1)
 {
-	std::string first_name;
-	std::string last_name;
-};
+	differentwaystoaddparentheses tc;
 
-bool operator==(const S& lhs, const S& rhs)
-{
-	return lhs.first_name == rhs.first_name && lhs.last_name == rhs.last_name;
+	string s = "2-1-1";
+	vector<int> ans = tc.diffWaysToCompute(s);
+	PrintVector(ans);
+
 }
 
-// custom hash can be a standalone function object:
-struct MyHash
+TEST(differentwaystoaddparentheses, normal2)
 {
-	std::size_t operator()(S const& s) const
-	{
-		std::size_t h1 = std::hash<std::string> { }(s.first_name);
-		std::size_t h2 = std::hash<std::string> { }(s.last_name);
-		return h1 ^ (h2 << 1); // or use boost::hash_combine
-	}
-};
+	differentwaystoaddparentheses tc;
 
-// custom specialization of std::hash can be injected in namespace std
-namespace std
-{
-template<> struct hash<S>
-{
-	typedef S argument_type;
-	typedef std::size_t result_type;
-	result_type operator()(argument_type const& s) const
-	{
-		result_type const h1(std::hash<std::string> { }(s.first_name));
-		result_type const h2(std::hash<std::string> { }(s.last_name));
-		return h1 ^ (h2 << 1); // or use boost::hash_combine
-	}
-};
+	string s = "2*3-4*5";
+	vector<int> ans = tc.diffWaysToCompute(s);
+	PrintVector(ans);
+
 }
 
-int hash(const std::string &key)
-{
-	unsigned int hash_val = 0;
-
-	// method 1
-	for (auto a : key) {
-		hash_val = 37 * hash_val + a;
-	}
-	std::cout << "hash(" << key << ") = " << hash_val << '\n';
-
-	// method 2
-	std::size_t str_hash = std::hash<std::string> { }(key);
-	std::cout << "hash(" << key << ") = " << str_hash << '\n';
-
-	// method 3   -- combined hash
-	S obj = { "Hubert", "Farnsworth" };
-	// using the standalone function object
-	std::cout << "hash(" << obj.first_name << ',' << obj.last_name << ") = "
-			<< MyHash { }(obj)
-			<< " (using MyHash)\n                           or "
-			<< std::hash<S> { }(obj) << " (using std::hash) " << '\n';
-
-	//method 4
-	// custom hash makes it possible to use custom types in unordered containers
-	// The example will use the injected std::hash specialization,
-	// to use MyHash instead, pass it as a second template argument
-	std::unordered_set<S> names = { obj, { "Bender", "Rodriguez" }, { "Leela",
-			"Turanga" } };
-	for (auto& s : names)
-		std::cout << s.first_name << ' ' << s.last_name << '\n';
-
-	return hash_val;
-}
-
-TEST(hashtable, normal1)
-{
-	HashTable<string> tc;
-	string s = "sdfsdf";
-	tc.insert(s);
-}
 
 GTEST_API_ int main(int argc, char **argv)
 {

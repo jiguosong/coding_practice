@@ -35,6 +35,12 @@ struct TreeNode
 	{
 	}
 	;
+
+	TreeNode() :
+			val(0), left(nullptr), right(nullptr)
+	{
+	}
+	;
 };
 
 static TreeNode *generateTree_helper(vector<int> nums, int left, int right)
@@ -184,8 +190,6 @@ static void postorderPrint(TreeNode* p, int indent = 0)
 		}
 	}
 }
-
-
 
 // http://articles.leetcode.com/how-to-pretty-print-binary-tree/
 #include <fstream>

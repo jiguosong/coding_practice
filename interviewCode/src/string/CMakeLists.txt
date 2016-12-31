@@ -15,3 +15,9 @@ add_subdirectory(beautifulbinarystr)
 add_subdirectory(sortcharsbyfrequency)
 
 add_subdirectory(oneeditdistance)
+
+add_subdirectory(validparentheses)
+
+add_subdirectory(generateparentheses)
+
+add_subdirectory(differentwaystoaddparentheses)

@@ -36,3 +36,5 @@ add_subdirectory(buysellstock4)
 add_subdirectory(buysellstock5)
 
 add_subdirectory(minimumsubarraylen)
+
+add_subdirectory(longestvalidparentheses)
